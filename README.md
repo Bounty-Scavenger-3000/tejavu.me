@@ -1,2 +1,3 @@
 # tejavu.me
-Personal Website - Temporarily hosted on Github 
+Personal Website - Work In Progress  
+Reach out to me at gheepudimasaladosa@duck.com or Insta: tejavu.mp4
