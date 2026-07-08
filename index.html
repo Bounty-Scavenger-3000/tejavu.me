@@ -16,8 +16,6 @@
       --muted: #7a7570;
       --accent: #c8a97e;
       --yellow: #f5c842;
-      --stripe-dark: #161616;
-      --stripe-yellow: #f5c84222;
     }
 
     html, body {
@@ -28,14 +26,10 @@
       line-height: 1.6;
     }
 
-    body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+    body { display: flex; flex-direction: column; min-height: 100vh; }
 
-    /* CAUTION TAPE TOP BAR */
-    .caution-bar {
+    /* CAUTION TAPE STRIPE */
+    .caution-tape {
       width: 100%;
       height: 28px;
       background: repeating-linear-gradient(
@@ -45,28 +39,7 @@
         #1a1a1a 20px,
         #1a1a1a 40px
       );
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .caution-text {
-      font-size: 0.6rem;
-      font-weight: 500;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: #1a1a1a;
-      white-space: nowrap;
-      mix-blend-mode: multiply;
-      /* scrolling marquee */
-      animation: marquee 18s linear infinite;
-      width: max-content;
-    }
-
-    @keyframes marquee {
-      0% { transform: translateX(100vw); }
-      100% { transform: translateX(-100%); }
+      opacity: 0.85;
     }
 
     /* NAV */
@@ -74,52 +47,28 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.8rem 3rem;
+      padding: 1.75rem 3rem;
       border-bottom: 1px solid var(--border);
-      position: relative;
-    }
-
-    nav::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: repeating-linear-gradient(
-        90deg,
-        var(--yellow) 0px,
-        var(--yellow) 12px,
-        transparent 12px,
-        transparent 20px
-      );
-      opacity: 0.25;
     }
 
     .nav-name {
       font-family: 'DM Serif Display', serif;
       font-size: 1.1rem;
-      letter-spacing: 0.02em;
       color: var(--text);
     }
 
     .nav-status {
       font-size: 0.72rem;
-      color: var(--yellow);
-      letter-spacing: 0.1em;
+      color: var(--muted);
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      border: 1px solid #f5c84244;
-      padding: 0.3rem 0.8rem;
-      border-radius: 2px;
-      background: #f5c8420a;
     }
 
     .status-dot {
-      width: 6px;
-      height: 6px;
+      width: 6px; height: 6px;
       border-radius: 50%;
       background: var(--yellow);
       animation: pulse 2s infinite;
@@ -130,36 +79,74 @@
       50% { opacity: 0.3; }
     }
 
+    /* SCAFFOLD BAR — decorative top of main */
+    .scaffold {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 0.6rem 3rem;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      gap: 1rem;
+      overflow: hidden;
+    }
+
+    .scaffold-bar {
+      flex: 1;
+      height: 6px;
+      background: repeating-linear-gradient(
+        90deg,
+        #3a3020 0px, #3a3020 30px,
+        #2a2218 30px, #2a2218 34px
+      );
+      border-radius: 2px;
+    }
+
+    .scaffold-bolt {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #555;
+      flex-shrink: 0;
+    }
+
     /* MAIN */
     main {
       flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
       padding: 4rem 3rem;
       max-width: 900px;
       margin: 0 auto;
       width: 100%;
+      position: relative;
+    }
+
+    /* worker on scaffold — top right */
+    .worker-top {
+      position: absolute;
+      top: -10px;
+      right: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .worker-top canvas {
+      width: 48px; height: 48px;
+      image-rendering: pixelated;
+    }
+
+    .worker-top-rope {
+      width: 2px;
+      height: 40px;
+      background: var(--border);
+      margin-top: 2px;
     }
 
     .eyebrow {
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--yellow);
+      color: var(--accent);
       margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 20px;
-      height: 1px;
-      background: var(--yellow);
-      opacity: 0.5;
     }
 
     h1 {
@@ -168,128 +155,43 @@
       line-height: 1.05;
       font-weight: 400;
       margin-bottom: 1.5rem;
-      color: var(--text);
     }
 
-    h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
+    h1 em { font-style: italic; color: var(--accent); }
 
     .subtitle {
       font-size: 1rem;
       color: var(--muted);
-      max-width: 540px;
+      max-width: 520px;
       margin-bottom: 3.5rem;
-      line-height: 1.8;
+      line-height: 1.75;
     }
 
-    .subtitle strong {
-      color: var(--text);
-      font-weight: 400;
-    }
-
-    /* SITE BLUEPRINT */
-    .blueprint {
-      margin-bottom: 3.5rem;
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--yellow);
-      padding: 1.2rem 1.5rem;
-      background: var(--surface);
-      max-width: 540px;
-    }
-
-    .blueprint-label {
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--yellow);
-      margin-bottom: 0.8rem;
-    }
-
-    .blueprint-items {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .blueprint-items li {
-      font-size: 0.82rem;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .blueprint-items li .tag {
-      font-size: 0.6rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.1rem 0.4rem;
-      border-radius: 2px;
-      flex-shrink: 0;
-    }
-
-    .tag.done { background: #f5c84222; color: var(--yellow); }
-    .tag.wip  { background: #c8a97e22; color: var(--accent); }
-    .tag.todo { background: #2a2a2a; color: var(--muted); }
+    .subtitle span { color: var(--text); }
 
     /* VIDEO */
-    .video-block {
-      margin-bottom: 3.5rem;
-    }
+    .video-block { margin-bottom: 3.5rem; }
 
     .video-label {
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .video-label::before {
-      content: '';
-      display: inline-block;
-      width: 12px;
-      height: 1px;
-      background: var(--muted);
     }
 
     .video-wrapper {
-      position: relative;
       width: 100%;
       max-width: 560px;
       aspect-ratio: 16/9;
-      border-radius: 2px;
+      border-radius: 4px;
       overflow: hidden;
       border: 1px solid var(--border);
     }
 
-    .video-wrapper::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: repeating-linear-gradient(
-        90deg,
-        var(--yellow) 0px,
-        var(--yellow) 8px,
-        transparent 8px,
-        transparent 14px
-      );
-      z-index: 1;
-      opacity: 0.6;
-    }
-
     .video-wrapper iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
+      width: 100%; height: 100%;
+      border: none; display: block;
     }
 
     /* LINKS */
@@ -314,85 +216,73 @@
       transition: color 0.2s, border-color 0.2s;
     }
 
-    .link-pill:hover {
-      color: var(--text);
-      border-color: var(--accent);
-    }
+    .link-pill:hover { color: var(--text); border-color: var(--accent); }
+    .link-pill svg { width: 14px; height: 14px; opacity: 0.6; }
+    .link-divider { width: 1px; height: 20px; background: var(--border); }
 
-    .link-pill svg {
-      width: 14px;
-      height: 14px;
-      opacity: 0.6;
-    }
-
-    .link-divider {
-      width: 1px;
-      height: 20px;
-      background: var(--border);
-    }
-
-    /* CONSTRUCTION / NEWSLETTER SECTION */
+    /* CONSTRUCTION SECTION */
     .construction {
       border-top: 1px solid var(--border);
-      padding: 4rem 3rem;
+      padding: 3rem;
       max-width: 900px;
       margin: 0 auto;
       width: 100%;
+      position: relative;
+    }
+
+    /* excavator on right edge */
+    .excavator-wrap {
+      position: absolute;
+      right: 3rem;
+      top: -24px;
+    }
+
+    .excavator-wrap canvas {
+      width: 64px; height: 64px;
+      image-rendering: pixelated;
     }
 
     .construction-inner {
       background: var(--surface);
       border: 1px solid var(--border);
       border-top: 3px solid var(--yellow);
-      border-radius: 2px;
+      border-radius: 4px;
       padding: 2.5rem;
       display: flex;
-      gap: 2.5rem;
+      gap: 2rem;
       align-items: flex-start;
     }
 
-    .pixel-worker {
-      flex-shrink: 0;
-    }
-
     .pixel-worker canvas {
-      width: 80px;
-      height: 80px;
+      width: 64px; height: 64px;
       image-rendering: pixelated;
+      flex-shrink: 0;
     }
 
     .construction-content { flex: 1; }
 
     .construction-tag {
-      font-size: 0.65rem;
+      font-size: 0.68rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--yellow);
       margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
     }
 
     .construction-speech {
       font-family: 'DM Serif Display', serif;
-      font-size: 1.3rem;
-      line-height: 1.4;
-      color: var(--text);
+      font-size: 1.25rem;
+      line-height: 1.45;
       margin-bottom: 0.5rem;
     }
 
-    .construction-speech em {
-      font-style: italic;
-      color: var(--yellow);
-    }
+    .construction-speech em { font-style: italic; color: var(--yellow); }
 
     .construction-sub {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: var(--muted);
       margin-bottom: 1.5rem;
-      max-width: 420px;
-      line-height: 1.7;
+      max-width: 440px;
     }
 
     #beehiiv-form-wrapper { max-width: 420px; }
@@ -409,34 +299,19 @@
       letter-spacing: 0.04em;
     }
 
-    /* CAUTION BOTTOM BAR */
-    .caution-bar-bottom {
-      width: 100%;
-      height: 10px;
-      background: repeating-linear-gradient(
-        -45deg,
-        var(--yellow) 0px,
-        var(--yellow) 20px,
-        #1a1a1a 20px,
-        #1a1a1a 40px
-      );
-      opacity: 0.5;
-    }
-
     @media (max-width: 600px) {
-      nav, main, footer, .construction { padding-left: 1.5rem; padding-right: 1.5rem; }
+      nav, main, .construction, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
       .link-divider { display: none; }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; }
-      .construction-inner { flex-direction: column; gap: 1.5rem; }
+      .construction-inner { flex-direction: column; }
+      .worker-top, .excavator-wrap { display: none; }
+      .scaffold { padding: 0.6rem 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- TOP CAUTION BAR -->
-  <div class="caution-bar">
-    <span class="caution-text">⚠ UNDER CONSTRUCTION &nbsp;&nbsp;&nbsp; SITE IN PROGRESS &nbsp;&nbsp;&nbsp; ⚠ UNDER CONSTRUCTION &nbsp;&nbsp;&nbsp; SITE IN PROGRESS &nbsp;&nbsp;&nbsp; ⚠ UNDER CONSTRUCTION &nbsp;&nbsp;&nbsp; SITE IN PROGRESS &nbsp;&nbsp;&nbsp;</span>
-  </div>
+  <div class="caution-tape"></div>
 
   <nav>
     <span class="nav-name">Tejas MP</span>
@@ -446,30 +321,33 @@
     </span>
   </nav>
 
-  <main>
-    <p class="eyebrow">work in progress</p>
-    <h1>The website is<br><em>on its way.</em></h1>
-    <p class="subtitle">
-      Community builder. Finance person. Tech hobbyist. 
-      <strong>Currently a Community Impact & Finance Fellow at Broseph Foundation</strong> — 
-      managing 20,000+ volunteers across 4 cities while building this corner of the internet on the side. 
-      I'm obviously super busy to build the entire website at once, so just watch this stand-up for now — there's more coming soon.
-    </p>
+  <div class="scaffold">
+    <div class="scaffold-bolt"></div>
+    <div class="scaffold-bar"></div>
+    <div class="scaffold-bolt"></div>
+    <div class="scaffold-bar"></div>
+    <div class="scaffold-bolt"></div>
+  </div>
 
-    <!-- SITE BLUEPRINT -->
-    <div class="blueprint">
-      <p class="blueprint-label">🏗 site blueprint — floor plan</p>
-      <ul class="blueprint-items">
-        <li><span class="tag done">live</span> Coming soon page (you are here)</li>
-        <li><span class="tag wip">building</span> About — the full story</li>
-        <li><span class="tag todo">soon</span> Work & Projects</li>
-        <li><span class="tag todo">soon</span> Blog / Diary</li>
-        <li><span class="tag todo">soon</span> Contact</li>
-      </ul>
+  <main>
+
+    <div class="worker-top">
+      <canvas id="workerTopCanvas" width="12" height="16"></canvas>
+      <div class="worker-top-rope"></div>
     </div>
 
+    <p class="eyebrow">— coming soon</p>
+    <h1>The website is<br><em>on its way.</em></h1>
+    <p class="subtitle">
+      Community builder. Finance person. Tech hobbyist.
+      <span>Currently a Community Impact & Finance Fellow at Broseph Foundation</span> —
+      helping manage 20,000+ volunteers across 4 cities while building this corner of the internet on the side.
+      I'm obviously way too busy to build the entire website at once, so watch this stand-up for now.
+      There's more coming soon.
+    </p>
+
     <div class="video-block">
-      <p class="video-label">probably the best intro to who i am</p>
+      <p class="video-label">— probably the best intro to who i am</p>
       <div class="video-wrapper">
         <iframe
           src="https://www.youtube.com/embed/m_hjexjJEwg"
@@ -495,88 +373,95 @@
         LinkedIn
       </a>
     </div>
+
   </main>
 
-  <!-- NEWSLETTER -->
   <section class="construction">
+
+    <div class="excavator-wrap">
+      <canvas id="excavatorCanvas" width="16" height="16"></canvas>
+    </div>
+
     <div class="construction-inner">
       <div class="pixel-worker">
-        <canvas id="workerCanvas" width="16" height="16"></canvas>
+        <canvas id="workerCanvas" width="12" height="16"></canvas>
       </div>
       <div class="construction-content">
-        <p class="construction-tag">🚧 still adding floors</p>
+        <p class="construction-tag">🚧 floor under construction</p>
         <p class="construction-speech">As you can see, we're still adding floors.<br><em>Wanna know when the next one's ready?</em></p>
-        <p class="construction-sub">Drop your email and you'll be the first to know when I add another interesting section to the website — you might also learn how to build one along with me.</p>
+        <p class="construction-sub">Drop your email and you'll be the first to know when I add another interesting section to the website. You might also learn how to build one along with me.</p>
         <div id="beehiiv-form-wrapper">
           <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="067f8e7e-6d96-43e1-a3df-c6b051fdd734"></script>
           <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
         </div>
       </div>
     </div>
+
   </section>
+
+  <div class="caution-tape"></div>
 
   <footer>
     <span>tejavu.me</span>
-    <span>© 2026 Tejas MP — floor 1 of many</span>
+    <span>© 2026 Tejas MP</span>
   </footer>
 
-  <div class="caution-bar-bottom"></div>
-
   <script>
-    const canvas = document.getElementById('workerCanvas');
-    const ctx = canvas.getContext('2d');
+    // ── shared pixel palette ──
+    const W = '#f5c842', S = '#f0c080', B = '#3a5f8a', O = '#e07820', G = '#666', N = null;
 
-    const W = '#f5c842';
-    const S = '#f5a623';
-    const B = '#3a5f8a';
-    const O = '#c8843a';
-    const G = '#888';
-    const _ = null;
-
-    const frames = [
-      [
-        [_,_,_,W,W,W,W,_,_,_,_,_,_,_,_,_],
-        [_,_,W,W,W,W,W,W,_,_,_,_,_,_,_,_],
-        [_,_,_,S,S,S,S,_,_,_,_,_,_,_,_,_],
-        [_,_,_,S,S,S,S,_,_,_,_,_,_,_,_,_],
-        [_,B,O,O,O,O,O,B,_,_,_,_,_,_,_,_],
-        [_,B,O,O,O,O,O,B,_,_,_,_,_,_,_,_],
-        [B,B,O,O,O,O,O,B,B,_,_,_,_,_,_,_],
-        [_,_,O,O,O,O,O,_,_,_,_,_,_,_,_,_],
-        [_,_,G,G,_,G,G,_,_,_,_,_,_,_,_,_],
-        [_,_,G,G,_,G,G,_,_,_,_,_,_,_,_,_],
-        [_,_,G,G,_,G,G,_,_,_,_,_,_,_,_,_],
-        [_,_,S,S,_,S,S,_,_,_,_,_,_,_,_,_],
-      ],
-      [
-        [_,_,_,W,W,W,W,_,_,_,_,_,_,_,_,_],
-        [_,_,W,W,W,W,W,W,_,_,_,_,_,_,_,_],
-        [_,_,_,S,S,S,S,_,_,_,_,_,_,_,_,_],
-        [_,_,_,S,S,S,S,_,_,_,_,_,_,_,_,_],
-        [_,_,O,O,O,O,O,_,_,_,_,_,_,_,_,_],
-        [_,B,O,O,O,O,O,B,_,_,_,_,_,_,_,_],
-        [_,B,O,O,O,O,O,B,_,_,_,_,_,_,_,_],
-        [_,B,O,O,O,O,O,B,_,_,_,_,_,_,_,_],
-        [_,_,G,G,_,G,G,_,_,_,_,_,_,_,_,_],
-        [_,_,G,G,_,G,G,_,_,_,_,_,_,_,_,_],
-        [_,_,G,G,_,G,G,_,_,_,_,_,_,_,_,_],
-        [_,_,S,S,_,S,S,_,_,_,_,_,_,_,_,_],
-      ],
-    ];
-
-    let frame = 0;
-    function draw() {
-      ctx.clearRect(0, 0, 16, 16);
-      frames[frame].forEach((row, y) => {
-        row.forEach((color, x) => {
-          if (color) { ctx.fillStyle = color; ctx.fillRect(x, y, 1, 1); }
-        });
-      });
-      frame = (frame + 1) % frames.length;
+    function drawPixels(canvas, grid, palette) {
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      grid.forEach((row, y) => row.forEach((c, x) => {
+        if (c) { ctx.fillStyle = c; ctx.fillRect(x, y, 1, 1); }
+      }));
     }
 
-    draw();
-    setInterval(draw, 600);
+    // ── suspended worker (top right, dangling) ──
+    const workerTopFrames = [
+      [[N,W,W,N],[W,W,W,W],[N,S,S,N],[N,S,S,N],[B,O,O,B],[N,O,O,N],[N,G,G,N],[N,S,S,N]],
+      [[N,W,W,N],[W,W,W,W],[N,S,S,N],[N,S,S,N],[B,O,O,B],[B,O,O,N],[N,G,G,N],[N,S,S,N]],
+    ];
+    let wtf = 0;
+    const wtCanvas = document.getElementById('workerTopCanvas');
+    function animWorkerTop() {
+      drawPixels(wtCanvas, workerTopFrames[wtf], {});
+      wtf = (wtf + 1) % workerTopFrames.length;
+    }
+    animWorkerTop();
+    setInterval(animWorkerTop, 700);
+
+    // ── main worker in construction box ──
+    const workerFrames = [
+      [[N,W,W,N],[W,W,W,W],[N,S,S,N],[N,S,S,N],[B,O,O,B],[N,O,O,N],[N,G,G,N],[N,S,S,N],
+       [N,G,G,N],[N,G,G,N],[N,S,S,N],[N,S,N,N]],
+      [[N,W,W,N],[W,W,W,W],[N,S,S,N],[N,S,S,N],[B,O,O,B],[N,O,O,B],[N,G,G,N],[N,S,S,N],
+       [N,G,G,N],[N,G,G,N],[N,S,S,N],[N,N,S,N]],
+    ];
+    let wf = 0;
+    const wCanvas = document.getElementById('workerCanvas');
+    function animWorker() {
+      drawPixels(wCanvas, workerFrames[wf], {});
+      wf = (wf + 1) % workerFrames.length;
+    }
+    animWorker();
+    setInterval(animWorker, 600);
+
+    // ── excavator (static) ──
+    const excGrid = [
+      [N,N,N,N,N,N,N,W,W,N,N,N,N,N,N,N],
+      [N,N,N,N,N,N,W,W,W,W,N,N,N,N,N,N],
+      [N,N,N,N,N,W,W,W,W,W,W,N,N,N,N,N],
+      [N,N,N,N,N,N,O,O,O,N,N,N,N,N,N,N],
+      [N,N,N,N,N,N,O,O,O,N,N,N,N,N,N,N],
+      [N,N,G,G,G,G,G,G,G,G,G,G,N,N,N,N],
+      [N,G,G,G,G,G,G,G,G,G,G,G,G,N,N,N],
+      [N,N,G,G,G,G,G,G,G,G,G,G,N,N,N,N],
+      [N,N,N,W,N,N,N,N,N,N,W,N,N,N,N,N],
+      [N,N,W,W,W,N,N,N,N,W,W,W,N,N,N,N],
+    ];
+    drawPixels(document.getElementById('excavatorCanvas'), excGrid, {});
   </script>
 
 </body>
