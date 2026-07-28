@@ -19,6 +19,8 @@
     --panel:   #141311;
     --accent:  #C9A24B;   /* brass */
     --accent2: #7A9E85;   /* soft sage */
+    --gutter:  clamp(1.5rem, 5vw, 5rem);
+    --content: clamp(860px, 78vw, 1180px);
   }
 
   html { scroll-behavior: smooth; }
@@ -47,7 +49,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 3rem;
+    padding: 1.5rem var(--gutter);
     border-bottom: 1px solid var(--rule);
   }
 
@@ -72,10 +74,10 @@
 
   /* ── SHARED WRAP ── */
   .wrap {
-    max-width: 860px;
+    max-width: var(--content);
     margin: 0 auto;
     width: 100%;
-    padding: 0 3rem;
+    padding: 0 var(--gutter);
   }
 
   /* ── HERO ── */
@@ -187,9 +189,13 @@
   .entry {
     display: grid;
     grid-template-columns: 168px 1fr;
-    gap: 1.5rem 2rem;
+    gap: 1.5rem 2.5rem;
     padding: 1.85rem 0;
     border-top: 1px solid var(--rule);
+  }
+
+  @media (min-width: 1000px) {
+    .entry { grid-template-columns: 220px 1fr; gap: 1.5rem 3rem; }
   }
 
   .entry:first-of-type { border-top: none; }
@@ -287,16 +293,16 @@
   }
 
   .construction-inner {
-    max-width: 860px;
+    max-width: var(--content);
     margin: 0 auto;
-    padding: 3.5rem 3rem;
+    padding: 3.5rem var(--gutter);
     display: flex;
-    gap: 3rem;
+    flex-wrap: wrap;
+    gap: 3rem 4rem;
     align-items: flex-start;
-    justify-content: space-between;
   }
 
-  .construction-copy { max-width: 420px; }
+  .construction-copy { max-width: 420px; flex: 1 1 360px; }
 
   .construction-tag {
     font-family: 'IBM Plex Mono', monospace;
@@ -329,7 +335,7 @@
 
   /* ── FOOTER ── */
   footer {
-    padding: 2rem 3rem;
+    padding: 2rem var(--gutter);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -344,7 +350,6 @@
   .footer-links a:hover { color: var(--ink); border-color: var(--accent); }
 
   @media (max-width: 700px) {
-    nav, .wrap, .construction-inner, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
     nav { flex-direction: column; gap: 0.85rem; align-items: flex-start; }
     .entry { grid-template-columns: 1fr; gap: 0.5rem; }
     .skills-grid { grid-template-columns: 1fr; gap: 2.25rem; }
