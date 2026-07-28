@@ -80,6 +80,20 @@
     padding: 0 var(--gutter);
   }
 
+  /* ── HERO ROW (video sits beside the intro, top of page only) ── */
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 900px) {
+    .layout {
+      grid-template-columns: 1.2fr 1fr;
+      column-gap: 3.5rem;
+      align-items: start;
+    }
+  }
+
   /* ── HERO ── */
   .hero { padding: 5rem 0 3.5rem; }
 
@@ -140,6 +154,10 @@
 
   /* ── VIDEO ── */
   .video-block { padding: 0 0 4rem; }
+
+  @media (min-width: 900px) {
+    .video-block { padding: 5rem 0 0; }
+  }
 
   .video-label {
     font-family: 'IBM Plex Mono', monospace;
@@ -332,6 +350,12 @@
 
   .construction-form { flex: 1 1 340px; width: 100%; min-width: 280px; }
   #beehiiv-form-wrapper { width: 100%; min-height: 1px; }
+  #beehiiv-form-wrapper iframe,
+  #beehiiv-form-wrapper > div,
+  #beehiiv-form-wrapper form {
+    width: 100% !important;
+    min-width: 100% !important;
+  }
 
   /* ── FOOTER ── */
   footer {
@@ -353,7 +377,7 @@
     nav { flex-direction: column; gap: 0.85rem; align-items: flex-start; }
     .entry { grid-template-columns: 1fr; gap: 0.5rem; }
     .skills-grid { grid-template-columns: 1fr; gap: 2.25rem; }
-    .construction-inner { flex-direction: column; }
+    .construction-inner { flex-direction: column; gap: 1.25rem 4rem; }
     .construction-form { max-width: 100%; }
     footer { flex-direction: column; gap: 0.75rem; text-align: center; }
   }
@@ -371,6 +395,7 @@
   </nav>
 
   <main class="wrap">
+    <div class="layout">
 
     <section class="hero">
       <p class="eyebrow">Bengaluru, India — open to work</p>
@@ -400,6 +425,10 @@
         </iframe>
       </div>
     </div>
+
+    </div>
+
+    <div class="ledger-stack">
 
     <!-- EDUCATION -->
     <section class="ledger-section" id="education">
@@ -535,6 +564,7 @@
       </div>
     </section>
 
+    </div>
   </main>
 
   <section class="construction">
