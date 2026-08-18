@@ -1,0 +1,52 @@
+name: Deploy Tejavu
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: main-repo
+
+      - name: Checkout dev
+        uses: actions/checkout@v4
+        with:
+          ref: dev
+          path: dev-repo
+
+      - name: Build site
+        run: |
+          mkdir _site
+
+          cp -r main-repo/main/. _site/
+
+          mkdir -p _site/secret
+          cp -r dev-repo/dev/. _site/secret/
+
+          cp main-repo/CNAME _site/CNAME
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to Pages
+        uses: actions/deploy-pages@v4
