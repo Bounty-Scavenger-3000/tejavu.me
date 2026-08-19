@@ -64,7 +64,14 @@ const bootMessages = [
 let booted = false;
 
 function skipBoot(){
-  document.getElementById('boot-screen').classList.remove('active');
+  const bs = document.getElementById('boot-screen');
+  const bar = document.getElementById('bootBar');
+  const statusL = document.getElementById('bootStatusL');
+  const statusR = document.getElementById('bootStatusR');
+  if(bar) bar.style.width = '100%';
+  if(statusL) statusL.textContent = 'Boot complete.';
+  if(statusR) statusR.textContent = '100%';
+  if(bs) bs.classList.remove('active');
   finishBoot();
 }
 
@@ -78,9 +85,15 @@ function bootSequence(){
   bs.classList.add('active');
   document.getElementById('room').style.opacity = '0';
 
+  const statusL = document.getElementById('bootStatusL');
+  const statusR = document.getElementById('bootStatusR');
+  const statusPhrases = ['POST check...','Memory test...','Loading drivers...','Detecting hardware...','Reading boot sector...','Starting OS...'];
+
   let i = 0;
   function next(){
     if(i >= bootMessages.length){
+      if(statusL) statusL.textContent = 'Boot complete.';
+      if(statusR) statusR.textContent = '100%';
       setTimeout(()=>{ bs.classList.remove('active'); finishBoot(); }, 700);
       return;
     }
@@ -91,7 +104,10 @@ function bootSequence(){
     lines.appendChild(d);
     requestAnimationFrame(()=> d.classList.add('show'));
     lines.scrollTop = lines.scrollHeight;
-    bar.style.width = ((i+1)/bootMessages.length*100)+'%';
+    const pct = Math.round((i+1)/bootMessages.length*100);
+    bar.style.width = pct+'%';
+    if(statusL) statusL.textContent = statusPhrases[Math.floor(i/bootMessages.length*statusPhrases.length)] || 'Loading...';
+    if(statusR) statusR.textContent = pct+'%';
     i++;
     setTimeout(next, m.t === '' ? 60 : 110 + Math.random()*70);
   }
@@ -103,7 +119,7 @@ function finishBoot(){
   document.getElementById('monIdle').style.display = 'none';
   document.getElementById('monOS').style.display   = 'block';
   document.getElementById('room').style.opacity    = '1';
-  openPanel('os');
+  // [DEC-NEW] Don't auto-open any panel — let user click an icon from the OS grid
 }
 
 // ─────────────────────────────────────────────
