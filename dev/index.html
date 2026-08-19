@@ -14,8 +14,20 @@
 
 <!-- ═══════════ BOOT SCREEN [SEC-00] ═══════════ -->
 <div id="boot-screen" data-registry="SEC-00">
+  <div class="boot-logo">
+    <div class="boot-logo-art" id="bootLogoArt">    ___  ___  ___  ___  ___
+   /  _\/  _\/  _\/  _\/  _\
+  /  /_/  /_/  /_/  /_/  /_/
+  \___/\___/\___/\___/\___/
+  TEJAS INDUSTRIES — BIOS v2.0</div>
+    <div class="boot-logo-sub">Award Modular BIOS v4.51PG  ·  Copyright (c) 2026</div>
+  </div>
   <div class="boot-lines" id="bootLines"></div>
   <div class="boot-prog"><div class="boot-bar" id="bootBar"></div></div>
+  <div class="boot-status">
+    <div class="boot-status-l" id="bootStatusL">Initializing...</div>
+    <div class="boot-status-r" id="bootStatusR">0%</div>
+  </div>
   <div class="boot-skip" onclick="skipBoot()">[ SKIP ]</div>
 </div>
 
@@ -140,6 +152,7 @@
                 </div>
                 <!-- OS desktop — shown after boot completes [SEC-03-E07] -->
                 <div class="mon-os" id="monOS" data-registry="SEC-03-E07">
+                  <div class="mon-os-hint">TEJAS-OS 98</div>
                   <div class="os-icons">
                     <div class="os-icon" onclick="event.stopPropagation();openPanel('os')" tabindex="0" role="button" aria-label="Open Projects">
                       <div class="os-icon-img">💾</div><div class="os-icon-label">Projects</div>
@@ -387,9 +400,10 @@
       <div class="d-body">
         <div class="d-stamp"><div class="d-st">ACTIVE</div></div>
 
-        <p class="d-bio">Most people this age have internships. Subject has a full-time job, 20,000 volunteers, and a degree to finish — all at once. ACCA papers remaining: <span class="d-redact" data-registry="SEC-10-EGG01" onclick="this.classList.toggle('rv')" role="button" tabindex="0" aria-label="Tap to declassify" onkeydown="if(event.key==='Enter')this.classList.toggle('rv')"><span class="d-redact-bar">████████████████</span><span class="d-redact-text">SBL, SBR, APM, AAA</span></span> <span class="d-redact-hint">(tap the black bar to declassify)</span>, alongside a B.Com in International Accountancy &amp; Finance and a role at Broseph Foundation as Community Impact &amp; Finance Fellow — officially. Unofficially, whatever the day requires.</p>
-        <p class="d-bio" style="margin-top:10px;">Prefers problems that are analytical and context-heavy — the kind you can't shortcut. Growth over comfort. Autonomy over instructions. Bad management burns subject out faster than the work itself ever could.</p>
-        <p class="d-bio" style="margin-top:10px;">Outside the spreadsheets: has walked off a stage to 300 people who wouldn't stop cheering, for a pitch judges said had zero commercial value. Reading a room is reading a room, whether it's twenty thousand volunteers or three hundred strangers waiting for a punchline. <span class="flag">Full account on the board.</span></p>
+        <p class="d-bio">Most people this age have internships. Subject has a full-time job, 20,000 volunteers, and a degree to finish — all at once. ACCA papers remaining: <span class="d-redact" data-registry="SEC-10-EGG01" onclick="this.classList.toggle('rv')" role="button" tabindex="0" aria-label="Tap to declassify" onkeydown="if(event.key==='Enter')this.classList.toggle('rv')"><span class="d-redact-bar">████████████████</span><span class="d-redact-text">SBL, SBR, APM, AAA</span></span>, alongside a B.Com in International Accountancy &amp; Finance and a role at Broseph Foundation as Community Impact &amp; Finance Fellow — officially. Unofficially, whatever the day requires.</p>
+        <p class="d-bio" style="margin-top:10px;">The Broseph Foundation role covers more ground than any single job title should: running point on 20,000+ volunteers across 19 chapters, managing petty cash against a ₹10,000 monthly budget, drafting legal complaints for FIR filings, teaching kids who reached 8th grade without knowing vowels, building the RTI Master Tracker from a blank spreadsheet, and doing the reminder calls that actually get people to show up.</p>
+        <p class="d-bio" style="margin-top:10px;">Prefers problems that are analytical and context-heavy — the kind you can't shortcut. Growth over comfort. Autonomy over instructions. Bad management burns subject out faster than the work itself ever could. Fluent in 5 languages, dual-boots 2 operating systems, automates whatever gets repetitive.</p>
+        <p class="d-bio" style="margin-top:10px;">Outside the spreadsheets: has walked off a stage to 300 people who wouldn't stop cheering, for a pitch judges said had zero commercial value. Reading a room is reading a room, whether it's twenty thousand volunteers or three hundred strangers waiting for a punchline. <span class="flag">Full account on the board →</span></p>
 
         <div class="d-quickfacts" data-registry="SEC-10-E02">
           <div class="d-qf-h">Quick Facts</div>
