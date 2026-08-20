@@ -76,7 +76,7 @@ function skipBoot(){
 }
 
 function bootSequence(){
-  if(booted){ openPanel('os'); return; }
+  if(booted){ openPanel('desktop'); return; }
   const bs    = document.getElementById('boot-screen');
   const lines = document.getElementById('bootLines');
   const bar   = document.getElementById('bootBar');
@@ -119,7 +119,8 @@ function finishBoot(){
   document.getElementById('monIdle').style.display = 'none';
   document.getElementById('monOS').style.display   = 'block';
   document.getElementById('room').style.opacity    = '1';
-  // [DEC-NEW] Don't auto-open any panel — let user click an icon from the OS grid
+  // Open the full-screen OS desktop so user gets a real desktop to navigate from (DEC-022)
+  openPanel('desktop');
 }
 
 // ─────────────────────────────────────────────
@@ -133,7 +134,7 @@ function finishBoot(){
 // specificity, making the panel invisible because
 // body { overflow: hidden }.
 // ─────────────────────────────────────────────
-const PANELS = ['os','ledger','audit','dossier','contact','board'];
+const PANELS = ['os','ledger','audit','dossier','contact','board','desktop','git','gallery'];
 
 function openPanel(id){
   const el = document.getElementById('panel-'+id);
@@ -369,3 +370,43 @@ function closeNoteDetail(){
 // ─────────────────────────────────────────────
 window.addEventListener('load',   ()=>{ setTimeout(drawSceneStrings, 300); });
 window.addEventListener('resize', drawSceneStrings);
+
+// ─────────────────────────────────────────────
+// [SEC-13] DESKTOP CLOCK
+// Updates the taskbar clock on the OS desktop panel
+// ─────────────────────────────────────────────
+function updateDesktopClock(){
+  const el = document.getElementById('desktopClock');
+  if(!el) return;
+  const now = new Date();
+  const h = String(now.getHours()).padStart(2,'0');
+  const m = String(now.getMinutes()).padStart(2,'0');
+  el.textContent = h + ':' + m;
+}
+updateDesktopClock();
+setInterval(updateDesktopClock, 10000);
+
+// ─────────────────────────────────────────────
+// [SEC-14] GIT TREE — node click handler
+// Each node either opens an existing panel or
+// scrolls to a section. Extend nodeMap as content
+// is added. Nodes with no target do nothing.
+// ─────────────────────────────────────────────
+const treeNodeMap = {
+  'node-projects':    ()=> switchPanel('git','os'),
+  'node-skills':      ()=> switchPanel('git','ledger'),
+  'node-history':     ()=> switchPanel('git','audit'),
+  'node-about':       ()=> switchPanel('git','dossier'),
+  'node-board':       ()=> switchPanel('git','board'),
+  'node-humshakals':  ()=> { switchPanel('git','board'); setTimeout(()=> openNoteDetail('humshakals'), 400); },
+  'node-prachaara':   ()=> { switchPanel('git','board'); setTimeout(()=> openNoteDetail('prachaara'),  400); },
+  'node-crescere':    ()=> { switchPanel('git','board'); setTimeout(()=> openNoteDetail('crescere'),   400); },
+  'node-civic':       ()=> { switchPanel('git','board'); setTimeout(()=> openNoteDetail('civic'),      400); },
+  'node-rti':         ()=> { switchPanel('git','os');    },
+  'node-newsletter':  ()=> { switchPanel('git','board'); setTimeout(()=> openNoteDetail('newsletter'), 400); },
+};
+
+function treeNodeClick(id){
+  const fn = treeNodeMap[id];
+  if(fn) fn();
+}
