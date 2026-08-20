@@ -140,8 +140,7 @@ function openPanel(id){
   const el = document.getElementById('panel-'+id);
   if(!el) return;
   document.getElementById('room').style.opacity = '0';
-  // desktop panel needs flex, not block, for its wallpaper layout
-  el.style.display = (id === 'desktop') ? 'flex' : 'block';
+  el.style.display = 'block';
   requestAnimationFrame(()=> el.classList.add('active'));
   if(id === 'board'){
     setTimeout(()=> drawBigStrings(null), 350);
