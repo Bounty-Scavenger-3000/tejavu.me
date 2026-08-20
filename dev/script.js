@@ -140,9 +140,9 @@ function openPanel(id){
   const el = document.getElementById('panel-'+id);
   if(!el) return;
   document.getElementById('room').style.opacity = '0';
-  el.style.display = 'block';
+  // desktop panel needs flex, not block, for its wallpaper layout
+  el.style.display = (id === 'desktop') ? 'flex' : 'block';
   requestAnimationFrame(()=> el.classList.add('active'));
-  // Board needs its SVG strings drawn after the panel is visible
   if(id === 'board'){
     setTimeout(()=> drawBigStrings(null), 350);
   }
@@ -393,17 +393,22 @@ setInterval(updateDesktopClock, 10000);
 // is added. Nodes with no target do nothing.
 // ─────────────────────────────────────────────
 const treeNodeMap = {
-  'node-projects':    ()=> switchPanel('git','os'),
-  'node-skills':      ()=> switchPanel('git','ledger'),
-  'node-history':     ()=> switchPanel('git','audit'),
-  'node-about':       ()=> switchPanel('git','dossier'),
-  'node-board':       ()=> switchPanel('git','board'),
-  'node-humshakals':  ()=> { switchPanel('git','board'); setTimeout(()=> openNoteDetail('humshakals'), 400); },
-  'node-prachaara':   ()=> { switchPanel('git','board'); setTimeout(()=> openNoteDetail('prachaara'),  400); },
-  'node-crescere':    ()=> { switchPanel('git','board'); setTimeout(()=> openNoteDetail('crescere'),   400); },
-  'node-civic':       ()=> { switchPanel('git','board'); setTimeout(()=> openNoteDetail('civic'),      400); },
-  'node-rti':         ()=> { switchPanel('git','os');    },
-  'node-newsletter':  ()=> { switchPanel('git','board'); setTimeout(()=> openNoteDetail('newsletter'), 400); },
+  // 2023
+  'node-bcom':          ()=> switchPanel('git','ledger'),
+  'node-broseph-start': ()=> switchPanel('git','audit'),
+  // 2024
+  'node-retention':     ()=> switchPanel('git','os'),
+  'node-prachaara':     ()=> { switchPanel('git','board'); setTimeout(()=> openNoteDetail('prachaara'),  400); },
+  // 2025
+  'node-thakurs':       ()=> switchPanel('git','os'),
+  'node-venture':       ()=> switchPanel('git','os'),
+  'node-crescere':      ()=> { switchPanel('git','board'); setTimeout(()=> openNoteDetail('crescere'),   400); },
+  'node-history':       ()=> switchPanel('git','audit'),
+  'node-civic':         ()=> { switchPanel('git','board'); setTimeout(()=> openNoteDetail('civic'),      400); },
+  'node-rti':           ()=> switchPanel('git','os'),
+  // 2026
+  'node-humshakals':    ()=> { switchPanel('git','board'); setTimeout(()=> openNoteDetail('humshakals'), 400); },
+  'node-bcom-grad':     ()=> switchPanel('git','ledger'),
 };
 
 function treeNodeClick(id){
