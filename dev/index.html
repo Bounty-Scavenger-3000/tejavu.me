@@ -524,66 +524,38 @@
     </div>
   </div>
 
-  <!-- ═══════════ OS DESKTOP PANEL [SEC-13] ═══════════
-       Full-screen retro desktop — opens after boot.
-       Contains app icons that open the real panels.
-       Replaces the tiny in-scene monitor icon grid as
-       the primary post-boot navigation hub.
-  ═══════════════════════════════════════════════════ -->
+  <!-- ═══════════ OS DESKTOP PANEL [SEC-13] ═══════════ -->
   <div class="panel panel-desktop" id="panel-desktop" data-registry="SEC-13">
     <div class="desktop-wallpaper">
-      <!-- Desktop icon grid -->
       <div class="desktop-icons">
 
-        <div class="desktop-icon" onclick="switchPanel('desktop','os')" tabindex="0" role="button" aria-label="Projects">
-          <div class="di-img">💾</div>
-          <div class="di-label">Projects.exe</div>
-        </div>
-
-        <div class="desktop-icon" onclick="switchPanel('desktop','ledger')" tabindex="0" role="button" aria-label="Skills">
-          <div class="di-img">📊</div>
-          <div class="di-label">Skills.dat</div>
-        </div>
-
-        <div class="desktop-icon" onclick="switchPanel('desktop','audit')" tabindex="0" role="button" aria-label="History">
-          <div class="di-img">📋</div>
-          <div class="di-label">Audit.log</div>
-        </div>
-
-        <div class="desktop-icon" onclick="switchPanel('desktop','dossier')" tabindex="0" role="button" aria-label="About">
+        <div class="desktop-icon" onclick="switchPanel('desktop','os')" tabindex="0" role="button">
           <div class="di-img">🗂️</div>
-          <div class="di-label">Dossier.cls</div>
+          <div class="di-label">Projects.jira</div>
         </div>
 
-        <div class="desktop-icon" onclick="switchPanel('desktop','board')" tabindex="0" role="button" aria-label="The Board">
-          <div class="di-img">📌</div>
-          <div class="di-label">Board.ink</div>
-        </div>
-
-        <div class="desktop-icon" onclick="switchPanel('desktop','git')" tabindex="0" role="button" aria-label="Timeline">
+        <div class="desktop-icon" onclick="switchPanel('desktop','git')" tabindex="0" role="button">
           <div class="di-img">🌿</div>
           <div class="di-label">Timeline.git</div>
         </div>
 
-        <div class="desktop-icon" onclick="switchPanel('desktop','gallery')" tabindex="0" role="button" aria-label="Gallery">
+        <div class="desktop-icon" onclick="switchPanel('desktop','gallery')" tabindex="0" role="button">
           <div class="di-img">🖼️</div>
           <div class="di-label">Gallery.img</div>
         </div>
 
-        <div class="desktop-icon" onclick="switchPanel('desktop','contact')" tabindex="0" role="button" aria-label="Contact">
+        <div class="desktop-icon" onclick="switchPanel('desktop','contact')" tabindex="0" role="button">
           <div class="di-img">✉️</div>
-          <div class="di-label">Contact.pay</div>
+          <div class="di-label">Contact.mail</div>
         </div>
 
       </div>
-      <!-- Taskbar -->
       <div class="desktop-taskbar">
         <div class="dt-start" onclick="closePanel('desktop')">
           <span class="dt-start-logo">⊞</span>
           <span class="dt-start-label">TEJAS-OS</span>
         </div>
         <div class="dt-tray">
-          <span class="dt-tray-item">📡</span>
           <span class="dt-clock" id="desktopClock">00:00</span>
         </div>
       </div>
@@ -596,6 +568,7 @@
        Content is a visual representation only —
        all actual detail lives in existing panels (DEC-003).
   ═══════════════════════════════════════════════════ -->
+  <!-- ═══════════ GIT TIMELINE PANEL [SEC-14] ═══════════ -->
   <div class="panel panel-git" id="panel-git" data-registry="SEC-14">
     <button class="p-close" onclick="closePanel('git')">✕ ESC</button>
     <div class="p-inner">
@@ -603,132 +576,93 @@
         <div class="git-header-icon">🌿</div>
         <div>
           <div class="git-title">Timeline.git</div>
-          <div class="git-sub">branch: main · click any node to open that section</div>
+          <div class="git-sub">main · chronological · click any commit to open that section</div>
         </div>
       </div>
+      <div class="git-canvas">
 
-      <div class="git-tree">
-
-        <!-- Main trunk line runs down the left -->
-        <div class="git-trunk"></div>
-
-        <!-- ROOT -->
-        <div class="git-node git-node--root" id="node-about" onclick="treeNodeClick('node-about')" tabindex="0" role="button">
-          <div class="gn-dot gn-dot--root"></div>
-          <div class="gn-connector"></div>
-          <div class="gn-card">
-            <div class="gn-tag">INIT</div>
-            <div class="gn-title">Subject File</div>
-            <div class="gn-meta">Bengaluru · ongoing</div>
-            <div class="gn-body">Community Impact & Finance Fellow. B.Com + ACCA. The full picture.</div>
+        <div class="gt-year-row">
+          <div class="gt-trunk-seg"></div>
+          <div class="gt-year-node"><div class="gt-year-dot"></div><div class="gt-year-label">2023</div></div>
+          <div class="gt-commits">
+            <div class="gt-commit" onclick="treeNodeClick('node-bcom')" tabindex="0" role="button">
+              <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--edu"></div>
+              <div class="gt-commit-card"><span class="gt-tag gt-tag--edu">EDU</span><span class="gt-commit-title">B.Com starts — Christ University</span><span class="gt-commit-body">International Accountancy &amp; Finance. ACCA exemptions begin.</span></div>
+            </div>
+            <div class="gt-commit" onclick="treeNodeClick('node-broseph-start')" tabindex="0" role="button">
+              <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--work"></div>
+              <div class="gt-commit-card"><span class="gt-tag gt-tag--work">WORK</span><span class="gt-commit-title">Joins Broseph Foundation</span><span class="gt-commit-body">Volunteers first, then coordination across chapters.</span></div>
+            </div>
           </div>
         </div>
 
-        <!-- BRANCH: Education -->
-        <div class="git-branch-label">branch: education</div>
-        <div class="git-branch-line git-branch-line--edu"></div>
-
-        <div class="git-node git-node--branch git-node--edu" id="node-skills" onclick="treeNodeClick('node-skills')" tabindex="0" role="button">
-          <div class="gn-dot"></div>
-          <div class="gn-connector"></div>
-          <div class="gn-card">
-            <div class="gn-tag gn-tag--edu">EDU</div>
-            <div class="gn-title">B.Com + ACCA</div>
-            <div class="gn-meta">Christ University · 2023–2026</div>
-            <div class="gn-body">International Accountancy & Finance. 9/13 ACCA papers done.</div>
+        <div class="gt-year-row">
+          <div class="gt-trunk-seg"></div>
+          <div class="gt-year-node"><div class="gt-year-dot"></div><div class="gt-year-label">2024</div></div>
+          <div class="gt-commits">
+            <div class="gt-commit" onclick="treeNodeClick('node-retention')" tabindex="0" role="button">
+              <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--proj"></div>
+              <div class="gt-commit-card"><span class="gt-tag gt-tag--proj">PROJECT</span><span class="gt-commit-title">NGO Volunteer Retention Study</span><span class="gt-commit-body">Oct 2024 · Interviewed volunteers, leavers, founder. Recommendations adopted.</span></div>
+            </div>
+            <div class="gt-commit" onclick="treeNodeClick('node-prachaara')" tabindex="0" role="button">
+              <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--comp"></div>
+              <div class="gt-commit-card"><span class="gt-tag gt-tag--comp">COMP</span><span class="gt-commit-title">Prachaara — Finals</span><span class="gt-commit-body">Dec 2024 · Jackie Chan, a Thai beauty kit, AI financials. 200+ in the room.</span></div>
+            </div>
           </div>
         </div>
 
-        <!-- BRANCH: Broseph -->
-        <div class="git-branch-label">branch: broseph-foundation</div>
-        <div class="git-branch-line git-branch-line--work"></div>
-
-        <div class="git-node git-node--branch git-node--work" id="node-history" onclick="treeNodeClick('node-history')" tabindex="0" role="button">
-          <div class="gn-dot gn-dot--work"></div>
-          <div class="gn-connector"></div>
-          <div class="gn-card">
-            <div class="gn-tag gn-tag--work">WORK</div>
-            <div class="gn-title">Community Impact & Finance Fellow</div>
-            <div class="gn-meta">Broseph Foundation · Jul 2025 – present</div>
-            <div class="gn-body">20,000+ volunteers, 19 chapters. Finance, legal, education, systems.</div>
+        <div class="gt-year-row">
+          <div class="gt-trunk-seg"></div>
+          <div class="gt-year-node"><div class="gt-year-dot"></div><div class="gt-year-label">2025</div></div>
+          <div class="gt-commits">
+            <div class="gt-commit" onclick="treeNodeClick('node-thakurs')" tabindex="0" role="button">
+              <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--proj"></div>
+              <div class="gt-commit-card"><span class="gt-tag gt-tag--proj">PROJECT</span><span class="gt-commit-title">Project Thakurs</span><span class="gt-commit-body">Feb 2025 · Full campaign for a disappearing snack. Grade 18/20.</span></div>
+            </div>
+            <div class="gt-commit" onclick="treeNodeClick('node-venture')" tabindex="0" role="button">
+              <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--proj"></div>
+              <div class="gt-commit-card"><span class="gt-tag gt-tag--proj">PROJECT</span><span class="gt-commit-title">Campus Venture</span><span class="gt-commit-body">Mar 2025 · 240 sales, ₹7,500–8,000 revenue. Inventory tracker built day one.</span></div>
+            </div>
+            <div class="gt-commit" onclick="treeNodeClick('node-crescere')" tabindex="0" role="button">
+              <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--comp"></div>
+              <div class="gt-commit-card"><span class="gt-tag gt-tag--comp">COMP</span><span class="gt-commit-title">CRESCERE — Finals</span><span class="gt-commit-body">Squid Game promo + business recovery case. Won Round 1.</span></div>
+            </div>
+            <div class="gt-commit" onclick="treeNodeClick('node-history')" tabindex="0" role="button">
+              <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--work"></div>
+              <div class="gt-commit-card"><span class="gt-tag gt-tag--work">WORK</span><span class="gt-commit-title">Community Impact &amp; Finance Fellow</span><span class="gt-commit-body">Jul 2025 · Official role. 20,000+ volunteers, finance, legal, Shikshana Vedike.</span></div>
+            </div>
+            <div class="gt-commit" onclick="treeNodeClick('node-civic')" tabindex="0" role="button">
+              <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--comm"></div>
+              <div class="gt-commit-card"><span class="gt-tag gt-tag--comm">COMMUNITY</span><span class="gt-commit-title">Civic Drive</span><span class="gt-commit-body">Sep 2025 · 20+ participants, 60+ civic issues logged on BBMP Sahaya.</span></div>
+            </div>
+            <div class="gt-commit" onclick="treeNodeClick('node-rti')" tabindex="0" role="button">
+              <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--proj"></div>
+              <div class="gt-commit-card"><span class="gt-tag gt-tag--proj">PROJECT</span><span class="gt-commit-title">RTI Master Tracker</span><span class="gt-commit-body">Built from blank sheet. Filing, deadlines, live dashboard. Still in daily use.</span></div>
+            </div>
           </div>
         </div>
 
-        <div class="git-node git-node--branch git-node--work" id="node-rti" onclick="treeNodeClick('node-rti')" tabindex="0" role="button">
-          <div class="gn-dot gn-dot--work"></div>
-          <div class="gn-connector"></div>
-          <div class="gn-card">
-            <div class="gn-tag gn-tag--proj">PROJECT</div>
-            <div class="gn-title">RTI Master Tracker</div>
-            <div class="gn-meta">2025–2026 · in daily use</div>
-            <div class="gn-body">Rebuilt volunteer RTI filing from a raw spreadsheet into a live dashboard.</div>
+        <div class="gt-year-row gt-year-row--current">
+          <div class="gt-trunk-seg"></div>
+          <div class="gt-year-node"><div class="gt-year-dot gt-year-dot--current"></div><div class="gt-year-label gt-year-label--current">2026</div></div>
+          <div class="gt-commits">
+            <div class="gt-commit" onclick="treeNodeClick('node-humshakals')" tabindex="0" role="button">
+              <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--comp"></div>
+              <div class="gt-commit-card"><span class="gt-tag gt-tag--comp">COMP</span><span class="gt-commit-title">Humshakals — Prachaara 2.0</span><span class="gt-commit-body">Feb 2026 · Solo standup pitch. 300+ crowd. 12 min over time. Zero regrets.</span></div>
+            </div>
+            <div class="gt-commit gt-commit--head" onclick="treeNodeClick('node-bcom-grad')" tabindex="0" role="button">
+              <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--edu gt-dot--head"></div>
+              <div class="gt-commit-card"><span class="gt-tag gt-tag--edu">EDU</span><span class="gt-commit-title">B.Com graduation · ACCA continues</span><span class="gt-commit-body">Graduating Christ University. SBL, SBR, APM, AAA in progress → 2028.</span></div>
+            </div>
           </div>
         </div>
 
-        <!-- BRANCH: Competitions -->
-        <div class="git-branch-label">branch: competitions</div>
-        <div class="git-branch-line git-branch-line--comp"></div>
-
-        <div class="git-node git-node--branch git-node--comp" id="node-prachaara" onclick="treeNodeClick('node-prachaara')" tabindex="0" role="button">
-          <div class="gn-dot gn-dot--comp"></div>
-          <div class="gn-connector"></div>
-          <div class="gn-card">
-            <div class="gn-tag gn-tag--comp">COMP</div>
-            <div class="gn-title">Prachaara</div>
-            <div class="gn-meta">Christ University · Dec 2024</div>
-            <div class="gn-body">Marketing pitch finals. Jackie Chan, a Thai beauty kit, and AI-generated financials.</div>
-          </div>
+        <div class="gt-head-row">
+          <div class="gt-trunk-end"></div>
+          <div class="gt-head-label">HEAD · main · ongoing</div>
         </div>
 
-        <div class="git-node git-node--branch git-node--comp" id="node-humshakals" onclick="treeNodeClick('node-humshakals')" tabindex="0" role="button">
-          <div class="gn-dot gn-dot--comp"></div>
-          <div class="gn-connector"></div>
-          <div class="gn-card">
-            <div class="gn-tag gn-tag--comp">COMP</div>
-            <div class="gn-title">Humshakals — Prachaara 2.0</div>
-            <div class="gn-meta">Christ University · Feb 2026</div>
-            <div class="gn-body">Solo pitch set. Pushpa + truck cleaning products. 300+ audience. Ran 12 min over.</div>
-          </div>
-        </div>
-
-        <div class="git-node git-node--branch git-node--comp" id="node-crescere" onclick="treeNodeClick('node-crescere')" tabindex="0" role="button">
-          <div class="gn-dot gn-dot--comp"></div>
-          <div class="gn-connector"></div>
-          <div class="gn-card">
-            <div class="gn-tag gn-tag--comp">COMP</div>
-            <div class="gn-title">CRESCERE</div>
-            <div class="gn-meta">Finance & Leadership Cell · 2025</div>
-            <div class="gn-body">Squid Game promo + business recovery case. Won Round 1, reached finals.</div>
-          </div>
-        </div>
-
-        <!-- BRANCH: Community -->
-        <div class="git-branch-label">branch: community</div>
-        <div class="git-branch-line git-branch-line--comm"></div>
-
-        <div class="git-node git-node--branch git-node--comm" id="node-civic" onclick="treeNodeClick('node-civic')" tabindex="0" role="button">
-          <div class="gn-dot gn-dot--comm"></div>
-          <div class="gn-connector"></div>
-          <div class="gn-card">
-            <div class="gn-tag gn-tag--comm">COMMUNITY</div>
-            <div class="gn-title">Civic Drive</div>
-            <div class="gn-meta">Christ University × Broseph Foundation · Sep 2025</div>
-            <div class="gn-body">20+ participants, 10+ bags collected, 60+ civic issues logged on BBMP Sahaya.</div>
-          </div>
-        </div>
-
-        <div class="git-node git-node--branch git-node--comm" id="node-newsletter" onclick="treeNodeClick('node-newsletter')" tabindex="0" role="button">
-          <div class="gn-dot gn-dot--comm"></div>
-          <div class="gn-connector"></div>
-          <div class="gn-card">
-            <div class="gn-tag gn-tag--comm">ONGOING</div>
-            <div class="gn-title">Newsletter</div>
-            <div class="gn-meta">Beehiiv · ongoing</div>
-            <div class="gn-body">The unfiltered version. Stuff that doesn't fit neatly into a panel.</div>
-          </div>
-        </div>
-
-      </div><!-- /git-tree -->
+      </div>
     </div>
   </div>
 
