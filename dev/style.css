@@ -438,9 +438,12 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0812;}
    Full-screen retro Win98-style desktop.
    Opens after boot; primary navigation hub.
    ══════════════════════════════════════════════ */
-.panel-desktop{background:#008080;padding:0;flex-direction:column;}
+.panel-desktop{background:#008080;padding:0;flex-direction:column;overflow:hidden;}
+/* Override the base .panel.active{display:block} for desktop — needs flex */
+.panel-desktop.active{display:flex !important;}
 .desktop-wallpaper{
-  width:100%;height:100%;
+  width:100%;min-height:100vh;
+  flex:1;
   display:flex;flex-direction:column;
   background:
     radial-gradient(ellipse 60% 50% at 30% 40%,rgba(0,100,100,.25) 0%,transparent 70%),
