@@ -438,14 +438,14 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0812;}
    Full-screen retro Win98-style desktop.
    Opens after boot; primary navigation hub.
    ══════════════════════════════════════════════ */
-.panel-desktop{background:#008080;padding:0;}
+.panel-desktop{background:#008080;padding:0;flex-direction:column;}
 .desktop-wallpaper{
   width:100%;height:100%;
   display:flex;flex-direction:column;
   background:
     radial-gradient(ellipse 60% 50% at 30% 40%,rgba(0,100,100,.25) 0%,transparent 70%),
     linear-gradient(160deg,#006868 0%,#008080 40%,#007070 100%);
-  position:relative;
+  position:relative;overflow:hidden;
 }
 .desktop-icons{
   flex:1;
@@ -520,95 +520,156 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0812;}
 
 /* ══════════════════════════════════════════════
    PANEL: GIT TIMELINE [SEC-14]
-   Branching git-graph layout.
-   Nodes are clickable and link to existing panels.
+   Chronological tree: one vertical trunk, year nodes
+   on the trunk, commits branching right from each year.
    ══════════════════════════════════════════════ */
 .panel-git{background:#0d1117;color:#e6edf3;}
-.git-header{display:flex;align-items:center;gap:16px;margin-bottom:36px;padding-bottom:20px;border-bottom:1px solid #30363d;}
-.git-header-icon{font-size:32px;}
-.git-title{font-family:'Press Start 2P',monospace;font-size:clamp(12px,2vw,18px);color:#3fb950;letter-spacing:.06em;margin-bottom:6px;}
-.git-sub{font-family:'Space Mono',monospace;font-size:11px;color:#8b949e;letter-spacing:.04em;}
+.git-header{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:18px;border-bottom:1px solid #21262d;}
+.git-header-icon{font-size:28px;}
+.git-title{font-family:'Press Start 2P',monospace;font-size:clamp(10px,1.8vw,16px);color:#3fb950;letter-spacing:.06em;margin-bottom:6px;}
+.git-sub{font-family:'Space Mono',monospace;font-size:10px;color:#8b949e;letter-spacing:.04em;}
 
-.git-tree{position:relative;padding-left:32px;}
-.git-trunk{
-  position:absolute;left:16px;top:0;bottom:0;width:2px;
-  background:linear-gradient(180deg,#3fb950 0%,#238636 60%,#1a6e2d 100%);
-  opacity:.5;
+/* Canvas — holds the whole tree */
+.git-canvas{
+  position:relative;
+  padding-left:0;
 }
 
-/* Branch label */
-.git-branch-label{
-  font-family:'Space Mono',monospace;font-size:10px;
-  color:#58a6ff;letter-spacing:.06em;
-  margin:28px 0 8px 20px;
-  padding:2px 8px;
-  border:1px solid #1f6feb;
-  display:inline-block;background:rgba(31,111,235,.08);
-  border-radius:2px;
-}
-.git-branch-line{
-  position:absolute;left:17px;
-  height:2px;width:28px;
-  background:#58a6ff;opacity:.4;
-}
-/* Branch line offsets — approximate, good enough at these sizes */
-.git-branch-line--edu{background:#d2a8ff;}
-.git-branch-line--work{background:#ffa657;}
-.git-branch-line--comp{background:#ff7b72;}
-.git-branch-line--comm{background:#3fb950;}
-
-/* Nodes */
-.git-node{
-  display:flex;align-items:flex-start;gap:0;
-  margin-bottom:12px;position:relative;
-  cursor:pointer;
-}
-.git-node--root{margin-bottom:20px;}
-.git-node--branch{margin-left:28px;}
-
-.gn-dot{
-  width:14px;height:14px;border-radius:50%;flex-shrink:0;
-  background:#238636;border:2px solid #3fb950;
-  margin-top:14px;margin-right:0;position:relative;z-index:2;
-  transition:transform .15s,box-shadow .15s;
-}
-.git-node:hover .gn-dot{transform:scale(1.3);box-shadow:0 0 8px rgba(63,185,80,.6);}
-.gn-dot--root{width:18px;height:18px;background:#3fb950;border-color:#79c0ff;margin-top:12px;}
-.gn-dot--work{background:#e3a12f;border-color:#ffa657;}
-.gn-dot--comp{background:#c93b3b;border-color:#ff7b72;}
-.gn-dot--comm{background:#1a6e2d;border-color:#3fb950;}
-
-.gn-connector{
-  width:16px;height:2px;background:#30363d;
-  flex-shrink:0;margin-top:22px;
+/* Each year block: trunk segment + year node + commits beside it */
+.gt-year-row{
+  display:flex;
+  align-items:flex-start;
+  gap:0;
+  position:relative;
 }
 
-.gn-card{
+/* The vertical trunk line for this year's segment */
+.gt-trunk-seg{
+  width:2px;
+  background:linear-gradient(180deg,#238636,#1a6e2d);
+  flex-shrink:0;
+  align-self:stretch;
+  min-height:100%;
+  margin-left:18px; /* centers trunk under year dot */
+}
+.gt-year-row:last-child .gt-trunk-seg{background:linear-gradient(180deg,#238636,transparent);}
+
+/* Year node — sits on the trunk */
+.gt-year-node{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-shrink:0;
+  margin-left:-10px; /* overlap the trunk */
+  padding:8px 0 8px 0;
+  width:70px;
+}
+.gt-year-dot{
+  width:18px;height:18px;border-radius:50%;flex-shrink:0;
+  background:#0d1117;border:2px solid #3fb950;
+  box-shadow:0 0 6px rgba(63,185,80,.4);
+}
+.gt-year-dot--current{
+  background:#3fb950;
+  box-shadow:0 0 10px rgba(63,185,80,.7);
+  animation:gitPulse 2s ease-in-out infinite;
+}
+@keyframes gitPulse{0%,100%{box-shadow:0 0 6px rgba(63,185,80,.5);}50%{box-shadow:0 0 14px rgba(63,185,80,.9);}}
+.gt-year-label{
+  font-family:'Space Mono',monospace;
+  font-size:11px;color:#58a6ff;
+  font-weight:700;letter-spacing:.06em;
+  white-space:nowrap;
+}
+.gt-year-label--current{color:#3fb950;}
+
+/* Commits column — all events for this year, stacked */
+.gt-commits{
   flex:1;
-  background:#161b22;border:1px solid #30363d;
-  border-radius:4px;padding:12px 16px;
-  transition:border-color .15s,background .15s;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  padding:6px 0 24px 0;
 }
-.git-node:hover .gn-card{border-color:#58a6ff;background:#1c2128;}
-.git-node:focus .gn-card{border-color:#79c0ff;outline:none;}
 
-.gn-tag{
-  font-family:'Space Mono',monospace;font-size:8px;
-  letter-spacing:.08em;padding:2px 6px;
-  border-radius:10px;display:inline-block;margin-bottom:6px;
-  background:#238636;color:#fff;
+/* Single commit row: horizontal line → dot → card */
+.gt-commit{
+  display:flex;
+  align-items:flex-start;
+  cursor:pointer;
+  border-radius:4px;
+  transition:background .1s;
+  padding:2px 4px 2px 0;
 }
-.gn-tag--edu{background:#6e40c9;}
-.gn-tag--work{background:#b36b00;}
-.gn-tag--proj{background:#1f6feb;}
-.gn-tag--comp{background:#8b0000;}
-.gn-tag--comm{background:#196127;}
+.gt-commit:hover{background:rgba(255,255,255,.03);}
+.gt-commit:focus{outline:1px dotted #58a6ff;}
 
-.gn-title{font-family:'Fraunces',serif;font-size:clamp(13px,1.8vw,17px);color:#e6edf3;margin-bottom:4px;font-weight:600;}
-.gn-meta{font-family:'Space Mono',monospace;font-size:9px;color:#8b949e;margin-bottom:6px;letter-spacing:.03em;}
-.gn-body{font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:#8b949e;line-height:1.55;}
+.gt-commit-line{
+  width:24px;height:2px;
+  background:#21262d;
+  flex-shrink:0;
+  margin-top:8px;
+}
+.gt-commit:hover .gt-commit-line{background:#444;}
 
-/* ══════════════════════════════════════════════
+.gt-commit-dot{
+  width:10px;height:10px;border-radius:50%;flex-shrink:0;
+  margin-top:3px;margin-right:10px;
+  border:2px solid #238636;background:#0d1117;
+  transition:transform .12s,box-shadow .12s;
+}
+.gt-commit:hover .gt-commit-dot{transform:scale(1.3);}
+.gt-dot--edu{border-color:#d2a8ff;} .gt-commit:hover .gt-dot--edu{box-shadow:0 0 6px rgba(210,168,255,.5);}
+.gt-dot--work{border-color:#ffa657;} .gt-commit:hover .gt-dot--work{box-shadow:0 0 6px rgba(255,166,87,.5);}
+.gt-dot--proj{border-color:#58a6ff;} .gt-commit:hover .gt-dot--proj{box-shadow:0 0 6px rgba(88,166,255,.5);}
+.gt-dot--comp{border-color:#ff7b72;} .gt-commit:hover .gt-dot--comp{box-shadow:0 0 6px rgba(255,123,114,.5);}
+.gt-dot--comm{border-color:#3fb950;} .gt-commit:hover .gt-dot--comm{box-shadow:0 0 6px rgba(63,185,80,.5);}
+.gt-dot--head{background:#3fb950 !important;}
+
+.gt-commit-card{
+  display:flex;flex-direction:column;gap:3px;
+  flex:1;
+}
+.gt-tag{
+  font-family:'Space Mono',monospace;font-size:7px;
+  letter-spacing:.08em;padding:1px 5px;
+  border-radius:10px;display:inline-block;
+  background:#21262d;color:#8b949e;
+  align-self:flex-start;margin-bottom:2px;
+}
+.gt-tag--edu{background:rgba(210,168,255,.15);color:#d2a8ff;}
+.gt-tag--work{background:rgba(255,166,87,.15);color:#ffa657;}
+.gt-tag--proj{background:rgba(88,166,255,.15);color:#58a6ff;}
+.gt-tag--comp{background:rgba(255,123,114,.15);color:#ff7b72;}
+.gt-tag--comm{background:rgba(63,185,80,.15);color:#3fb950;}
+
+.gt-commit-title{
+  font-family:'IBM Plex Sans',sans-serif;
+  font-size:13px;font-weight:500;color:#e6edf3;
+  line-height:1.3;
+}
+.gt-commit-body{
+  font-family:'IBM Plex Sans',sans-serif;
+  font-size:11px;color:#8b949e;line-height:1.5;
+}
+
+/* HEAD indicator at bottom */
+.gt-head-row{
+  display:flex;align-items:center;gap:12px;
+  padding:4px 0 8px 10px;
+}
+.gt-trunk-end{
+  width:2px;height:20px;
+  background:linear-gradient(180deg,#1a6e2d,transparent);
+  margin-left:8px;
+}
+.gt-head-label{
+  font-family:'Space Mono',monospace;font-size:9px;
+  color:#3fb950;letter-spacing:.06em;
+  border:1px solid #238636;padding:2px 8px;border-radius:10px;
+  background:rgba(63,185,80,.07);
+}
+
    PANEL: GALLERY [SEC-15]
    Photo grid — each card links to its source event.
    Placeholder state shown until real photos exist.
