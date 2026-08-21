@@ -21,6 +21,40 @@
 
 'use strict';
 
+// ─────────────────────────────────────────────
+// BUILD VERSION BADGE
+// Reads ?v=... off this script's own <script src="script.js?v=...">
+// tag and shows it as a small corner tag on the live page. This is the
+// fastest way to confirm — just by looking at the page, no devtools —
+// whether a deploy actually landed or the browser/CDN is still serving
+// a cached copy of the old files. See docs/hosting-deployment.md.
+// Bump the ?v=... value in index.html on every deploy; this code reads
+// whatever value is there, nothing to update here.
+// ─────────────────────────────────────────────
+(function(){
+  try {
+    var src = (document.currentScript && document.currentScript.src) || '';
+    var m = src.match(/[?&]v=([^&]+)/);
+    var ver = m ? decodeURIComponent(m[1]) : 'unversioned';
+    function addBadge(){
+      var badge = document.createElement('div');
+      badge.id = 'buildBadge';
+      badge.textContent = 'build ' + ver;
+      badge.style.cssText = 'position:fixed;bottom:6px;left:6px;z-index:9999;'
+        + 'font-family:monospace;font-size:9px;color:rgba(255,255,255,.4);'
+        + 'background:rgba(0,0,0,.45);padding:2px 7px;border-radius:3px;'
+        + 'pointer-events:none;letter-spacing:.04em;';
+      document.body.appendChild(badge);
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', addBadge);
+    } else {
+      addBadge();
+    }
+  } catch(e) { /* badge is a nice-to-have — never let it break the real page */ }
+})();
+
+
 // ── init ──
 const _cd = document.getElementById('chequeDate');
 if(_cd) _cd.textContent =
