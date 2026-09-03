@@ -444,21 +444,14 @@
     line-height: 1.65;
   }
 
-.construction-form {
-  flex: 0 1 520px;
-  width: 100%;
-  max-width: 520px;
-  min-width: 280px;
-  align-self: center;
-}
-
-.construction-form iframe {
-  display: block;
-  width: 100% !important;
-  height: 180px !important;
-  margin: 0;
-  border: 0;
-}
+  .construction-form { flex: 1 1 340px; width: 100%; min-width: 280px; }
+  #beehiiv-form-wrapper { width: 100%; min-height: 1px; }
+  #beehiiv-form-wrapper iframe,
+  #beehiiv-form-wrapper > div,
+  #beehiiv-form-wrapper form {
+    width: 100% !important;
+    min-width: 100% !important;
+  }
 
   /* ── FOOTER ── */
   footer {
@@ -699,24 +692,21 @@
     </div>
   </main>
 
-<section class="construction">
-  <div class="construction-inner">
-    <div class="construction-copy">
-      <p class="construction-tag">🚧 more floors coming</p>
-      <p class="construction-title">This is the <span>working version.</span></p>
-      <p class="construction-sub">Drop your email and you'll be the first to know when the fuller site goes up — plus you might learn how it's built along the way.</p>
+  <section class="construction">
+    <div class="construction-inner">
+      <div class="construction-copy">
+        <p class="construction-tag">🚧 more floors coming</p>
+        <p class="construction-title">This is the <span>working version.</span></p>
+        <p class="construction-sub">Drop your email and you'll be the first to know when the fuller site goes up — plus you might learn how it's built along the way.</p>
+      </div>
+      <div class="construction-form">
+        <div id="beehiiv-form-wrapper">
+          <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="067f8e7e-6d96-43e1-a3df-c6b051fdd734"></script>
+          <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
+        </div>
+      </div>
     </div>
-<div class="construction-form">
-  <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
-  <iframe
-    src="https://subscribe-forms.beehiiv.com/067f8e7e-6d96-43e1-a3df-c6b051fdd734"
-    class="beehiiv-embed"
-    frameborder="0"
-    scrolling="no"
-    style="width: 100%; height: 420px; margin: 0; border: 0; background-color: transparent;">
-  </iframe>
-</div>
-</section>
+  </section>
 
   <footer>
     <div class="footer-logo">
