@@ -1,0 +1,23 @@
+/* [SEC-00] Boot screen. CRITICAL: never add position:relative to a .panel-specific rule (DEC-011). */
+/* ══ BOOT SCREEN [SEC-00] ══
+   CRITICAL: Never add position:relative to a .panel-specific rule.
+   It overrides .panel{position:fixed} at equal CSS specificity, making the panel
+   render in document flow. Since body{overflow:hidden} it becomes invisible. DEC-011. */
+#boot-screen{position:fixed;inset:0;z-index:900;background:#050505;display:none;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:5vh;}
+#boot-screen.active{display:flex;}
+/* Boot logo — Linux Mint style ASCII art */
+.boot-logo{width:min(620px,90vw);margin-bottom:18px;border-bottom:1px solid #002200;padding-bottom:14px;}
+.boot-logo-art{font-family:'Space Mono',monospace;font-size:clamp(7px,1.1vw,11px);color:#00cc30;text-shadow:0 0 8px rgba(0,204,48,.6);line-height:1.15;white-space:pre;letter-spacing:.02em;}
+.boot-logo-sub{font-family:'Space Mono',monospace;font-size:10px;color:#005510;margin-top:6px;letter-spacing:.06em;}
+.boot-lines{width:min(620px,90vw);font-size:13px;line-height:1;max-height:50vh;overflow:hidden;}
+.boot-line{font-family:'Space Mono',monospace;color:#00ff41;text-shadow:0 0 6px rgba(0,255,65,.8);opacity:0;transform:translateY(3px);transition:opacity .25s,transform .25s;margin-bottom:6px;}
+.boot-line.show{opacity:1;transform:translateY(0);}
+.boot-line.d{color:#005510;} .boot-line.am{color:#ffb000;text-shadow:0 0 6px rgba(255,176,0,.8);}
+.boot-line.er{color:#ff4444;text-shadow:0 0 6px rgba(255,68,68,.8);}
+.boot-prog{width:min(620px,90vw);height:4px;background:#001400;margin-top:18px;border:1px solid #002200;border-radius:0;overflow:hidden;}
+.boot-bar{height:100%;width:0%;background:linear-gradient(90deg,#00aa20,#00ff41);box-shadow:0 0 8px #00ff41;transition:width .1s linear;}
+.boot-status{width:min(620px,90vw);display:flex;justify-content:space-between;margin-top:6px;}
+.boot-status-l{font-family:'Space Mono',monospace;font-size:9px;color:#003a00;letter-spacing:.06em;}
+.boot-status-r{font-family:'Space Mono',monospace;font-size:9px;color:#005510;letter-spacing:.06em;}
+.boot-skip{position:absolute;bottom:24px;right:32px;font-family:'Press Start 2P',monospace;font-size:7px;color:rgba(0,255,65,.4);cursor:pointer;letter-spacing:.1em;}
+.boot-skip:hover{color:rgba(0,255,65,.8);}

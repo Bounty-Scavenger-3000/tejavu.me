@@ -1,0 +1,63 @@
+/* Panel overrides for phones (480px). */
+@media (max-width: 480px) {
+  /* Panels: full-screen, scroll-friendly on mobile */
+  .panel { animation: none; }
+  .p-close {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    font-size: 7px;
+    padding: 10px 12px;
+    /* Larger tap target */
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .p-inner {
+    padding: 56px 16px 40px;
+  }
+
+  /* Ledger panel: single column, remove left padding (no visible margin rule) */
+  .panel-ledger::before { display: none; }
+  .led-inner { padding-left: 0; }
+  .sgrid { grid-template-columns: 1fr; }
+  .sc.dr { border-right: none; border-bottom: 1px solid rgba(43,35,28,.18); }
+
+  /* Audit panel: collapse findings grid */
+  .finding { grid-template-columns: 1fr; }
+  .f-rating { text-align: left; }
+
+  /* Dossier panel */
+  .d-body { padding: 20px 16px; }
+  .d-stamp { display: none; }
+  .d-fields { grid-template-columns: 1fr; }
+  .d-f { border-right: none; }
+  .d-f:last-child { border-bottom: none; }
+  .d-jumps { gap: 10px; }
+
+  /* Contact panel: remove left padding */
+  .panel-contact::before { display: none; }
+  .cq-inner { padding-left: 0; }
+  .cheque { padding: 18px 14px; }
+  .cq-bottom { flex-direction: column; gap: 16px; }
+
+  /* OS window: shrink for phone */
+  .os-row { flex-direction: column; gap: 6px; }
+
+  /* Board expanded: full-width, no fixed min-height */
+  .big-board { min-height: 400px; overflow-x: auto; }
+
+  /* Note detail: full screen on mobile */
+  .note-detail { padding: 0; align-items: flex-end; }
+  .note-detail-card {
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 12px 12px 0 0;
+    border-bottom: none;
+  }
+
+  /* Larger tap targets for board notes */
+  .pin-note { min-width: 80px; }
+}

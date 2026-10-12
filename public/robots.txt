@@ -13,7 +13,7 @@
 # individually anyway, so the intent is unambiguous
 # and doesn't rely only on default/fallback behavior.
 #
-# See docs/decisions.md (DEC-021) and docs/seo-meta.md
+# See the Decision Log (DEC-021) and SEO & Meta
 # for the reasoning.
 # ═══════════════════════════════════════════════
 

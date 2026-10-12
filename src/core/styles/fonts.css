@@ -1,0 +1,7 @@
+/* Universa, the Tejavu brand typeface. One file shared by every page.
+   Preloaded in each page's <head> so the wordmark does not flash a fallback. */
+@font-face {
+  font-family: 'Universa';
+  src: url('../fonts/universa.otf') format('opentype');
+  font-display: swap;
+}
