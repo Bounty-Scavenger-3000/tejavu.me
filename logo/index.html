@@ -20,7 +20,7 @@
   </div>
   <div class="card-primary-footer">
     <div class="card-label">Dark (primary)</div>
-    <button class="export-btn" style="background:#0D0B0E;color:#FFFFFF;" onclick="exportOne('v1','tejavu-logo-dark')">Export PNG</button>
+    <button class="export-btn" style="background:#0D0B0E;color:#FFFFFF;" data-export="v1:tejavu-logo-dark">Export PNG</button>
   </div>
 </div>
 
@@ -30,33 +30,33 @@
     <div class="glow-pink"><div class="card" id="v2" style="background:#141418"></div></div>
     <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding:0 2px">
       <div class="card-label">Surface</div>
-      <button class="export-btn" style="background:#141418;color:#FFFFFF;" onclick="exportOne('v2','tejavu-logo-surface')">Export PNG</button>
+      <button class="export-btn" style="background:#141418;color:#FFFFFF;" data-export="v2:tejavu-logo-surface">Export PNG</button>
     </div>
   </div>
   <div>
     <div class="glow-pink"><div class="card" id="v3" style="background:#FFFFFF"></div></div>
     <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding:0 2px">
       <div class="card-label">White</div>
-      <button class="export-btn" style="background:#FFFFFF;color:#0D0B0E;" onclick="exportOne('v3','tejavu-logo-light')">Export PNG</button>
+      <button class="export-btn" style="background:#FFFFFF;color:#0D0B0E;" data-export="v3:tejavu-logo-light">Export PNG</button>
     </div>
   </div>
   <div>
     <div class="glow-teal"><div class="card" id="v4" style="background:#FF7A8F"></div></div>
     <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding:0 2px">
       <div class="card-label">Accent (pink)</div>
-      <button class="export-btn" style="background:#FF7A8F;color:#0D0B0E;" onclick="exportOne('v4','tejavu-logo-accent')">Export PNG</button>
+      <button class="export-btn" style="background:#FF7A8F;color:#0D0B0E;" data-export="v4:tejavu-logo-accent">Export PNG</button>
     </div>
   </div>
   <div>
     <div class="glow-pink"><div class="card" id="v5" style="background:#49D7E8"></div></div>
     <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding:0 2px">
       <div class="card-label">Support (teal)</div>
-      <button class="export-btn" style="background:#49D7E8;color:#0D0B0E;border-color:#FF7A8F;box-shadow:0 0 8px rgba(255,122,143,0.45);" onclick="exportOne('v5','tejavu-logo-teal')">Export PNG</button>
+      <button class="export-btn" style="background:#49D7E8;color:#0D0B0E;border-color:#FF7A8F;box-shadow:0 0 8px rgba(255,122,143,0.45);" data-export="v5:tejavu-logo-teal">Export PNG</button>
     </div>
   </div>
 </div>
 
-<button class="export-all" onclick="exportAll()">Export all 5 variations</button>
+<button class="export-all" data-export-all>Export all 5 variations</button>
 <div class="status" id="status"></div>
 
 <script type="module" src="/src/logo/logo.js"></script>

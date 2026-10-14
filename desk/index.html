@@ -37,7 +37,7 @@
     <div class="boot-status-l" id="bootStatusL">Initializing...</div>
     <div class="boot-status-r" id="bootStatusR">0%</div>
   </div>
-  <div class="boot-skip" onclick="skipBoot()">[ SKIP ]</div>
+  <div class="boot-skip" data-skip>[ SKIP ]</div>
 </div>
 
 <!-- ═══════════ ROOM [SEC-01] ═══════════ -->
@@ -66,7 +66,7 @@
         <div class="cab-drawers">
 
           <!-- Drawer 1: Skills [SEC-02-E01] -->
-          <div class="cab-drawer" data-registry="SEC-02-E01" onclick="openPanel('ledger')" tabindex="0" role="button" aria-label="Skills drawer" onkeydown="if(event.key==='Enter')openPanel('ledger')">
+          <div class="cab-drawer" data-registry="SEC-02-E01" data-open="ledger" tabindex="0" role="button" aria-label="Skills drawer" data-key>
             <div class="cab-drawer-inner">
               <div><div class="cab-dot" style="background:#a93e3e;box-shadow:0 0 4px #a93e3e;display:inline-block;"></div><span class="cab-label" style="color:#c06040;">SKILLS</span><div class="cab-hint">OPEN</div></div>
               <div class="cab-desc">DR / CR statement<br>Competencies + tools.</div>
@@ -75,7 +75,7 @@
           </div>
 
           <!-- Drawer 2: History [SEC-02-E02] -->
-          <div class="cab-drawer" data-registry="SEC-02-E02" onclick="openPanel('audit')" tabindex="0" role="button" aria-label="History drawer" onkeydown="if(event.key==='Enter')openPanel('audit')">
+          <div class="cab-drawer" data-registry="SEC-02-E02" data-open="audit" tabindex="0" role="button" aria-label="History drawer" data-key>
             <div class="cab-drawer-inner">
               <div><div class="cab-dot" style="background:#336699;box-shadow:0 0 4px #336699;display:inline-block;"></div><span class="cab-label" style="color:#4a80cc;">HISTORY</span><div class="cab-hint">OPEN</div></div>
               <div class="cab-desc">Independent audit report<br>Broseph Foundation role.</div>
@@ -84,7 +84,7 @@
           </div>
 
           <!-- Drawer 3: Contact [SEC-02-E03] -->
-          <div class="cab-drawer" data-registry="SEC-02-E03" onclick="openPanel('contact')" tabindex="0" role="button" aria-label="Contact drawer" onkeydown="if(event.key==='Enter')openPanel('contact')">
+          <div class="cab-drawer" data-registry="SEC-02-E03" data-open="contact" tabindex="0" role="button" aria-label="Contact drawer" data-key>
             <div class="cab-drawer-inner">
               <div><div class="cab-dot" style="background:#2f6b4a;box-shadow:0 0 4px #3fb950;display:inline-block;"></div><span class="cab-label" style="color:#5aaa70;">CONTACT</span><div class="cab-hint">OPEN</div></div>
               <div class="cab-desc">Pay to the order of Tejas<br>Cheque-style form.</div>
@@ -146,7 +146,7 @@
 
         <!-- Monitor [SEC-03-E02] — click triggers boot sequence -->
         <div style="display:flex;flex-direction:column;align-items:center;position:relative;z-index:10;margin-left:8px;">
-          <div class="monitor" data-registry="SEC-03-E02" onclick="bootSequence()" tabindex="0" role="button" aria-label="Computer — click to boot" onkeydown="if(event.key==='Enter')bootSequence()">
+          <div class="monitor" data-registry="SEC-03-E02" data-boot tabindex="0" role="button" aria-label="Computer — click to boot" data-key>
             <div class="mon-outer">
               <div class="mon-brand">TEJAS-98</div>
               <div class="mon-led"></div>
@@ -163,16 +163,16 @@
                 <div class="mon-os" id="monOS" data-registry="SEC-03-E07">
                   <div class="mon-os-hint">TEJAS-OS 98</div>
                   <div class="os-icons">
-                    <div class="os-icon" onclick="event.stopPropagation();openPanel('os')" tabindex="0" role="button" aria-label="Open Projects">
+                    <div class="os-icon" data-open="os" tabindex="0" role="button" aria-label="Open Projects">
                       <div class="os-icon-img">💾</div><div class="os-icon-label">Projects</div>
                     </div>
-                    <div class="os-icon" onclick="event.stopPropagation();openPanel('ledger')" tabindex="0" role="button" aria-label="Open Skills">
+                    <div class="os-icon" data-open="ledger" tabindex="0" role="button" aria-label="Open Skills">
                       <div class="os-icon-img">📊</div><div class="os-icon-label">Skills</div>
                     </div>
-                    <div class="os-icon" onclick="event.stopPropagation();openPanel('dossier')" tabindex="0" role="button" aria-label="Open About">
+                    <div class="os-icon" data-open="dossier" tabindex="0" role="button" aria-label="Open About">
                       <div class="os-icon-img">🗂️</div><div class="os-icon-label">About</div>
                     </div>
-                    <div class="os-icon" onclick="event.stopPropagation();openPanel('audit')" tabindex="0" role="button" aria-label="Open History">
+                    <div class="os-icon" data-open="audit" tabindex="0" role="button" aria-label="Open History">
                       <div class="os-icon-img">📋</div><div class="os-icon-label">History</div>
                     </div>
                   </div>
@@ -190,7 +190,7 @@
         </div>
 
         <!-- Dossier folder [SEC-03-E05] — opens About panel -->
-        <div class="dossier-desk" data-registry="SEC-03-E05" onclick="openPanel('dossier')" tabindex="0" role="button" aria-label="About — classified dossier" onkeydown="if(event.key==='Enter')openPanel('dossier')">
+        <div class="dossier-desk" data-registry="SEC-03-E05" data-open="dossier" tabindex="0" role="button" aria-label="About — classified dossier" data-key>
           <div class="folder-b">
             <div class="folder-lbl"><span>CLASSIFIED</span><span style="opacity:.75;">TVU-001</span><span style="font-size:3px;opacity:.5;">ABOUT</span></div>
           </div>
@@ -211,7 +211,7 @@
     </div><!-- /desk -->
 
     <!-- ══ CORK DETECTIVE BOARD [SEC-04] — Competitions & Public Speaking ══ -->
-    <div class="cork-board" data-registry="SEC-04" onclick="openPanel('board')" style="cursor:pointer;" tabindex="0" role="button" aria-label="Detective board — competitions and public speaking" onkeydown="if(event.key==='Enter')openPanel('board')">
+    <div class="cork-board" data-registry="SEC-04" data-open="board" style="cursor:pointer;" tabindex="0" role="button" aria-label="Detective board — competitions and public speaking" data-key>
       <div class="board-frame">
         <div class="board-cork" data-registry="SEC-04-E01">
           <div class="board-header"><div class="board-title">THE BOARD</div></div>
@@ -259,14 +259,14 @@
        exact same openPanel() calls as the desk objects — no separate logic. -->
   <div class="mobile-nav">
     <div class="mobile-nav-grid">
-      <div class="mobile-nav-btn cabinet-btn" onclick="openPanel('ledger')" tabindex="0" role="button" aria-label="Skills"><div class="mobile-nav-btn-icon">📊</div><div class="mobile-nav-btn-label">SKILLS</div></div>
-      <div class="mobile-nav-btn cabinet-btn" onclick="openPanel('audit')" tabindex="0" role="button" aria-label="History"><div class="mobile-nav-btn-icon">📋</div><div class="mobile-nav-btn-label">HISTORY</div></div>
-      <div class="mobile-nav-btn cabinet-btn" onclick="openPanel('contact')" tabindex="0" role="button" aria-label="Contact"><div class="mobile-nav-btn-icon">✉️</div><div class="mobile-nav-btn-label">CONTACT</div></div>
-      <div class="mobile-nav-btn" onclick="openPanel('os')" tabindex="0" role="button" aria-label="Projects"><div class="mobile-nav-btn-icon">💾</div><div class="mobile-nav-btn-label">PROJECTS</div></div>
-      <div class="mobile-nav-btn" onclick="openPanel('dossier')" tabindex="0" role="button" aria-label="About"><div class="mobile-nav-btn-icon">🗂️</div><div class="mobile-nav-btn-label">ABOUT</div></div>
-      <div class="mobile-nav-btn board-btn" onclick="openPanel('board')" tabindex="0" role="button" aria-label="The Board"><div class="mobile-nav-btn-icon">📌</div><div class="mobile-nav-btn-label">THE BOARD</div></div>
-      <div class="mobile-nav-btn git-btn" onclick="openPanel('git')" tabindex="0" role="button" aria-label="Timeline"><div class="mobile-nav-btn-icon">🌿</div><div class="mobile-nav-btn-label">TIMELINE</div></div>
-      <div class="mobile-nav-btn gallery-btn" onclick="openPanel('gallery')" tabindex="0" role="button" aria-label="Gallery"><div class="mobile-nav-btn-icon">🖼️</div><div class="mobile-nav-btn-label">GALLERY</div></div>
+      <div class="mobile-nav-btn cabinet-btn" data-open="ledger" tabindex="0" role="button" aria-label="Skills"><div class="mobile-nav-btn-icon">📊</div><div class="mobile-nav-btn-label">SKILLS</div></div>
+      <div class="mobile-nav-btn cabinet-btn" data-open="audit" tabindex="0" role="button" aria-label="History"><div class="mobile-nav-btn-icon">📋</div><div class="mobile-nav-btn-label">HISTORY</div></div>
+      <div class="mobile-nav-btn cabinet-btn" data-open="contact" tabindex="0" role="button" aria-label="Contact"><div class="mobile-nav-btn-icon">✉️</div><div class="mobile-nav-btn-label">CONTACT</div></div>
+      <div class="mobile-nav-btn" data-open="os" tabindex="0" role="button" aria-label="Projects"><div class="mobile-nav-btn-icon">💾</div><div class="mobile-nav-btn-label">PROJECTS</div></div>
+      <div class="mobile-nav-btn" data-open="dossier" tabindex="0" role="button" aria-label="About"><div class="mobile-nav-btn-icon">🗂️</div><div class="mobile-nav-btn-label">ABOUT</div></div>
+      <div class="mobile-nav-btn board-btn" data-open="board" tabindex="0" role="button" aria-label="The Board"><div class="mobile-nav-btn-icon">📌</div><div class="mobile-nav-btn-label">THE BOARD</div></div>
+      <div class="mobile-nav-btn git-btn" data-open="git" tabindex="0" role="button" aria-label="Timeline"><div class="mobile-nav-btn-icon">🌿</div><div class="mobile-nav-btn-label">TIMELINE</div></div>
+      <div class="mobile-nav-btn gallery-btn" data-open="gallery" tabindex="0" role="button" aria-label="Gallery"><div class="mobile-nav-btn-icon">🖼️</div><div class="mobile-nav-btn-label">GALLERY</div></div>
     </div>
   </div>
 </div><!-- /room -->
@@ -276,11 +276,11 @@
 
 <!-- PROJECTS [SEC-07] — OS window style -->
 <div class="panel panel-os" id="panel-os" data-registry="SEC-07">
-  <button class="p-close" onclick="closePanel('os')">✕ ESC</button>
+  <button class="p-close" data-close="os">✕ ESC</button>
   <div class="p-inner">
     <div class="os-window">
       <div class="os-titlebar">
-        <div class="os-winbtn" onclick="closePanel('os')">✕</div>
+        <div class="os-winbtn" data-close="os">✕</div>
         <div class="os-winbtn">□</div>
         <div class="os-winbtn">−</div>
         <div class="os-wintitle">Projects.exe — Tejas Industries</div>
@@ -341,7 +341,7 @@
 
 <!-- SKILLS / LEDGER [SEC-08] -->
 <div class="panel panel-ledger" id="panel-ledger" data-registry="SEC-08">
-  <button class="p-close" onclick="closePanel('ledger')" style="color:#2b231c;background:rgba(241,235,216,.95);border-color:#2b231c;text-shadow:none;">✕ ESC</button>
+  <button class="p-close" data-close="ledger" style="color:#2b231c;background:rgba(241,235,216,.95);border-color:#2b231c;text-shadow:none;">✕ ESC</button>
   <div class="p-inner led-inner">
     <div class="led-ey">Entry 02 · Statement of Account</div>
     <div class="led-h">Skills Ledger</div>
@@ -380,7 +380,7 @@
 
 <!-- HISTORY / AUDIT [SEC-09] -->
 <div class="panel panel-audit" id="panel-audit" data-registry="SEC-09">
-  <button class="p-close" onclick="closePanel('audit')" style="color:#003366;background:#f8f8f6;border-color:#003366;text-shadow:none;">✕ ESC</button>
+  <button class="p-close" data-close="audit" style="color:#003366;background:#f8f8f6;border-color:#003366;text-shadow:none;">✕ ESC</button>
   <div class="p-inner">
     <div class="audit-top">
       <div class="a-kicker">Entry 04 · Independent Assessment · Confidential</div>
@@ -402,7 +402,7 @@
 
 <!-- ABOUT / DOSSIER [SEC-10] -->
 <div class="panel panel-dossier" id="panel-dossier" data-registry="SEC-10">
-  <button class="p-close" onclick="closePanel('dossier')">✕ ESC</button>
+  <button class="p-close" data-close="dossier">✕ ESC</button>
   <div class="p-inner">
     <div class="d-ey">Entry 01 / CLASSIFIED · REF: TVU-001</div>
     <div class="d-h">Subject File — About</div>
@@ -411,7 +411,7 @@
       <div class="d-body">
         <div class="d-stamp"><div class="d-st">ACTIVE</div></div>
 
-        <p class="d-bio">Most people this age have internships. Subject has a full-time job, 20,000 volunteers, and a degree to finish — all at once. ACCA papers remaining: <span class="d-redact" data-registry="SEC-10-EGG01" onclick="this.classList.toggle('rv')" role="button" tabindex="0" aria-label="Tap to declassify" onkeydown="if(event.key==='Enter')this.classList.toggle('rv')"><span class="d-redact-bar">████████████████</span><span class="d-redact-text">SBL, SBR, APM, AAA</span></span>, alongside a B.Com in International Accountancy &amp; Finance and a role at Broseph Foundation as Community Impact &amp; Finance Fellow — officially. Unofficially, whatever the day requires.</p>
+        <p class="d-bio">Most people this age have internships. Subject has a full-time job, 20,000 volunteers, and a degree to finish — all at once. ACCA papers remaining: <span class="d-redact" data-registry="SEC-10-EGG01" data-toggle="rv" role="button" tabindex="0" aria-label="Tap to declassify" data-key><span class="d-redact-bar">████████████████</span><span class="d-redact-text">SBL, SBR, APM, AAA</span></span>, alongside a B.Com in International Accountancy &amp; Finance and a role at Broseph Foundation as Community Impact &amp; Finance Fellow — officially. Unofficially, whatever the day requires.</p>
         <p class="d-bio" style="margin-top:10px;">The Broseph Foundation role covers more ground than any single job title should: running point on 20,000+ volunteers across 19 chapters, managing petty cash against a ₹10,000 monthly budget, drafting legal complaints for FIR filings, teaching kids who reached 8th grade without knowing vowels, building the RTI Master Tracker from a blank spreadsheet, and doing the reminder calls that actually get people to show up.</p>
         <p class="d-bio" style="margin-top:10px;">Prefers problems that are analytical and context-heavy — the kind you can't shortcut. Growth over comfort. Autonomy over instructions. Bad management burns subject out faster than the work itself ever could. Fluent in 5 languages, dual-boots 2 operating systems, automates whatever gets repetitive.</p>
         <p class="d-bio" style="margin-top:10px;">Outside the spreadsheets: has walked off a stage to 300 people who wouldn't stop cheering, for a pitch judges said had zero commercial value. Reading a room is reading a room, whether it's twenty thousand volunteers or three hundred strangers waiting for a punchline. <span class="flag">Full account on the board →</span></p>
@@ -439,10 +439,10 @@
 
         <div class="d-jumps" data-registry="SEC-10-E03">
           <span class="d-jumps-label">Full account:</span>
-          <a onclick="switchPanel('dossier','audit')">Work &amp; education →</a>
-          <a onclick="switchPanel('dossier','os')">Projects →</a>
-          <a onclick="switchPanel('dossier','board')">Wins &amp; losses →</a>
-          <a onclick="switchPanel('dossier','ledger')">Skills →</a>
+          <a data-switch="dossier:audit">Work &amp; education →</a>
+          <a data-switch="dossier:os">Projects →</a>
+          <a data-switch="dossier:board">Wins &amp; losses →</a>
+          <a data-switch="dossier:ledger">Skills →</a>
         </div>
       </div>
     </div>
@@ -451,7 +451,7 @@
 
 <!-- CONTACT / CHEQUE [SEC-11] -->
 <div class="panel panel-contact" id="panel-contact" data-registry="SEC-11">
-  <button class="p-close" onclick="closePanel('contact')" style="color:#2b231c;background:rgba(241,235,216,.95);border-color:#2b231c;text-shadow:none;">✕ ESC</button>
+  <button class="p-close" data-close="contact" style="color:#2b231c;background:rgba(241,235,216,.95);border-color:#2b231c;text-shadow:none;">✕ ESC</button>
   <div class="p-inner cq-inner">
     <div class="cq-ey">Entry 07</div>
     <div class="cq-h">Contact</div>
@@ -477,7 +477,7 @@
 
 <!-- THE BOARD — expanded [SEC-12] -->
 <div class="panel panel-board" id="panel-board" data-registry="SEC-12">
-  <button class="p-close" onclick="closePanel('board')">✕ ESC</button>
+  <button class="p-close" data-close="board">✕ ESC</button>
   <div class="board-expand-inner">
     <div class="be-title">THE BOARD</div>
     <div class="be-sub">[ CLICK A NOTE · STRINGS SHOW CONNECTIONS ]</div>
@@ -485,39 +485,39 @@
       <svg class="big-strings-svg" id="bigStrings"></svg>
 
       <!-- Expanded notes [SEC-12-E01] — each opens a detail card via openNoteDetail() -->
-      <div class="pin-note" style="left:40px;top:40px;" id="bn-humshakals" onclick="openNoteDetail('humshakals')">
+      <div class="pin-note" style="left:40px;top:40px;" id="bn-humshakals" data-note="humshakals">
         <div class="pushpin" style="--pin-c:#cc2200;--pin-hi:#ff6666;"></div>
         <div class="nc yellow" style="width:180px;"><div class="nc-title">HUMSHAKALS — PRACHAARA 2.0</div><div class="nc-sub">Feb 2026 · Assigned Pushpa + vehicle cleaning. Built a product line (Thaggede Le: brush, truck polish, "enemy's blood" interior cleaner) and ran twelve minutes of standup over the limit in front of 300+.</div></div>
       </div>
-      <div class="pin-note" style="left:280px;top:26px;" id="bn-dean" onclick="openNoteDetail('dean')">
+      <div class="pin-note" style="left:280px;top:26px;" id="bn-dean" data-note="dean">
         <div class="pushpin" style="--pin-c:#aa4400;--pin-hi:#f78166;"></div>
         <div class="nc orange" style="width:150px;"><div class="nc-title">THE CALLBACK</div><div class="nc-sub">Mid-bit, someone shouted a guess from the crowd. Fired back a line without knowing it was the associate dean. The room realised before he did.</div></div>
       </div>
-      <div class="pin-note" style="left:490px;top:50px;" id="bn-verdict" onclick="openNoteDetail('verdict')">
+      <div class="pin-note" style="left:490px;top:50px;" id="bn-verdict" data-note="verdict">
         <div class="pushpin" style="--pin-c:#1a3a8a;--pin-hi:#58a6ff;"></div>
         <div class="nc blue" style="width:150px;"><div class="nc-title">THE VERDICT</div><div class="nc-sub">Asked the crowd if they'd want the product. Every hand went up. Judges' note: "zero commercial value." Didn't place.</div></div>
       </div>
-      <div class="pin-note" style="left:700px;top:32px;" id="bn-prachaara" onclick="openNoteDetail('prachaara')">
+      <div class="pin-note" style="left:700px;top:32px;" id="bn-prachaara" data-note="prachaara">
         <div class="pushpin" style="--pin-c:#6a1a8a;--pin-hi:#c070ff;"></div>
         <div class="nc pink" style="width:160px;"><div class="nc-title">PRACHAARA</div><div class="nc-sub">Dec 2024 · Jackie Chan, beauty product, AI-generated deck admitted live on stage. Closed with a dance and confetti. Department still brought it up days later.</div></div>
       </div>
-      <div class="pin-note" style="left:60px;top:220px;" id="bn-crescere" onclick="openNoteDetail('crescere')">
+      <div class="pin-note" style="left:60px;top:220px;" id="bn-crescere" data-note="crescere">
         <div class="pushpin" style="--pin-c:#1a6a2a;--pin-hi:#3fb950;"></div>
         <div class="nc green" style="width:160px;"><div class="nc-title">CRESCERE</div><div class="nc-sub">Dressed as Squid Game guards to pull people into the event — then competed, drew a failing company, and reached the finals with the recovery plan.</div></div>
       </div>
-      <div class="pin-note" style="left:300px;top:230px;" id="bn-civic" onclick="openNoteDetail('civic')">
+      <div class="pin-note" style="left:300px;top:230px;" id="bn-civic" data-note="civic">
         <div class="pushpin" style="--pin-c:#aa8800;--pin-hi:#ffcc00;"></div>
         <div class="nc white" style="width:160px;"><div class="nc-title">CIVIC DRIVE</div><div class="nc-sub">Sep 2025 · Organised a Christ University × Broseph Foundation collab. 20+ participants, 10+ bags of garbage, 60+ issues logged on BBMP Sahaya.</div></div>
       </div>
-      <div class="pin-note" style="left:530px;top:220px;" id="bn-broseph" onclick="openNoteDetail('broseph')">
+      <div class="pin-note" style="left:530px;top:220px;" id="bn-broseph" data-note="broseph">
         <div class="pushpin" style="--pin-c:#1a3a8a;--pin-hi:#58a6ff;"></div>
         <div class="nc blue" style="width:150px;"><div class="nc-title">SAME SKILL, DIFFERENT ROOM</div><div class="nc-sub">Reading a room is reading a room — 20,000 volunteers or 300 strangers waiting on a punchline. Same instinct, different stakes.</div></div>
       </div>
-      <div class="pin-note" style="left:720px;top:220px;" id="bn-record" onclick="openNoteDetail('record')">
+      <div class="pin-note" style="left:720px;top:220px;" id="bn-record" data-note="record">
         <div class="pushpin" style="--pin-c:#cc2200;--pin-hi:#ff6666;"></div>
         <div class="nc yellow" style="width:140px;"><div class="nc-title">0-FOR-3</div><div class="nc-sub">Three finals. Zero wins. Genuinely doesn't mind — people remember energy over slides.</div></div>
       </div>
-      <div class="pin-note" style="left:380px;top:380px;" id="bn-newsletter" onclick="openNoteDetail('newsletter')">
+      <div class="pin-note" style="left:380px;top:380px;" id="bn-newsletter" data-note="newsletter">
         <div class="pushpin" style="--pin-c:#6a1a8a;--pin-hi:#c070ff;"></div>
         <div class="nc pink" style="width:150px;"><div class="nc-title">NEWSLETTER</div><div class="nc-sub">The unfiltered version of all of this lives on Beehiiv. Sign up →</div></div>
       </div>
@@ -526,9 +526,9 @@
   </div>
 
   <!-- Note detail overlay [SEC-12-E02] -->
-  <div class="note-detail" id="noteDetail" data-registry="SEC-12-E02" onclick="closeNoteDetail()">
-    <div class="note-detail-card" onclick="event.stopPropagation()">
-      <button class="note-detail-close" onclick="closeNoteDetail()">✕</button>
+  <div class="note-detail" id="noteDetail" data-registry="SEC-12-E02" data-note-close>
+    <div class="note-detail-card" data-stop>
+      <button class="note-detail-close" data-note-close>✕</button>
       <div class="nd-meta" id="ndMeta"></div>
       <div class="nd-title" id="ndTitle"></div>
       <div class="nd-body" id="ndBody"></div>
@@ -544,29 +544,29 @@
     <div class="desktop-wallpaper">
       <div class="desktop-icons">
 
-        <div class="desktop-icon" onclick="switchPanel('desktop','os')" tabindex="0" role="button">
+        <div class="desktop-icon" data-switch="desktop:os" tabindex="0" role="button">
           <div class="di-img">🗂️</div>
           <div class="di-label">Projects.jira</div>
         </div>
 
-        <div class="desktop-icon" onclick="switchPanel('desktop','git')" tabindex="0" role="button">
+        <div class="desktop-icon" data-switch="desktop:git" tabindex="0" role="button">
           <div class="di-img">🌿</div>
           <div class="di-label">Timeline.git</div>
         </div>
 
-        <div class="desktop-icon" onclick="switchPanel('desktop','gallery')" tabindex="0" role="button">
+        <div class="desktop-icon" data-switch="desktop:gallery" tabindex="0" role="button">
           <div class="di-img">🖼️</div>
           <div class="di-label">Gallery.img</div>
         </div>
 
-        <div class="desktop-icon" onclick="switchPanel('desktop','contact')" tabindex="0" role="button">
+        <div class="desktop-icon" data-switch="desktop:contact" tabindex="0" role="button">
           <div class="di-img">✉️</div>
           <div class="di-label">Contact.mail</div>
         </div>
 
       </div>
       <div class="desktop-taskbar">
-        <div class="dt-start" onclick="closePanel('desktop')">
+        <div class="dt-start" data-close="desktop">
           <span class="dt-start-logo">⊞</span>
           <span class="dt-start-label">TEJAS-OS</span>
         </div>
@@ -584,7 +584,7 @@
        all actual detail lives in existing panels (DEC-003).
   ═══════════════════════════════════════════════════ -->
   <div class="panel panel-git" id="panel-git" data-registry="SEC-14">
-    <button class="p-close" onclick="closePanel('git')">✕ ESC</button>
+    <button class="p-close" data-close="git">✕ ESC</button>
     <div class="p-inner">
       <div class="git-header">
         <div class="git-header-icon">🌿</div>
@@ -599,11 +599,11 @@
           <div class="gt-trunk-seg"></div>
           <div class="gt-year-node"><div class="gt-year-dot"></div><div class="gt-year-label">2023</div></div>
           <div class="gt-commits">
-            <div class="gt-commit" onclick="treeNodeClick('node-bcom')" tabindex="0" role="button">
+            <div class="gt-commit" data-node="node-bcom" tabindex="0" role="button">
               <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--edu"></div>
               <div class="gt-commit-card"><span class="gt-tag gt-tag--edu">EDU</span><span class="gt-commit-title">B.Com starts — Christ University</span><span class="gt-commit-body">International Accountancy &amp; Finance. ACCA exemptions begin.</span></div>
             </div>
-            <div class="gt-commit" onclick="treeNodeClick('node-broseph-start')" tabindex="0" role="button">
+            <div class="gt-commit" data-node="node-broseph-start" tabindex="0" role="button">
               <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--work"></div>
               <div class="gt-commit-card"><span class="gt-tag gt-tag--work">WORK</span><span class="gt-commit-title">Joins Broseph Foundation</span><span class="gt-commit-body">Volunteers first, then coordination across chapters.</span></div>
             </div>
@@ -614,11 +614,11 @@
           <div class="gt-trunk-seg"></div>
           <div class="gt-year-node"><div class="gt-year-dot"></div><div class="gt-year-label">2024</div></div>
           <div class="gt-commits">
-            <div class="gt-commit" onclick="treeNodeClick('node-retention')" tabindex="0" role="button">
+            <div class="gt-commit" data-node="node-retention" tabindex="0" role="button">
               <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--proj"></div>
               <div class="gt-commit-card"><span class="gt-tag gt-tag--proj">PROJECT</span><span class="gt-commit-title">NGO Volunteer Retention Study</span><span class="gt-commit-body">Oct 2024 · Interviewed volunteers, leavers, founder. Recommendations adopted.</span></div>
             </div>
-            <div class="gt-commit" onclick="treeNodeClick('node-prachaara')" tabindex="0" role="button">
+            <div class="gt-commit" data-node="node-prachaara" tabindex="0" role="button">
               <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--comp"></div>
               <div class="gt-commit-card"><span class="gt-tag gt-tag--comp">COMP</span><span class="gt-commit-title">Prachaara — Finals</span><span class="gt-commit-body">Dec 2024 · Jackie Chan, a Thai beauty kit, AI financials. 200+ in the room.</span></div>
             </div>
@@ -629,27 +629,27 @@
           <div class="gt-trunk-seg"></div>
           <div class="gt-year-node"><div class="gt-year-dot"></div><div class="gt-year-label">2025</div></div>
           <div class="gt-commits">
-            <div class="gt-commit" onclick="treeNodeClick('node-thakurs')" tabindex="0" role="button">
+            <div class="gt-commit" data-node="node-thakurs" tabindex="0" role="button">
               <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--proj"></div>
               <div class="gt-commit-card"><span class="gt-tag gt-tag--proj">PROJECT</span><span class="gt-commit-title">Project Thakurs</span><span class="gt-commit-body">Feb 2025 · Full campaign for a disappearing snack. Grade 18/20.</span></div>
             </div>
-            <div class="gt-commit" onclick="treeNodeClick('node-venture')" tabindex="0" role="button">
+            <div class="gt-commit" data-node="node-venture" tabindex="0" role="button">
               <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--proj"></div>
               <div class="gt-commit-card"><span class="gt-tag gt-tag--proj">PROJECT</span><span class="gt-commit-title">Campus Venture</span><span class="gt-commit-body">Mar 2025 · 240 sales, ₹7,500–8,000 revenue. Inventory tracker built day one.</span></div>
             </div>
-            <div class="gt-commit" onclick="treeNodeClick('node-crescere')" tabindex="0" role="button">
+            <div class="gt-commit" data-node="node-crescere" tabindex="0" role="button">
               <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--comp"></div>
               <div class="gt-commit-card"><span class="gt-tag gt-tag--comp">COMP</span><span class="gt-commit-title">CRESCERE — Finals</span><span class="gt-commit-body">Squid Game promo + business recovery case. Won Round 1.</span></div>
             </div>
-            <div class="gt-commit" onclick="treeNodeClick('node-history')" tabindex="0" role="button">
+            <div class="gt-commit" data-node="node-history" tabindex="0" role="button">
               <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--work"></div>
               <div class="gt-commit-card"><span class="gt-tag gt-tag--work">WORK</span><span class="gt-commit-title">Community Impact &amp; Finance Fellow</span><span class="gt-commit-body">Jul 2025 · Official role. 20,000+ volunteers, finance, legal, Shikshana Vedike.</span></div>
             </div>
-            <div class="gt-commit" onclick="treeNodeClick('node-civic')" tabindex="0" role="button">
+            <div class="gt-commit" data-node="node-civic" tabindex="0" role="button">
               <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--comm"></div>
               <div class="gt-commit-card"><span class="gt-tag gt-tag--comm">COMMUNITY</span><span class="gt-commit-title">Civic Drive</span><span class="gt-commit-body">Sep 2025 · 20+ participants, 60+ civic issues logged on BBMP Sahaya.</span></div>
             </div>
-            <div class="gt-commit" onclick="treeNodeClick('node-rti')" tabindex="0" role="button">
+            <div class="gt-commit" data-node="node-rti" tabindex="0" role="button">
               <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--proj"></div>
               <div class="gt-commit-card"><span class="gt-tag gt-tag--proj">PROJECT</span><span class="gt-commit-title">RTI Master Tracker</span><span class="gt-commit-body">Built from blank sheet. Filing, deadlines, live dashboard. Still in daily use.</span></div>
             </div>
@@ -660,11 +660,11 @@
           <div class="gt-trunk-seg"></div>
           <div class="gt-year-node"><div class="gt-year-dot gt-year-dot--current"></div><div class="gt-year-label gt-year-label--current">2026</div></div>
           <div class="gt-commits">
-            <div class="gt-commit" onclick="treeNodeClick('node-humshakals')" tabindex="0" role="button">
+            <div class="gt-commit" data-node="node-humshakals" tabindex="0" role="button">
               <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--comp"></div>
               <div class="gt-commit-card"><span class="gt-tag gt-tag--comp">COMP</span><span class="gt-commit-title">Humshakals — Prachaara 2.0</span><span class="gt-commit-body">Feb 2026 · Solo standup pitch. 300+ crowd. 12 min over time. Zero regrets.</span></div>
             </div>
-            <div class="gt-commit gt-commit--head" onclick="treeNodeClick('node-bcom-grad')" tabindex="0" role="button">
+            <div class="gt-commit gt-commit--head" data-node="node-bcom-grad" tabindex="0" role="button">
               <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--edu gt-dot--head"></div>
               <div class="gt-commit-card"><span class="gt-tag gt-tag--edu">EDU</span><span class="gt-commit-title">B.Com graduation · ACCA continues</span><span class="gt-commit-body">Graduating Christ University. SBL, SBR, APM, AAA in progress → 2028.</span></div>
             </div>
@@ -687,7 +687,7 @@
        or audit panel (DEC-003 — no content duplication).
   ═══════════════════════════════════════════════════ -->
   <div class="panel panel-gallery" id="panel-gallery" data-registry="SEC-15">
-    <button class="p-close" onclick="closePanel('gallery')">✕ ESC</button>
+    <button class="p-close" data-close="gallery">✕ ESC</button>
     <div class="p-inner">
       <div class="gallery-header">
         <div class="gallery-title">Gallery.img</div>
@@ -699,42 +699,42 @@
           <div class="gc-img-slot">📷</div>
           <div class="gc-caption">Humshakals — Prachaara 2.0</div>
           <div class="gc-meta">Feb 2026</div>
-          <button class="gc-link" onclick="switchPanel('gallery','board');setTimeout(()=>openNoteDetail('humshakals'),400)">→ Open on board</button>
+          <button class="gc-link" data-switch="gallery:board" data-note-after="humshakals">→ Open on board</button>
         </div>
 
         <div class="gallery-card gallery-card--placeholder">
           <div class="gc-img-slot">📷</div>
           <div class="gc-caption">Prachaara — Finals</div>
           <div class="gc-meta">Dec 2024</div>
-          <button class="gc-link" onclick="switchPanel('gallery','board');setTimeout(()=>openNoteDetail('prachaara'),400)">→ Open on board</button>
+          <button class="gc-link" data-switch="gallery:board" data-note-after="prachaara">→ Open on board</button>
         </div>
 
         <div class="gallery-card gallery-card--placeholder">
           <div class="gc-img-slot">📷</div>
           <div class="gc-caption">Civic Drive — BBMP Sahaya</div>
           <div class="gc-meta">Sep 2025</div>
-          <button class="gc-link" onclick="switchPanel('gallery','board');setTimeout(()=>openNoteDetail('civic'),400)">→ Open on board</button>
+          <button class="gc-link" data-switch="gallery:board" data-note-after="civic">→ Open on board</button>
         </div>
 
         <div class="gallery-card gallery-card--placeholder">
           <div class="gc-img-slot">📷</div>
           <div class="gc-caption">CRESCERE — Squid Game promo</div>
           <div class="gc-meta">2025</div>
-          <button class="gc-link" onclick="switchPanel('gallery','board');setTimeout(()=>openNoteDetail('crescere'),400)">→ Open on board</button>
+          <button class="gc-link" data-switch="gallery:board" data-note-after="crescere">→ Open on board</button>
         </div>
 
         <div class="gallery-card gallery-card--placeholder">
           <div class="gc-img-slot">📷</div>
           <div class="gc-caption">Broseph Foundation — Field drives</div>
           <div class="gc-meta">2025–2026</div>
-          <button class="gc-link" onclick="switchPanel('gallery','audit')">→ Open audit report</button>
+          <button class="gc-link" data-switch="gallery:audit">→ Open audit report</button>
         </div>
 
         <div class="gallery-card gallery-card--placeholder">
           <div class="gc-img-slot">📷</div>
           <div class="gc-caption">Shikshana Vedike — Teaching</div>
           <div class="gc-meta">2025–2026</div>
-          <button class="gc-link" onclick="switchPanel('gallery','audit')">→ Open audit report</button>
+          <button class="gc-link" data-switch="gallery:audit">→ Open audit report</button>
         </div>
 
       </div>

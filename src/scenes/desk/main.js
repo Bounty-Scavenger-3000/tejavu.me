@@ -5,6 +5,7 @@
 // A new scene follows the same shape: build its environment, create the panel system
 // with its own hooks, and import only the panels it uses.
 
+import { bindActions } from '../../core/engine/actions.js';
 import { createPanelSystem } from '../../core/engine/panel-system.js';
 import { createBoot } from '../../core/engine/boot.js';
 import { startClock } from '../../core/engine/clock.js';
@@ -64,15 +65,19 @@ initBoardPreview();       // [SEC-04-E01]
 startClock('osTime');     // [SEC-03-E07] clock on the in-scene monitor
 startClock('desktopClock'); // [SEC-13] taskbar clock
 
-// The markup still uses inline onclick handlers, so these stay global for now.
-// Moving them to data attributes with delegated listeners is the next step.
-Object.assign(window, {
-  openPanel: panels.open,
-  closePanel: panels.close,
-  switchPanel: panels.switchTo,
-  bootSequence: boot.start,
-  skipBoot: boot.skip,
-  openNoteDetail: board.openNote,
-  closeNoteDetail: board.closeNote,
-  treeNodeClick: timeline,
+// Clicks (and Enter on [data-key] elements) are routed by the data-* attributes in desk/index.html.
+bindActions({
+  open: id => panels.open(id),
+  close: id => panels.close(id),
+  switch: (v, el) => {
+    panels.switchTo(...v.split(':'));
+    if (el.dataset.noteAfter) setTimeout(() => board.openNote(el.dataset.noteAfter), 400);
+  },
+  note: id => board.openNote(id),
+  'note-close': () => board.closeNote(),
+  node: id => timeline(id),
+  boot: () => boot.start(),
+  skip: () => boot.skip(),
+  toggle: (cls, el) => el.classList.toggle(cls),
+  stop: () => {},
 });

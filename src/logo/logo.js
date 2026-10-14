@@ -1,4 +1,5 @@
 // Logo export page (tejavu.me/logo). html2canvas comes from the CDN <script> in the page head.
+import { bindActions } from '../core/engine/actions.js';
 /*
   v1 — Dark #0D0B0E     → text #D9DEE5, gradient underline pink→teal
   v2 — Surface #141418  → text #D9DEE5, gradient underline pink→teal
@@ -117,5 +118,7 @@ function setStatus(msg) {
   document.getElementById('status').textContent = msg;
 }
 
-// The buttons still use inline onclick handlers, so these two stay global.
-Object.assign(window, { exportOne, exportAll });
+bindActions({
+  export: v => exportOne(...v.split(':')),
+  'export-all': () => exportAll(),
+});
