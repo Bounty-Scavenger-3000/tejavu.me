@@ -16,7 +16,7 @@ Personal portfolio at [tejavu.me](https://tejavu.me). A static multi-page site b
 ```
 src/
   core/        shared by every scene
-    engine/      panel system, boot sequence, clock, strings
+    engine/      panel system, boot sequence, clock, strings, click actions
     panels/      board, timeline, contact
     styles/      panel styles, boot screen, brand tokens, Universa font
     fonts/
