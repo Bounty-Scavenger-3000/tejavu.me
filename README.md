@@ -44,10 +44,10 @@ npm run preview   # serve dist/ locally
 | `dev` | Working branch. A push runs the build as a check and deploys nothing. |
 | `main` | Production. A push builds and deploys `dist/` to GitHub Pages through GitHub Actions. |
 
-Work on `dev`, merge into `main` to deploy. After merging, sync `dev` back to `main`:
+Work on `dev`, merge into `main` to deploy. `main` is never edited directly, so after a merge both branches sit on the same commit:
 
 ```
-git checkout dev && git reset --hard origin/main && git push --force origin dev
+git checkout main && git merge dev && git push origin main && git checkout dev
 ```
 
 ## Adding a scene
