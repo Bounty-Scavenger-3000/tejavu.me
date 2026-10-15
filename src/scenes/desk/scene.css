@@ -1,9 +1,9 @@
 /* Desk scene: reset, room, stage, wall shelf, lamp, cabinet, desk objects, board preview, hotspot tags. */
 /* ═══════════════════════════════════════════════
    TEJAS PORTFOLIO v4 — THE DESK
-   style.css — all styles for the site
-   See docs/architecture.md for CSS block order and naming conventions.
-   See docs/element-registry.md for SEC-XX ID references.
+   scene.css — the desk scene's styles
+   See the Architecture doc (Obsidian vault) for CSS block order and naming conventions.
+   See the Element Registry doc (Obsidian vault) for SEC-XX ID references.
    ═══════════════════════════════════════════════ */
 
 *{box-sizing:border-box;margin:0;padding:0;}
