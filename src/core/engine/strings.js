@@ -1,6 +1,6 @@
 // Draws SVG "strings" (straight lines) between pairs of elements.
 // Positions come from getBoundingClientRect() after layout, so they are always accurate.
-// Used by the expanded board [SEC-12] and the scene board preview [SEC-04-E01].
+// Used by the expanded board and the scene board preview.
 
 export function drawStrings({ svg, container, pairs, style }) {
   // svg        the <svg> to draw into (cleared first)

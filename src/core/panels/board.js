@@ -1,5 +1,5 @@
-// [SEC-12] THE BOARD panel: connection strings, the note detail overlay [SEC-12-E02]
-// and optional embeds inside that overlay [SEC-12-E03].
+// THE BOARD panel: connection strings, the note detail overlay
+// and optional embeds inside that overlay.
 //
 // To add a connection: add the key pair to `connections` (list each pair once; both
 // directions are deduplicated). Then add a matching #bn-<key> note inside #bigBoard.
@@ -69,7 +69,7 @@ export function createBoard({ connections, noteDetails, embeds = {} }) {
     box.appendChild(attr);
   }
 
-  // [SEC-12-E03] Shows the embed for notes that have one and hides the photo slot.
+  // Shows the embed for notes that have one and hides the photo slot.
   // Third-party scripts load once, the first time that note opens.
   function showEmbed(key) {
     const box = $('ndEmbed');

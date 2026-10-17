@@ -22,7 +22,7 @@ export const boot = {
   {t:'Loading ACCA_PAPERS.EXE ... 9 done, 4 to go (SBL SBR APM AAA).',c:''},
   {t:'Loading RTI_TRACKER.EXE ... 20,000 volunteers indexed.',c:''},
   {t:'',c:''},
-  {t:'ALERT: Subject funnier in meetings than strictly professional.',c:'er'}, // [SEC-00-EGG01]
+  {t:'ALERT: Subject funnier in meetings than strictly professional.',c:'er'},
   {t:'',c:''},
   {t:'Starting TEJAS-OS 98...',c:''},
 ],

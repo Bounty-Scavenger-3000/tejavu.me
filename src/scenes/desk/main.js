@@ -18,10 +18,10 @@ import { panelIds, connections, embeds, timelineNodes } from './data.js';
 
 const $ = id => document.getElementById(id);
 
-// [SEC-12] board panel
+// board panel
 const board = createBoard({ connections, noteDetails, embeds });
 
-// [SEC-00] boot. `panels` is declared below and only used when events fire.
+// boot. `panels` is declared below and only used when events fire.
 const boot = createBoot({
   messages: bootContent.messages,
   phrases: bootContent.phrases,
@@ -37,7 +37,7 @@ const boot = createBoot({
   onAlreadyBooted: () => panels.open('desktop'),
 });
 
-// [COMP-01] panels, with the desk's hooks
+// panels, with the desk's hooks
 const panels = createPanelSystem({
   ids: panelIds,
   displayFor: id => (id === 'desktop' ? 'flex' : 'block'),
@@ -48,7 +48,7 @@ const panels = createPanelSystem({
   onAllClosed: id => { if (id !== 'desktop') $('room').style.opacity = '1'; },
 });
 
-// [SEC-14] timeline
+// timeline
 const timeline = createTimeline({ nodes: timelineNodes, panels, openNote: board.openNote });
 
 // ESC closes the note overlay first, then open panels, then skips a running boot.
@@ -60,10 +60,10 @@ document.addEventListener('keydown', e => {
   if (boot.isRunning()) boot.skip();
 });
 
-initContact();            // [SEC-11-E01]
-initBoardPreview();       // [SEC-04-E01]
-startClock('osTime');     // [SEC-03-E07] clock on the in-scene monitor
-startClock('desktopClock'); // [SEC-13] taskbar clock
+initContact();
+initBoardPreview();
+startClock('osTime');     // clock on the in-scene monitor
+startClock('desktopClock'); // taskbar clock
 
 // Clicks (and Enter on [data-key] elements) are routed by the data-* attributes in desk/index.html.
 bindActions({

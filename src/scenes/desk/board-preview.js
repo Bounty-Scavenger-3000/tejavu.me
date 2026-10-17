@@ -1,4 +1,4 @@
-// [SEC-04-E01] Scene board preview: the small corkboard on the desk wall, drawn as
+// Scene board preview: the small corkboard on the desk wall, drawn as
 // simplified hub-and-spoke strings (everything links back to the 0-for-3 note).
 
 import { drawStrings } from '../../core/engine/strings.js';

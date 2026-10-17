@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<!-- ═══════════ BOOT SCREEN [SEC-00] ═══════════ -->
+<!-- ═══════════ BOOT SCREEN ═══════════ -->
 <div id="boot-screen" data-registry="SEC-00">
   <div class="boot-logo">
     <div class="boot-logo-art" id="bootLogoArt">    ___  ___  ___  ___  ___
@@ -30,7 +30,7 @@
   <div class="boot-skip" data-skip>[ SKIP ]</div>
 </div>
 
-<!-- ═══════════ ROOM [SEC-01] ═══════════ -->
+<!-- ═══════════ ROOM ═══════════ -->
 <div id="room" data-registry="SEC-01">
   <div class="wall-glow"></div>
   <div class="lamp-cone"></div>
@@ -48,14 +48,14 @@
 
   <div class="stage" data-registry="SEC-01">
 
-    <!-- ══ METAL FILE CABINET [SEC-02] ══ -->
+    <!-- ══ METAL FILE CABINET ══ -->
     <div class="cabinet" data-registry="SEC-02">
       <div class="cab-side-label">FILE CABINET</div>
       <div class="cab-body">
         <div class="cab-brand">TEJAS INDUSTRIES</div>
         <div class="cab-drawers">
 
-          <!-- Drawer 1: Skills [SEC-02-E01] -->
+          <!-- Drawer 1: Skills -->
           <div class="cab-drawer" data-registry="SEC-02-E01" data-open="ledger" tabindex="0" role="button" aria-label="Skills drawer" data-key>
             <div class="cab-drawer-inner">
               <div><div class="cab-dot" style="background:#a93e3e;box-shadow:0 0 4px #a93e3e;display:inline-block;"></div><span class="cab-label" style="color:#c06040;">SKILLS</span><div class="cab-hint">OPEN</div></div>
@@ -64,7 +64,7 @@
             <div class="cab-handle"></div>
           </div>
 
-          <!-- Drawer 2: History [SEC-02-E02] -->
+          <!-- Drawer 2: History -->
           <div class="cab-drawer" data-registry="SEC-02-E02" data-open="audit" tabindex="0" role="button" aria-label="History drawer" data-key>
             <div class="cab-drawer-inner">
               <div><div class="cab-dot" style="background:#336699;box-shadow:0 0 4px #336699;display:inline-block;"></div><span class="cab-label" style="color:#4a80cc;">HISTORY</span><div class="cab-hint">OPEN</div></div>
@@ -73,7 +73,7 @@
             <div class="cab-handle"></div>
           </div>
 
-          <!-- Drawer 3: Contact [SEC-02-E03] -->
+          <!-- Drawer 3: Contact -->
           <div class="cab-drawer" data-registry="SEC-02-E03" data-open="contact" tabindex="0" role="button" aria-label="Contact drawer" data-key>
             <div class="cab-drawer-inner">
               <div><div class="cab-dot" style="background:#2f6b4a;box-shadow:0 0 4px #3fb950;display:inline-block;"></div><span class="cab-label" style="color:#5aaa70;">CONTACT</span><div class="cab-hint">OPEN</div></div>
@@ -86,11 +86,11 @@
       </div>
     </div>
 
-    <!-- ══ DESK [SEC-03] ══ -->
+    <!-- ══ DESK ══ -->
     <div class="desk" data-registry="SEC-03">
 
-      <!-- Wall shelf [SEC-05] and lamp [SEC-06] are nested inside .desk
-           so they always align to the desk's own width. See DEC-006. -->
+      <!-- Wall shelf and lamp are nested inside .desk
+           so they always align to the desk's own width. -->
       <div class="wall-shelf" data-registry="SEC-05">
         <div class="shelf-plank"></div>
         <div class="shelf-brk l"></div>
@@ -123,7 +123,7 @@
       <div class="desk-surface-top">
         <div class="desk-mat"></div>
 
-        <!-- Tower [SEC-03-E01] — decorative -->
+        <!-- Tower — decorative -->
         <div class="tower" data-registry="SEC-03-E01">
           <div class="tower-body">
             <div class="tw-brand">TEJAS-PC</div>
@@ -134,7 +134,7 @@
           </div>
         </div>
 
-        <!-- Monitor [SEC-03-E02] — click triggers boot sequence -->
+        <!-- Monitor — click triggers boot sequence -->
         <div style="display:flex;flex-direction:column;align-items:center;position:relative;z-index:10;margin-left:8px;">
           <div class="monitor" data-registry="SEC-03-E02" data-boot tabindex="0" role="button" aria-label="Computer — click to boot" data-key>
             <div class="mon-outer">
@@ -149,7 +149,7 @@
                   <span class="am">&gt; record: 0-for-3</span><br>
                   &gt; click to boot <span class="cur"></span>
                 </div>
-                <!-- OS desktop — shown after boot completes [SEC-03-E07] -->
+                <!-- OS desktop — shown after boot completes -->
                 <div class="mon-os" id="monOS" data-registry="SEC-03-E07">
                   <div class="mon-os-hint">TEJAS-OS 98</div>
                   <div class="os-icons">
@@ -174,12 +174,12 @@
             <div class="mon-stand"></div>
             <div class="htag" style="top:40%;width:max-content;">[ CLICK TO BOOT ]</div>
           </div>
-          <!-- Keyboard [SEC-03-E03] and Mouse [SEC-03-E04] — decorative -->
+          <!-- Keyboard and Mouse — decorative -->
           <div class="keyboard" data-registry="SEC-03-E03"><div class="spacebar"></div></div>
           <div class="mouse-obj" data-registry="SEC-03-E04"></div>
         </div>
 
-        <!-- Dossier folder [SEC-03-E05] — opens About panel -->
+        <!-- Dossier folder — opens About panel -->
         <div class="dossier-desk" data-registry="SEC-03-E05" data-open="dossier" tabindex="0" role="button" aria-label="About — classified dossier" data-key>
           <div class="folder-b">
             <div class="folder-lbl"><span>CLASSIFIED</span><span style="opacity:.75;">TVU-001</span><span style="font-size:3px;opacity:.5;">ABOUT</span></div>
@@ -188,11 +188,11 @@
         </div>
       </div><!-- /desk-surface-top -->
 
-      <!-- Desk front face — mug only; cabinet owns the drawers [DEC-014] -->
+      <!-- Desk front face — mug only; cabinet owns the drawers -->
       <div class="desk-front-face">
         <div style="flex:1;"></div>
         <div class="desk-right">
-          <!-- Mug [SEC-03-E06] — decorative -->
+          <!-- Mug — decorative -->
           <div class="mug-wrap" data-registry="SEC-03-E06"><div class="steam">〰</div><div class="mug"></div></div>
         </div>
       </div>
@@ -200,14 +200,14 @@
       <div class="desk-legs"><div class="desk-leg"></div><div class="desk-leg"></div></div>
     </div><!-- /desk -->
 
-    <!-- ══ CORK DETECTIVE BOARD [SEC-04] — Competitions & Public Speaking ══ -->
+    <!-- ══ CORK DETECTIVE BOARD — Competitions & Public Speaking ══ -->
     <div class="cork-board" data-registry="SEC-04" data-open="board" style="cursor:pointer;" tabindex="0" role="button" aria-label="Detective board — competitions and public speaking" data-key>
       <div class="board-frame">
         <div class="board-cork" data-registry="SEC-04-E01">
           <div class="board-header"><div class="board-title">THE BOARD</div></div>
           <svg class="strings-svg" id="sceneStrings"></svg>
 
-          <!-- Small preview notes [SEC-04-E02] -->
+          <!-- Small preview notes -->
           <div class="pin-note" style="left:14px;top:26px;--hover-t:scale(1.06) rotate(-1deg);" id="sn-humshakals">
             <div class="pushpin" style="--pin-c:#cc2200;--pin-hi:#ff6666;"></div>
             <div class="nc yellow" style="width:92px;"><div class="nc-title" style="font-size:11px;">HUMSHAKALS</div><div class="nc-sub">PUSHPA PITCH · 300+ CROWD</div></div>
@@ -264,7 +264,7 @@
 
 <!-- ═══════════ PANELS ═══════════ -->
 
-<!-- PROJECTS [SEC-07] — OS window style -->
+<!-- PROJECTS — OS window style -->
 <div class="panel panel-os" id="panel-os" data-registry="SEC-07">
   <button class="p-close" data-close="os">✕ ESC</button>
   <div class="p-inner">
@@ -329,7 +329,7 @@
   </div>
 </div>
 
-<!-- SKILLS / LEDGER [SEC-08] -->
+<!-- SKILLS / LEDGER -->
 <div class="panel panel-ledger" id="panel-ledger" data-registry="SEC-08">
   <button class="p-close" data-close="ledger" style="color:#2b231c;background:rgba(241,235,216,.95);border-color:#2b231c;text-shadow:none;">✕ ESC</button>
   <div class="p-inner led-inner">
@@ -368,7 +368,7 @@
   </div>
 </div>
 
-<!-- HISTORY / AUDIT [SEC-09] -->
+<!-- HISTORY / AUDIT -->
 <div class="panel panel-audit" id="panel-audit" data-registry="SEC-09">
   <button class="p-close" data-close="audit" style="color:#003366;background:#f8f8f6;border-color:#003366;text-shadow:none;">✕ ESC</button>
   <div class="p-inner">
@@ -390,7 +390,7 @@
   </div>
 </div>
 
-<!-- ABOUT / DOSSIER [SEC-10] -->
+<!-- ABOUT / DOSSIER -->
 <div class="panel panel-dossier" id="panel-dossier" data-registry="SEC-10">
   <button class="p-close" data-close="dossier">✕ ESC</button>
   <div class="p-inner">
@@ -439,7 +439,7 @@
   </div>
 </div>
 
-<!-- CONTACT / CHEQUE [SEC-11] -->
+<!-- CONTACT / CHEQUE -->
 <div class="panel panel-contact" id="panel-contact" data-registry="SEC-11">
   <button class="p-close" data-close="contact" style="color:#2b231c;background:rgba(241,235,216,.95);border-color:#2b231c;text-shadow:none;">✕ ESC</button>
   <div class="p-inner cq-inner">
@@ -465,7 +465,7 @@
   </div>
 </div>
 
-<!-- THE BOARD — expanded [SEC-12] -->
+<!-- THE BOARD — expanded -->
 <div class="panel panel-board" id="panel-board" data-registry="SEC-12">
   <button class="p-close" data-close="board">✕ ESC</button>
   <div class="board-expand-inner">
@@ -474,7 +474,7 @@
     <div class="big-board" id="bigBoard">
       <svg class="big-strings-svg" id="bigStrings"></svg>
 
-      <!-- Expanded notes [SEC-12-E01] — each opens a detail card via data-note -->
+      <!-- Expanded notes — each opens a detail card via data-note -->
       <div class="pin-note" style="left:40px;top:40px;" id="bn-humshakals" data-note="humshakals">
         <div class="pushpin" style="--pin-c:#cc2200;--pin-hi:#ff6666;"></div>
         <div class="nc yellow" style="width:180px;"><div class="nc-title">HUMSHAKALS — PRACHAARA 2.0</div><div class="nc-sub">Feb 2026 · Assigned Pushpa + vehicle cleaning. Built a product line (Thaggede Le: brush, truck polish, "enemy's blood" interior cleaner) and ran twelve minutes of standup over the limit in front of 300+.</div></div>
@@ -515,7 +515,7 @@
     <div style="font-family:'Space Mono',monospace;font-size:11px;color:rgba(255,200,0,.35);text-align:center;margin-top:14px;letter-spacing:.08em;">Click any note to read it in full · ESC to close</div>
   </div>
 
-  <!-- Note detail overlay [SEC-12-E02] -->
+  <!-- Note detail overlay -->
   <div class="note-detail" id="noteDetail" data-registry="SEC-12-E02" data-note-close>
     <div class="note-detail-card" data-stop>
       <button class="note-detail-close" data-note-close>✕</button>
@@ -529,7 +529,7 @@
 
 </div><!-- /panel-board -->
 
-<!-- ═══════════ OS DESKTOP PANEL [SEC-13] ═══════════ -->
+<!-- ═══════════ OS DESKTOP PANEL ═══════════ -->
   <div class="panel panel-desktop" id="panel-desktop" data-registry="SEC-13">
     <div class="desktop-wallpaper">
       <div class="desktop-icons">
@@ -567,11 +567,11 @@
     </div>
   </div>
 
-  <!-- ═══════════ GIT TIMELINE PANEL [SEC-14] ═══════════
+  <!-- ═══════════ GIT TIMELINE PANEL ═══════════
        Branching git-graph style timeline.
        Clicking a node opens the relevant section.
        Content is a visual representation only —
-       all actual detail lives in existing panels (DEC-003).
+       all actual detail lives in existing panels.
   ═══════════════════════════════════════════════════ -->
   <div class="panel panel-git" id="panel-git" data-registry="SEC-14">
     <button class="p-close" data-close="git">✕ ESC</button>
@@ -670,11 +670,11 @@
     </div>
   </div>
 
-  <!-- ═══════════ GALLERY PANEL [SEC-15] ═══════════
+  <!-- ═══════════ GALLERY PANEL ═══════════
        Photo gallery — images connected to events/sections.
        Scaffold: real photos needed before this ships.
        Each card links to its source event on the board
-       or audit panel (DEC-003 — no content duplication).
+       or audit panel, so no content is duplicated.
   ═══════════════════════════════════════════════════ -->
   <div class="panel panel-gallery" id="panel-gallery" data-registry="SEC-15">
     <button class="p-close" data-close="gallery">✕ ESC</button>

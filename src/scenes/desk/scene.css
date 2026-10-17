@@ -1,16 +1,10 @@
 /* Desk scene: reset, room, stage, wall shelf, lamp, cabinet, desk objects, board preview, hotspot tags. */
-/* ═══════════════════════════════════════════════
-   TEJAS PORTFOLIO v4 — THE DESK
-   scene.css — the desk scene's styles
-   See the Architecture doc (Obsidian vault) for CSS block order and naming conventions.
-   See the Element Registry doc (Obsidian vault) for SEC-XX ID references.
-   ═══════════════════════════════════════════════ */
 
 *{box-sizing:border-box;margin:0;padding:0;}
 html,body{width:100%;height:100%;overflow:hidden;background:#0a0812;}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
 
-/* ── ROOM [SEC-01] ── */
+/* ── ROOM ── */
 #room{
   width:100vw;height:100vh;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -50,7 +44,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0812;}
 /* Floor shadow — sells the ground plane under the furniture */
 .stage::after{content:"";position:absolute;bottom:-18px;left:5%;right:5%;height:20px;background:radial-gradient(ellipse 80% 100% at 50% 0%,rgba(0,0,0,.55) 0%,transparent 100%);pointer-events:none;z-index:1;}
 
-/* ── WALL SHELF [SEC-05] — nested inside .desk, always spans the desk's own width ── */
+/* ── WALL SHELF — nested inside .desk, always spans the desk's own width ── */
 .wall-shelf{
   position:absolute;bottom:100%;left:0;right:0;margin-bottom:10px;
   height:90px;z-index:30;display:flex;align-items:flex-end;padding:0 16px 10px;
@@ -71,7 +65,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0812;}
 .trophy-stem{width:4px;height:8px;background:#b8860b;border:1px solid #8b6914;}
 .trophy-base{width:18px;height:5px;background:linear-gradient(180deg,#daa520,#8b6914);border:1px solid #6b4f10;border-radius:1px;}
 
-/* ── LAMP [SEC-06] — nested inside .desk, anchored to its top-right corner ── */
+/* ── LAMP — nested inside .desk, anchored to its top-right corner ── */
 .lamp-wrap{position:absolute;bottom:100%;right:18px;margin-bottom:-6px;z-index:25;pointer-events:none;}
 .lamp-base-p{width:38px;height:8px;background:linear-gradient(180deg,#aaa,#777);border:2px solid #555;border-radius:2px;box-shadow:3px 3px 0 rgba(0,0,0,.6);}
 .lamp-pole-p{width:5px;height:96px;background:linear-gradient(90deg,#bbb,#888,#777);border:1px solid #555;margin-left:16px;position:relative;}
@@ -80,7 +74,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0812;}
 .lamp-head-p{width:48px;height:22px;background:linear-gradient(180deg,#ccc,#888);border:2px solid #666;border-radius:5px 5px 0 0;}
 .lamp-head-p::after{content:"";position:absolute;bottom:-7px;left:4px;right:4px;height:7px;background:rgba(255,235,90,.8);border-radius:0 0 4px 4px;box-shadow:0 8px 28px rgba(255,210,60,.8),0 2px 10px rgba(255,210,60,.5);}
 
-/* ══ METAL FILE CABINET [SEC-02] ══ */
+/* ══ METAL FILE CABINET ══ */
 /* margin-bottom creates depth stagger: cabinet sits lowest, desk mid, board higher */
 .cabinet{width:160px;height:380px;flex-shrink:0;position:relative;align-self:flex-end;margin-bottom:30px;z-index:15;}
 .cab-body{
@@ -102,7 +96,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0812;}
 .cab-hint{position:absolute;right:6px;top:8px;font-family:'Press Start 2P',monospace;font-size:4px;color:#ffcc00;opacity:0;transition:opacity .2s;text-shadow:0 0 6px rgba(255,200,0,.8);}
 .cab-side-label{position:absolute;left:-18px;top:50%;transform:translateY(-50%) rotate(-90deg);font-family:'Press Start 2P',monospace;font-size:5px;color:#3a404e;letter-spacing:.08em;white-space:nowrap;}
 
-/* ══ DESK [SEC-03] ══ */
+/* ══ DESK ══ */
 .desk{flex:1;position:relative;z-index:20;}
 .desk-top-edge{width:100%;height:14px;background:linear-gradient(180deg,#8a6030,#6a4820,#4a3010);border-top:3px solid #b08040;box-shadow:0 3px 0 #2a1808,0 8px 24px rgba(0,0,0,.5);}
 .desk-surface-top{width:100%;background:linear-gradient(180deg,#3d2810,#2a1c0a);padding:12px 20px 8px;display:flex;align-items:flex-end;gap:16px;min-height:80px;position:relative;}
@@ -117,7 +111,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0812;}
 .desk-legs{display:flex;justify-content:space-between;padding:0 40px;}
 .desk-leg{width:28px;height:44px;background:linear-gradient(160deg,#3a2208,#2a1808,#1c1006);border:2px solid #5c3d1a;border-top:none;box-shadow:4px 4px 0 rgba(0,0,0,.7);position:relative;}
 
-/* Tower [SEC-03-E01] */
+/* Tower */
 .tower{position:absolute;left:16px;bottom:8px;width:65px;z-index:8;}
 .tower-body{width:65px;height:160px;background:linear-gradient(160deg,#d0ccc4,#b4b0a8,#9a9690);border:2px solid #868278;border-radius:3px 3px 2px 2px;position:relative;box-shadow:inset -4px 0 8px rgba(0,0,0,.2),5px 5px 0 rgba(0,0,0,.6);}
 .tower-body::before{content:"";position:absolute;top:0;left:0;right:0;height:7px;background:linear-gradient(180deg,#dedad2,#c4c0b8);border-radius:3px 3px 0 0;}
@@ -133,7 +127,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0812;}
 .tw-floppy{width:44px;height:6px;background:#333;border:1px solid #222;margin:3px auto 0;border-radius:1px;}
 .tw-pwr{width:12px;height:12px;background:radial-gradient(#d8d4cc,#9e9a96);border:2px solid #888;border-radius:2px;margin:5px auto 0;box-shadow:0 2px 4px rgba(0,0,0,.5);}
 
-/* Monitor [SEC-03-E02] */
+/* Monitor */
 .monitor{position:relative;z-index:10;cursor:pointer;transition:filter .2s;display:inline-block;}
 .monitor:hover{filter:brightness(1.12);}
 .monitor:hover .htag{opacity:1;}
@@ -147,7 +141,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0812;}
 .mon-idle{padding:7px 8px;font-family:'Space Mono',monospace;font-size:7px;color:#00ff41;line-height:1.9;text-shadow:0 0 5px rgba(0,255,65,.9);position:relative;z-index:4;}
 .mon-idle .d{color:#005510;} .mon-idle .am{color:#ffb000;text-shadow:0 0 5px rgba(255,176,0,.8);}
 .cur{display:inline-block;width:6px;height:11px;background:#00ff41;animation:blink .9s step-end infinite;vertical-align:middle;box-shadow:0 0 5px #00ff41;}
-/* OS icon grid [SEC-03-E07] */
+/* OS icon grid */
 .mon-os{display:none;position:absolute;inset:0;z-index:4;background:linear-gradient(135deg,#1a3a6a 0%,#2a5a8a 50%,#1a4a6a 100%);padding:6px;}
 .mon-os-hint{font-family:'Press Start 2P',monospace;font-size:3.5px;color:rgba(255,255,255,.5);text-align:center;letter-spacing:.08em;margin-bottom:4px;}
 .os-taskbar{position:absolute;bottom:0;left:0;right:0;height:16px;background:linear-gradient(180deg,#c0b8b0,#a8a0a0);border-top:1px solid #888;display:flex;align-items:center;padding:0 4px;gap:4px;}
@@ -161,7 +155,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0812;}
 .mon-neck{width:32px;height:18px;background:linear-gradient(180deg,#b4b0a8,#969290);border:2px solid #868278;border-top:none;margin:0 auto;box-shadow:3px 2px 0 rgba(0,0,0,.5);}
 .mon-stand{width:95px;height:13px;background:linear-gradient(180deg,#c0bcb4,#9e9a96);border:2px solid #868278;border-radius:2px;margin:0 auto;box-shadow:4px 4px 0 rgba(0,0,0,.5);}
 
-/* Keyboard [SEC-03-E03] & Mouse [SEC-03-E04] */
+/* Keyboard & Mouse */
 .keyboard{width:185px;height:38px;background:linear-gradient(160deg,#cac6be,#aeaaa4);border:2px solid #868278;border-radius:3px 3px 4px 4px;position:relative;margin-top:3px;box-shadow:inset 0 2px 4px rgba(255,255,255,.2),3px 3px 0 rgba(0,0,0,.6);}
 .keyboard::before{content:"";position:absolute;top:6px;left:6px;right:6px;height:5px;background:repeating-linear-gradient(90deg,#9e9a96 0,#9e9a96 8px,#b0aca6 8px,#b0aca6 10px);border-radius:1px;}
 .keyboard::after{content:"";position:absolute;top:15px;left:6px;right:6px;height:5px;background:repeating-linear-gradient(90deg,#9e9a96 0,#9e9a96 8px,#b0aca6 8px,#b0aca6 10px);border-radius:1px;}
@@ -169,7 +163,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0812;}
 .mouse-obj{width:24px;height:34px;background:linear-gradient(160deg,#cac6be,#a6a29e);border:2px solid #868278;border-radius:10px 10px 8px 8px;position:absolute;bottom:28px;right:20px;box-shadow:3px 3px 0 rgba(0,0,0,.6);}
 .mouse-obj::before{content:"";position:absolute;top:5px;left:50%;transform:translateX(-50%);width:1px;height:12px;background:#868278;}
 
-/* Dossier folder [SEC-03-E05] */
+/* Dossier folder */
 .dossier-desk{position:absolute;bottom:30px;right:28px;z-index:15;cursor:pointer;transition:transform .15s;}
 .dossier-desk:hover{transform:rotate(4deg) translateY(-4px);}
 .dossier-desk:hover .htag{opacity:1;}
@@ -177,7 +171,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0812;}
 .folder-b::before{content:"";position:absolute;top:-10px;left:0;width:32px;height:12px;background:linear-gradient(160deg,#c8973a,#a87820);border:2px solid #8a6010;border-bottom:none;border-radius:3px 5px 0 0;}
 .folder-lbl{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:4px;color:#3a1a00;letter-spacing:.1em;font-weight:700;text-align:center;gap:2px;}
 
-/* Right side of desk front face — mug [SEC-03-E06] */
+/* Right side of desk front face — mug */
 .desk-right{width:140px;border-left:3px solid #2a1808;background:linear-gradient(160deg,#1e1408,#161006);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 10px;gap:12px;}
 .mug-wrap{position:relative;}
 .mug{width:30px;height:32px;background:linear-gradient(160deg,#dedad2,#aeaaa4);border:2px solid #888;border-radius:2px 2px 4px 4px;position:relative;box-shadow:3px 3px 0 rgba(0,0,0,.6);}
@@ -186,7 +180,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0812;}
 .steam{position:absolute;top:-11px;left:7px;font-size:9px;color:rgba(255,255,255,.15);animation:stm 3s ease-in-out infinite;}
 @keyframes stm{0%,100%{transform:translateY(0);opacity:.15;}50%{transform:translateY(-4px);opacity:.05;}}
 
-/* ══ CORK / DETECTIVE BOARD [SEC-04] ══ */
+/* ══ CORK / DETECTIVE BOARD ══ */
 .cork-board{width:360px;height:420px;flex-shrink:0;position:relative;align-self:flex-end;margin-bottom:42px;z-index:15;}
 .board-frame{width:100%;height:100%;background:#2a1808;border:6px solid #3a2208;border-radius:4px;position:relative;box-shadow:inset 0 0 0 2px #4a3010,8px 8px 0 rgba(0,0,0,.7),10px 10px 0 rgba(0,0,0,.35);}
 .board-cork{
@@ -202,13 +196,13 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0812;}
 .board-header{position:absolute;top:8px;left:0;right:0;text-align:center;z-index:10;}
 .board-title{font-family:'Press Start 2P',monospace;font-size:6px;color:#ffcc00;letter-spacing:.1em;text-shadow:0 0 8px rgba(255,200,0,.6);}
 .strings-svg{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:visible;}
-/* Pinned notes [SEC-04-E02, SEC-12-E01] [COMP-04] */
+/* Pinned notes */
 .pin-note{position:absolute;z-index:5;cursor:pointer;transition:transform .15s ease,filter .15s ease;}
 .pin-note:hover{transform:var(--hover-t,scale(1.05));filter:brightness(1.1);}
 .pin-note:hover .htag{opacity:1;}
 .pushpin{position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--pin-hi,#ff6666),var(--pin-c,#cc2200));box-shadow:0 0 6px var(--pin-c,#cc2200),1px 1px 0 rgba(0,0,0,.5);z-index:6;}
 .pushpin::after{content:"";position:absolute;bottom:-5px;left:50%;transform:translateX(-50%);width:2px;height:5px;background:#888;}
-/* Note card variants [COMP-05] */
+/* Note card variants */
 .nc{padding:8px 9px;border-radius:1px;box-shadow:2px 3px 6px rgba(0,0,0,.5);position:relative;}
 .nc.yellow{background:#ffe566;border:1px solid #e6c800;}
 .nc.white{background:#f5f5f0;border:1px solid #d0ccc0;}
@@ -224,7 +218,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0812;}
 .nc.orange .nc-title,.nc.orange .nc-sub{color:#2a1000;}
 .nc-sub{font-family:'Space Mono',monospace;font-size:7px;color:#5a5000;margin-top:4px;border-top:1px dashed rgba(0,0,0,.18);padding-top:3px;letter-spacing:.03em;line-height:1.5;}
 
-/* ── HOTSPOT TAGS [COMP-03] ── */
+/* ── HOTSPOT TAGS ── */
 .htag{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Press Start 2P',monospace;font-size:5px;color:#ffcc00;background:rgba(0,0,0,.85);border:1px solid #ffcc00;padding:4px 8px;border-radius:2px;white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none;z-index:60;text-shadow:0 0 8px rgba(255,200,0,.8);}
 
 /* Mobile nav grid — hidden by default. Only shown inside the <480px

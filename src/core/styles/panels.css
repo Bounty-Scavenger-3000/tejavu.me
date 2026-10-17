@@ -1,14 +1,14 @@
-/* Panels: [COMP-01] base, [COMP-02] close button, SEC-07 to SEC-12, tablet tweaks, SEC-13 to SEC-15. */
-/* ══ PANELS [COMP-01] ══ */
+/* Panels: base, close button, projects, skills, history, about, contact, board, tablet tweaks, OS desktop, git timeline, gallery. */
+/* ══ PANELS ══ */
 .panel{position:fixed;inset:0;z-index:800;display:none;overflow-y:auto;animation:pIn .3s cubic-bezier(.22,1,.36,1) both;}
 .panel.active{display:block;}
 @keyframes pIn{from{opacity:0;transform:scale(.97);}to{opacity:1;transform:scale(1);}}
-/* Close button [COMP-02] */
+/* Close button */
 .p-close{position:fixed;top:18px;right:22px;z-index:850;font-family:'Press Start 2P',monospace;font-size:8px;background:#0a0a0a;border:2px solid #ffcc00;color:#ffcc00;padding:8px 14px;cursor:pointer;letter-spacing:.08em;transition:background .15s;text-shadow:0 0 8px rgba(255,200,0,.6);}
 .p-close:hover{background:#1a1a00;}
 .p-inner{max-width:860px;margin:0 auto;padding:56px 32px 60px;width:100%;}
 
-/* PROJECTS PANEL [SEC-07] — OS-style window */
+/* PROJECTS PANEL — OS-style window */
 .panel-os{background:#1a3a6a;}
 .os-window{background:#c8c0b8;border:2px solid #888;border-radius:0;margin-bottom:16px;box-shadow:4px 4px 0 rgba(0,0,0,.4);}
 .os-titlebar{background:linear-gradient(90deg,#000080,#1084d0);padding:4px 8px;display:flex;align-items:center;gap:6px;}
@@ -35,7 +35,7 @@
 .il.cl{background:#1a1a1a;color:#555;border-color:#2a2a2a;}
 .il.re{background:#150a20;color:#c084fc;border-color:#3a1a60;}
 
-/* SKILLS PANEL [SEC-08] — Ledger / ruled paper */
+/* SKILLS PANEL — Ledger / ruled paper */
 .panel-ledger{background:repeating-linear-gradient(#f1ebd8 0,#f1ebd8 47px,rgba(147,166,196,.38) 47px,rgba(147,166,196,.38) 48px);}
 .panel-ledger::before{content:"";position:fixed;top:0;bottom:0;left:56px;width:1px;background:rgba(169,62,62,.4);pointer-events:none;}
 .led-inner{padding-left:80px;}
@@ -55,7 +55,7 @@
 .cert-line{font-family:'Space Mono',monospace;font-size:11px;color:#2b231c;line-height:2;}
 .cert-line b{color:#a93e3e;}
 
-/* HISTORY PANEL [SEC-09] — Audit report */
+/* HISTORY PANEL — Audit report */
 .panel-audit{background:#f8f8f6;}
 .audit-top{border-top:4px solid #003366;border-bottom:2px solid #003366;padding:18px 0;margin-bottom:28px;}
 .a-kicker{font-family:'Space Mono',monospace;font-size:11px;color:#003366;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px;}
@@ -74,7 +74,7 @@
 .finding.str .f-rating{color:#1a5c3a;} .finding.amb .f-rating{color:#c07a00;} .finding.rsk .f-rating{color:#8b1a1a;}
 .a-foot{margin-top:22px;font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:#999;font-style:italic;border-top:1px solid #ddd;padding-top:12px;}
 
-/* ABOUT PANEL [SEC-10] — Dossier */
+/* ABOUT PANEL — Dossier */
 .panel-dossier{background:#1a1a1a;}
 .d-ey{font-family:'Space Mono',monospace;font-size:11px;color:#cc2200;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;}
 .d-h{font-family:'Fraunces',serif;font-size:clamp(24px,4vw,40px);font-weight:600;color:#f5f0e8;margin-bottom:24px;}
@@ -87,20 +87,20 @@
 .d-st{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.18em;color:#cc2200;}
 .d-bio{font-family:'IBM Plex Sans',sans-serif;font-size:14px;color:#2b1f0e;line-height:1.8;margin-bottom:10px;}
 .d-bio .flag{color:#cc2200;font-weight:600;}
-/* Redaction easter egg [SEC-10-EGG01] */
+/* Redaction easter egg */
 .d-redact{cursor:pointer;display:inline-block;}
 .d-redact-bar{background:repeating-linear-gradient(45deg,#1a1a1a,#1a1a1a 3px,#2a2a2a 3px,#2a2a2a 6px);color:transparent;letter-spacing:1px;padding:1px 6px;border-radius:2px;user-select:none;}
 .d-redact-text{display:none;background:#2b231c;color:#ffe066;padding:1px 6px;border-radius:2px;font-weight:600;}
 .d-redact.rv .d-redact-bar{display:none;}
 .d-redact.rv .d-redact-text{display:inline;}
 .d-redact-hint{font-family:'Space Mono',monospace;font-size:10px;color:#8a7a5a;font-style:italic;}
-/* Quick facts [SEC-10-E02] */
+/* Quick facts */
 .d-quickfacts{margin-top:20px;padding:16px 18px;background:rgba(0,0,0,.04);border-left:3px solid #cc2200;}
 .d-qf-h{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#cc2200;margin-bottom:8px;}
 .d-qf-list{list-style:none;display:flex;flex-direction:column;gap:6px;}
 .d-qf-list li{font-family:'IBM Plex Sans',sans-serif;font-size:13px;color:#2b1f0e;padding-left:14px;position:relative;}
 .d-qf-list li::before{content:"\2014";position:absolute;left:0;color:#8b7355;}
-/* Jump links [SEC-10-E03] */
+/* Jump links */
 .d-jumps{margin-top:22px;padding-top:16px;border-top:1px dashed #c4b89a;display:flex;gap:18px;flex-wrap:wrap;align-items:center;}
 .d-jumps-label{font-family:'Space Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#8b7355;}
 .d-jumps a{font-family:'Space Mono',monospace;font-size:11px;color:#cc2200;text-decoration:none;border-bottom:1px solid transparent;cursor:pointer;}
@@ -111,14 +111,14 @@
 .d-fl{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:#8b7355;margin-bottom:3px;}
 .d-fv{font-family:'IBM Plex Sans',sans-serif;font-size:13px;color:#2b1f0e;font-weight:500;}
 
-/* CONTACT PANEL [SEC-11] — Cheque */
+/* CONTACT PANEL — Cheque */
 .panel-contact{background:repeating-linear-gradient(#f1ebd8 0,#f1ebd8 47px,rgba(147,166,196,.38) 47px,rgba(147,166,196,.38) 48px);}
 .panel-contact::before{content:"";position:fixed;top:0;bottom:0;left:56px;width:1px;background:rgba(169,62,62,.4);pointer-events:none;}
 .cq-inner{padding-left:80px;}
 .cq-ey{font-family:'Space Mono',monospace;font-size:11px;color:#a93e3e;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;}
 .cq-h{font-family:'Fraunces',serif;font-size:clamp(26px,4vw,40px);font-weight:600;color:#2b231c;margin-bottom:6px;}
 .cq-sub{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#6e6252;margin-bottom:32px;}
-/* Cheque form [SEC-11-E01] */
+/* Cheque form */
 .cheque{background:#f5f0e0;border:2px solid #2b231c;padding:26px 28px;position:relative;box-shadow:0 14px 40px rgba(43,35,28,.16);max-width:600px;}
 .cheque::before{content:"";position:absolute;inset:7px;border:1px solid rgba(43,35,28,.2);pointer-events:none;}
 .cq-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;}
@@ -136,12 +136,12 @@
 .cq-ok{display:none;text-align:center;padding:28px 0;}
 .cq-ok .msg{font-family:'Caveat',cursive;font-size:30px;color:#1f3a2e;}
 .cq-ok .sub{font-family:'Space Mono',monospace;font-size:11px;color:#6e6252;margin-top:8px;}
-/* Social links [SEC-11-E03] */
+/* Social links */
 .socials{margin-top:26px;display:flex;gap:20px;flex-wrap:wrap;}
 .socials a{font-family:'Space Mono',monospace;font-size:12px;text-decoration:none;color:#6e6252;border-bottom:1px solid transparent;transition:color .2s,border-color .2s;padding-bottom:2px;}
 .socials a:hover{color:#a93e3e;border-color:#a93e3e;}
 
-/* THE BOARD PANEL [SEC-12] */
+/* THE BOARD PANEL */
 .panel-board{background:#1a0e08;}
 .board-expand-inner{max-width:960px;margin:0 auto;padding:56px 28px 60px;width:100%;}
 .be-title{font-family:'Press Start 2P',monospace;font-size:10px;color:#ffcc00;letter-spacing:.12em;margin-bottom:6px;text-shadow:0 0 10px rgba(255,200,0,.6);}
@@ -149,7 +149,7 @@
 .big-board{position:relative;width:100%;min-height:520px;background:linear-gradient(135deg,#8B6340 0%,#7a5530 30%,#8B6340 60%,#7a5530 100%);border:8px solid #3a2208;border-radius:4px;box-shadow:inset 0 0 40px rgba(0,0,0,.3),0 8px 32px rgba(0,0,0,.6);overflow:hidden;}
 .big-strings-svg{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:visible;}
 
-/* NOTE DETAIL OVERLAY [SEC-12-E02] */
+/* NOTE DETAIL OVERLAY */
 .note-detail{position:fixed;inset:0;z-index:950;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.72);padding:24px;}
 .note-detail.active{display:flex;}
 .note-detail-card{background:#fdf8ec;max-width:540px;width:100%;padding:34px 32px;position:relative;box-shadow:0 24px 70px rgba(0,0,0,.7);border:2px solid #2b231c;max-height:82vh;overflow-y:auto;}
@@ -181,7 +181,7 @@
 }
 
 /* ══════════════════════════════════════════════
-   PANEL: OS DESKTOP [SEC-13]
+   PANEL: OS DESKTOP
    Full-screen retro Win98-style desktop.
    Opens after boot; primary navigation hub.
    ══════════════════════════════════════════════ */
@@ -268,7 +268,7 @@
 }
 
 /* ══════════════════════════════════════════════
-   PANEL: GIT TIMELINE [SEC-14]
+   PANEL: GIT TIMELINE
    Chronological tree: one vertical trunk, year nodes
    on the trunk, commits branching right from each year.
    ══════════════════════════════════════════════ */
@@ -420,7 +420,7 @@
 }
 
 /* ══════════════════════════════════════════════
-   PANEL: GALLERY [SEC-15]
+   PANEL: GALLERY
    Photo grid — each card links to its source event.
    Placeholder state shown until real photos exist.
    ══════════════════════════════════════════════ */

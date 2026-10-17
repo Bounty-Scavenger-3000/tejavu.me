@@ -1,8 +1,6 @@
-/* [SEC-00] Boot screen. CRITICAL: never add position:relative to a .panel-specific rule (DEC-011). */
-/* ══ BOOT SCREEN [SEC-00] ══
-   CRITICAL: Never add position:relative to a .panel-specific rule.
-   It overrides .panel{position:fixed} at equal CSS specificity, making the panel
-   render in document flow. Since body{overflow:hidden} it becomes invisible. DEC-011. */
+/* Boot screen. Never add position:relative to a .panel-specific rule: it overrides
+   .panel{position:fixed} at equal specificity, the panel renders in document flow,
+   and body{overflow:hidden} hides it. */
 #boot-screen{position:fixed;inset:0;z-index:900;background:#050505;display:none;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:5vh;}
 #boot-screen.active{display:flex;}
 /* Boot logo — Linux Mint style ASCII art */

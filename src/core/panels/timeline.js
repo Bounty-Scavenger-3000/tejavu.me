@@ -1,4 +1,4 @@
-// [SEC-14] GIT TIMELINE panel: what a click on a commit node does.
+// GIT TIMELINE panel: what a click on a commit node does.
 //
 // `nodes` maps a node id to a target: { to: 'panel-id' } opens that panel, and
 // { to: 'board', note: 'key' } also opens a note on it. Nodes with no entry do

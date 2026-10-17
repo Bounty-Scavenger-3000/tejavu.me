@@ -1,5 +1,5 @@
 // Keeps a clock element in sync, formatted HH:MM (24h). Used by the in-scene monitor
-// [SEC-03-E07] and the OS desktop taskbar [SEC-13]. Polls once a minute.
+// and the OS desktop taskbar. Polls once a minute.
 
 export function startClock(elementId, intervalMs = 60000) {
   const tick = () => {

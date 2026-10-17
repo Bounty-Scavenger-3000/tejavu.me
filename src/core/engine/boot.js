@@ -1,4 +1,4 @@
-// [SEC-00] BOOT ENGINE
+// BOOT ENGINE
 // Terminal-text BIOS simulation. The scene decides what happens when boot ends
 // (onFinish) and what a click on an already-booted machine does (onAlreadyBooted).
 //
@@ -6,7 +6,7 @@
 //   ''   green (default)    'd'  dim green    'am'  amber    'er'  red
 //
 // Note: start() has no re-entry guard, so clicking the monitor mid-boot restarts
-// the sequence. That is how the single-file version behaved; kept on purpose.
+// the sequence. This is intended.
 
 export function createBoot({
   messages,            // [{ t: text, c: colour class }]

@@ -1,13 +1,6 @@
 /* Desk scene, phone and tablet overrides (768px and 480px) plus the mobile nav grid. */
-/* ═══════════════════════════════════════════════
-   TEJAS PORTFOLIO — scene.mobile.css
-   Phone-first responsive overrides.
-   Imported after scene.css by desk.css.
-   All rules here are inside @media max-width blocks
-   so they never affect desktop.
-   See the Responsive Behavior doc (Obsidian vault).
-   for per-section mobile decisions.
-   ═══════════════════════════════════════════════ */
+/* Imported after scene.css by desk.css. Every rule sits inside a max-width @media
+   block, so none of it affects desktop. */
 
 /* ─────────────────────────────────────────────
    BREAKPOINT: tablet / small desktop

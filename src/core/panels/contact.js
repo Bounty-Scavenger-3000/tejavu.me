@@ -1,4 +1,4 @@
-// [SEC-11-E01] CONTACT panel: the cheque form.
+// CONTACT panel: the cheque form.
 // Fills in today's date and swaps the form for the success state on submit.
 // The form does not send anything yet. It needs a real endpoint (Formspree ID in the
 // form's action) and a submit handler that posts to it.

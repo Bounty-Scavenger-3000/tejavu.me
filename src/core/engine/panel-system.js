@@ -1,19 +1,17 @@
-// [COMP-01] PANEL SYSTEM
+// PANEL SYSTEM
 // One API for every full-screen overlay. A scene creates one panel system and
 // passes its own hooks, so the engine knows nothing about rooms, boards or boots.
 //
 // A panel is an element with id "panel-<id>" and the .panel class.
 //
-// CRITICAL — CSS specificity trap (DEC-011):
-// .panel { position: fixed } is the base rule. Never add position:relative to a
-// panel-specific CSS class: it overrides position:fixed at equal specificity and
-// the panel turns invisible because body { overflow: hidden }.
+// Gotcha: .panel { position: fixed } is the base rule. Adding position:relative to a
+// panel-specific CSS class overrides it at equal specificity, and the panel turns
+// invisible because body { overflow: hidden }.
 //
 // `prev` is the panel a switch came from. When the last open panel closes and
 // canReturn() allows it, that panel opens again; this is how Projects, Timeline
-// and the rest hand control back to the OS desktop. The logic is ported as is from
-// the single-file version, quirks included. Re-test every panel path before
-// simplifying it.
+// and the rest hand control back to the OS desktop. Re-test every panel path before
+// simplifying the return logic.
 
 export function createPanelSystem({
   ids,                              // panel ids, e.g. ['os', 'ledger', ...]
