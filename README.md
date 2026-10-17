@@ -55,7 +55,3 @@ git checkout main && git merge dev && git push origin main && git checkout dev
 1. Create `<name>/index.html` and `src/scenes/<name>/`.
 2. Add the page to `build.rollupOptions.input` in `vite.config.js`.
 3. Import the engine and panels it needs from `src/core`.
-
-## Docs
-
-Maintained in an Obsidian vault, not in this repo.
