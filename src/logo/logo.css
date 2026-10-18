@@ -1,12 +1,15 @@
 /* Logo export page styles (tejavu.me/logo). */
+@import '../core/styles/brand.css';
 @import '../core/styles/fonts.css';
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+:root { --mode: var(--support); }
+
 body {
-  background: #0D0B0E;
-  color: #FFFFFF;
-  font-family: 'Inter', sans-serif;
+  background: var(--base);
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
   padding: 24px;
 }
 
@@ -18,25 +21,36 @@ body {
   margin-bottom: 20px;
 }
 
-/* ── Primary dark card — full width, taller ── */
-.card-primary-wrap {
-  margin-bottom: 14px;
-}
-
-.card-primary {
-  border-radius: 14px;
-  padding: 60px 36px;
+/* ── Mode switch: sets the right leg and underline colour ── */
+.modes {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 32px;
-  width: 100%;
-  background: #0D0B0E;
-  border: 1px solid rgba(217,222,229,0.07);
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
 }
 
-.card-primary-footer {
+.mode-btn {
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1.5px solid color-mix(in srgb, var(--c) 40%, transparent);
+  background: transparent;
+  color: var(--c);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .15s;
+}
+
+.mode-btn[aria-pressed="true"] {
+  border-color: var(--c);
+  background: color-mix(in srgb, var(--c) 12%, transparent);
+}
+
+/* ── Primary dark card — full width ── */
+.card-primary-wrap { margin-bottom: 14px; }
+
+.card-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -44,10 +58,10 @@ body {
   padding: 0 2px;
 }
 
-/* ── 2-col grid for the other 4 ── */
+/* ── Grid for the other variants ── */
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 14px;
   margin-bottom: 20px;
 }
@@ -74,9 +88,9 @@ body {
 .export-btn {
   padding: 7px 16px;
   border-radius: 100px;
-  border: 1.5px solid #49D7E8;
-  box-shadow: 0 0 8px rgba(73,215,232,0.45);
-  font-family: 'Inter', sans-serif;
+  border: 1.5px solid var(--mode);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--mode) 45%, transparent);
+  font-family: inherit;
   font-size: 11px;
   font-weight: 600;
   cursor: pointer;
@@ -91,10 +105,10 @@ body {
   width: 100%;
   padding: 12px;
   border-radius: 10px;
-  border: 1.5px solid rgba(255,122,143,.3);
+  border: 1.5px solid color-mix(in srgb, var(--accent) 30%, transparent);
   background: transparent;
-  color: #FF7A8F;
-  font-family: 'Inter', sans-serif;
+  color: var(--accent);
+  font-family: inherit;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -102,7 +116,7 @@ body {
   letter-spacing: .02em;
 }
 
-.export-all:hover { background: rgba(255,122,143,.08); }
+.export-all:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
 
 .status {
   font-size: 11px;
@@ -113,31 +127,19 @@ body {
 }
 
 /* ── Card glow wrappers — display only, never captured by html2canvas ── */
-.glow-pink {
+.glow {
+  --g: var(--accent);
   border-radius: 16px;
-  box-shadow: 0 0 0 1.5px rgba(255,122,143,0.5), 0 0 18px 4px rgba(255,122,143,0.3);
+  box-shadow:
+    0 0 0 1.5px color-mix(in srgb, var(--g) 50%, transparent),
+    0 0 18px 4px color-mix(in srgb, var(--g) 30%, transparent);
 }
-.glow-teal {
-  border-radius: 16px;
-  box-shadow: 0 0 0 1.5px rgba(73,215,232,0.5), 0 0 18px 4px rgba(73,215,232,0.3);
-}
-.glow-dark {
-  border-radius: 16px;
-  box-shadow: 0 0 0 1.5px rgba(13,11,14,0.8), 0 0 18px 4px rgba(13,11,14,0.6);
-}
+/* The pink card follows the mode, since a pink glow would vanish against it */
+.glow-mode { --g: var(--mode); }
 
 /* ── Mobile ── */
 @media (max-width: 540px) {
   body { padding: 16px; }
-
-  .card-primary {
-    padding: 44px 20px;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
 
   .card {
     min-height: 160px;

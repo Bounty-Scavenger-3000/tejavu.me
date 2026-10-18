@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tejavu — Logo Export</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <link rel="preload" href="/src/core/fonts/universa.otf" as="font" type="font/otf" crossorigin>
 <link rel="stylesheet" href="/src/logo/logo.css">
@@ -13,50 +13,49 @@
 
 <div class="page-label">TEJAVU — LOGO EXPORT</div>
 
+<div class="modes" role="group" aria-label="Content mode">
+  <button class="mode-btn" data-mode="tejavu" title="Personal · IRL">Tejavu</button>
+  <button class="mode-btn" data-mode="signal" title="Finance · Tech">Signal</button>
+  <button class="mode-btn" data-mode="noise" title="Opinions · Shitposting">Noise</button>
+</div>
+
 <!-- Primary: Dark (full width) -->
 <div class="card-primary-wrap">
-  <div class="glow-pink">
-    <div class="card" id="v1" style="background:#0D0B0E;width:100%;min-height:220px;"></div>
+  <div class="glow">
+    <div class="card" id="v1" style="width:100%;min-height:220px;"></div>
   </div>
-  <div class="card-primary-footer">
+  <div class="card-footer">
     <div class="card-label">Dark (primary)</div>
-    <button class="export-btn" style="background:#0D0B0E;color:#FFFFFF;" data-export="v1:tejavu-logo-dark">Export PNG</button>
+    <button class="export-btn" data-export="v1">Export PNG</button>
   </div>
 </div>
 
-<!-- Grid: Surface, White, Accent (pink), Teal -->
+<!-- Grid: Surface, White, Accent (pink) -->
 <div class="grid">
   <div>
-    <div class="glow-pink"><div class="card" id="v2" style="background:#141418"></div></div>
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding:0 2px">
+    <div class="glow"><div class="card" id="v2"></div></div>
+    <div class="card-footer">
       <div class="card-label">Surface</div>
-      <button class="export-btn" style="background:#141418;color:#FFFFFF;" data-export="v2:tejavu-logo-surface">Export PNG</button>
+      <button class="export-btn" data-export="v2">Export PNG</button>
     </div>
   </div>
   <div>
-    <div class="glow-pink"><div class="card" id="v3" style="background:#FFFFFF"></div></div>
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding:0 2px">
+    <div class="glow"><div class="card" id="v3"></div></div>
+    <div class="card-footer">
       <div class="card-label">White</div>
-      <button class="export-btn" style="background:#FFFFFF;color:#0D0B0E;" data-export="v3:tejavu-logo-light">Export PNG</button>
+      <button class="export-btn" data-export="v3">Export PNG</button>
     </div>
   </div>
   <div>
-    <div class="glow-teal"><div class="card" id="v4" style="background:#FF7A8F"></div></div>
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding:0 2px">
+    <div class="glow glow-mode"><div class="card" id="v4"></div></div>
+    <div class="card-footer">
       <div class="card-label">Accent (pink)</div>
-      <button class="export-btn" style="background:#FF7A8F;color:#0D0B0E;" data-export="v4:tejavu-logo-accent">Export PNG</button>
-    </div>
-  </div>
-  <div>
-    <div class="glow-pink"><div class="card" id="v5" style="background:#49D7E8"></div></div>
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding:0 2px">
-      <div class="card-label">Support (teal)</div>
-      <button class="export-btn" style="background:#49D7E8;color:#0D0B0E;border-color:#FF7A8F;box-shadow:0 0 8px rgba(255,122,143,0.45);" data-export="v5:tejavu-logo-teal">Export PNG</button>
+      <button class="export-btn" data-export="v4">Export PNG</button>
     </div>
   </div>
 </div>
 
-<button class="export-all" data-export-all>Export all 5 variations</button>
+<button class="export-all" data-export-all>Export all 4 variations</button>
 <div class="status" id="status"></div>
 
 <script type="module" src="/src/logo/logo.js"></script>
