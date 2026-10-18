@@ -11,7 +11,7 @@
   html, body {
     background: var(--base);
     color: var(--text);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.6;
@@ -76,12 +76,12 @@
     width: 100%;
     height: 3px;
     border-radius: 2px;
-    background: linear-gradient(to right, #FF7A8F, #49D7E8);
+    background: linear-gradient(to right, #FF0099, #D9DEE5, #00F5D4);
     margin-top: 5px;
   }
 
   .nav-logo-tagline {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 9px;
     letter-spacing: 0.12em;
     color: var(--text);
@@ -94,7 +94,7 @@
   .nav-links {
     display: flex;
     gap: 1.75rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.72rem;
     letter-spacing: 0.04em;
     color: var(--muted);
@@ -129,7 +129,7 @@
   .hero { padding: 5rem 0 3.5rem; }
 
   .eyebrow {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.6875rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -161,14 +161,14 @@
 
   h1 em {
     font-style: normal;
-    background: linear-gradient(to right, #FF7A8F, #49D7E8);
+    background: linear-gradient(to right, #FF0099, #00F5D4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .lede {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.9375rem;
     color: var(--text);
     opacity: 0.78;
@@ -248,7 +248,7 @@
     width: 24px;
     height: 2px;
     border-radius: 1px;
-    background: linear-gradient(to right, #FF7A8F, #49D7E8);
+    background: linear-gradient(to right, #FF0099, #00F5D4);
     flex-shrink: 0;
   }
 
@@ -294,7 +294,7 @@
   .entry-meta .place { color: var(--accent); }
 
   .entry-role {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     color: var(--accent);
     font-size: 0.86rem;
     font-weight: 400;
@@ -304,7 +304,7 @@
   }
 
   .entry-tag {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.6875rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -320,7 +320,7 @@
   }
 
   .entry-list li {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.875rem;
     color: var(--text);
     opacity: 0.78;
@@ -330,7 +330,7 @@
 
   .entry-note {
     margin-top: 0.9rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.875rem;
     color: rgba(217,222,229,0.65);
     line-height: 1.7;
@@ -359,7 +359,7 @@
   }
 
   .cert-issuer {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.6875rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -373,7 +373,7 @@
   }
 
   .cert-list li {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.8rem;
     color: var(--text);
     opacity: 0.72;
@@ -390,7 +390,7 @@
   }
 
   .skill-block .skill-label {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.6875rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -451,7 +451,7 @@
   }
 
   .construction-title span {
-    background: linear-gradient(to right, #FF7A8F, #49D7E8);
+    background: linear-gradient(to right, #FF0099, #00F5D4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

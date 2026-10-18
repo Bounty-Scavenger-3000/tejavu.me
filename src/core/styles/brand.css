@@ -1,10 +1,10 @@
 /* Tejavu brand tokens: colours and layout variables used by the root site. */
 :root {
-    --base:    #0D0B0E;
-    --surface: #141418;
+    --base:    #050408;
+    --surface: #0C0B12;
     --text:    #D9DEE5;
-    --accent:  #FF7A8F;
-    --support: #49D7E8;
+    --accent:  #FF0099;
+    --support: #00F5D4;
     --rule:    rgba(217,222,229,0.08);
     --muted:   rgba(217,222,229,0.4);
     --gutter:  clamp(1.5rem, 5vw, 5rem);
