@@ -1,7 +1,22 @@
-/* Universa, the Tejavu brand typeface. One file shared by every page.
-   Preloaded in each page's <head> so the wordmark does not flash a fallback. */
+/* Tejavu brand typefaces, shared by every page.
+   Universa (display) and Space Grotesk (body) are preloaded in the <head> of the pages that
+   use them so text does not flash a fallback. Moonrock is declared for the brand set; the
+   browser only fetches it once a rule uses the family. */
 @font-face {
   font-family: 'Universa';
   src: url('../fonts/universa.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Moonrock';
+  src: url('../fonts/moonrock.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('../fonts/space-grotesk.woff2') format('woff2');
+  font-weight: 300 700;
   font-display: swap;
 }
