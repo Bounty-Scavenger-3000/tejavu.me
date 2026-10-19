@@ -22,6 +22,13 @@
 
   a { color: inherit; }
 
+  /* Inline links in running text are pink */
+  p a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,0,153,0.3);
+  }
+
   ::selection { background: var(--accent); color: var(--base); }
 
   /* ── NAV ── */
@@ -59,6 +66,7 @@
   .nav-logo-name-wrap {
     display: inline-flex;
     flex-direction: column;
+    align-self: flex-start;
     gap: 0;
   }
 
@@ -83,7 +91,7 @@
   .nav-logo-tagline {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 9px;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     color: var(--text);
     opacity: 0.35;
     margin-top: 6px;
@@ -97,7 +105,7 @@
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.72rem;
     letter-spacing: 0.04em;
-    color: var(--muted);
+    color: rgba(217,222,229,0.6);
   }
 
   .nav-links a { text-decoration: none; transition: color .2s; }
@@ -161,10 +169,7 @@
 
   h1 em {
     font-style: normal;
-    background: linear-gradient(to right, #FF0099, #00F5D4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--accent);
   }
 
   .lede {
@@ -237,28 +242,6 @@
     font-weight: 700;
   }
 
-  .section-title-wrap {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 1.5rem;
-  }
-
-  .section-accent-bar {
-    width: 24px;
-    height: 2px;
-    border-radius: 1px;
-    background: linear-gradient(to right, #FF0099, #00F5D4);
-    flex-shrink: 0;
-  }
-
-  .section-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    color: var(--text);
-  }
-
   .entry {
     display: grid;
     grid-template-columns: 18% 1fr;
@@ -293,24 +276,18 @@
   #projects .entry-title { color: var(--text); }
   .entry-meta .place { color: var(--accent); }
 
-  .entry-role {
-    font-family: 'Space Grotesk', sans-serif;
-    color: var(--accent);
-    font-size: 0.86rem;
-    font-weight: 400;
-    display: block;
-    margin-top: 2px;
-    margin-bottom: 2px;
-  }
-
   .entry-tag {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.6875rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--support);
+    background: rgba(0,245,212,0.12);
+    border-radius: 3px;
+    padding: 0.15rem 0.5rem;
     margin-bottom: 0.5rem;
     display: block;
+    width: fit-content;
     font-weight: 500;
   }
 
@@ -363,7 +340,7 @@
     font-size: 0.6875rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--support);
+    color: var(--accent);
     margin-bottom: 0.6rem;
     font-weight: 500;
   }
@@ -451,7 +428,7 @@
   }
 
   .construction-title span {
-    background: linear-gradient(to right, #FF0099, #00F5D4);
+    background: linear-gradient(to right, #FF0099, #D9DEE5, #00F5D4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
