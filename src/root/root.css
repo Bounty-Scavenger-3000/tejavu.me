@@ -89,7 +89,7 @@
   }
 
   .nav-logo-tagline {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Moonrock', sans-serif;
     font-size: 9px;
     letter-spacing: 0.1em;
     color: var(--text);
@@ -271,9 +271,6 @@
     color: var(--text);
   }
 
-  /* entry-title in activities gets accent tint */
-  #activities .entry-title,
-  #projects .entry-title { color: var(--text); }
   .entry-meta .place { color: var(--accent); }
 
   .entry-tag {
@@ -477,7 +474,7 @@
   }
 
   .footer-links { display: flex; gap: 1.5rem; }
-  .footer-links a { text-decoration: none; transition: color .2s; }
+  .footer-links a { color: rgba(217,222,229,0.6); text-decoration: none; transition: color .2s; }
   .footer-links a:hover { color: var(--accent); }
 
   @media (max-width: 700px) {

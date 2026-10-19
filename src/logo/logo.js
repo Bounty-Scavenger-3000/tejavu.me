@@ -33,7 +33,7 @@ function makeLockup({ ink, left, div }) {
           <span style="font-family:'Universa',sans-serif;font-size:26px;letter-spacing:.05em;color:${ink};line-height:1">TEJAVU</span>
           <div style="width:100%;height:3px;border-radius:2px;background:linear-gradient(to right,${left},${ink},${right});margin-top:5px"></div>
         </div>
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:9px;letter-spacing:.1em;color:${ink};opacity:.35;margin-top:6px">THINK LESS. HAPPY MORE.</div>
+        <div style="font-family:'Moonrock',sans-serif;font-size:9px;letter-spacing:.1em;color:${ink};opacity:.35;margin-top:6px">THINK LESS. HAPPY MORE.</div>
       </div>
     </div>`;
 }
