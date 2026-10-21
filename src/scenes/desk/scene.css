@@ -224,3 +224,20 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0812;}
 /* Mobile nav grid — hidden by default. Only shown inside the <480px
    breakpoint in mobile.css, which is where its full styling lives. */
 .mobile-nav{display:none;}
+
+/* Link back to the plain site */
+.skin-back{position:absolute;top:3.5%;left:2%;z-index:60;font-family:'Press Start 2P',monospace;font-size:clamp(7px,.9vw,9px);letter-spacing:.08em;color:#ffcc00;text-decoration:none;background:rgba(0,0,0,.45);border:1px solid rgba(255,204,0,.35);padding:8px 10px;}
+.skin-back:hover,.skin-back:focus-visible{background:#ffcc00;color:#1a1a1a;}
+@media(max-width:760px){.skin-back{top:auto;bottom:2%;}}
+
+/* CRT open: plays once when the root site's skin switch sends the visitor here
+   (the head script adds .wipe to <html>). Two halves slide apart in steps. */
+.crt-open{display:none;}
+.wipe .crt-open{display:block;position:fixed;inset:0;z-index:2000;pointer-events:none;}
+.crt-open i{position:absolute;left:0;right:0;height:50%;background:#050408;}
+.crt-open i:first-child{top:0;animation:crt-up .7s steps(8,end) .15s forwards;}
+.crt-open i:last-child{bottom:0;animation:crt-down .7s steps(8,end) .15s forwards;}
+.crt-open::after{content:"";position:absolute;left:0;right:0;top:50%;height:2px;margin-top:-1px;background:#00f5d4;animation:crt-line .85s linear forwards;}
+@keyframes crt-up{to{transform:translateY(-100%);}}
+@keyframes crt-down{to{transform:translateY(100%);}}
+@keyframes crt-line{0%,70%{opacity:1;}100%{opacity:0;}}

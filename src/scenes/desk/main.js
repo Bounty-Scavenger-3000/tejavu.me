@@ -12,8 +12,11 @@ import { startClock } from '../../core/engine/clock.js';
 import { createBoard } from '../../core/panels/board.js';
 import { createTimeline } from '../../core/panels/timeline.js';
 import { initContact } from '../../core/panels/contact.js';
+import { initVideos } from '../../core/panels/videos.js';
+import { initTabs } from '../../core/panels/tabs.js';
 import { initBoardPreview } from './board-preview.js';
 import { boot as bootContent, noteDetails } from '../../content/desk.js';
+import { channel, videos } from '../../content/videos.js';
 import { panelIds, connections, embeds, timelineNodes } from './data.js';
 
 const $ = id => document.getElementById(id);
@@ -29,23 +32,22 @@ const boot = createBoot({
   onFinish() {
     $('monIdle').style.display = 'none';
     $('monOS').style.display = 'block';
-    // the room stays visible: the desktop panel is position:fixed and covers it
-    const desktop = $('panel-desktop');
-    desktop.style.display = 'flex';
-    requestAnimationFrame(() => desktop.classList.add('active'));
+    panels.open('desktop');
   },
   onAlreadyBooted: () => panels.open('desktop'),
 });
 
-// panels, with the desk's hooks
+// panels, with the desk's hooks. The desktop stays open under the apps it launches.
 const panels = createPanelSystem({
   ids: panelIds,
   displayFor: id => (id === 'desktop' ? 'flex' : 'block'),
-  canReturn: () => boot.isBooted(),
-  // the desktop panel is position:fixed, so the room only hides behind the other panels
-  onBeforeOpen: id => { if (id !== 'desktop') $('room').style.opacity = '0'; },
+  // The room's scanline overlay sits above panels, so the room hides whenever an app is
+  // open. The desktop does not count: it belongs to the monitor and keeps the scanlines.
+  onChange: open => {
+    $('room').style.opacity = open.some(id => id !== 'desktop') ? '0' : '1';
+    if (!open.includes('youtube')) youtube.reset();
+  },
   onAfterOpen: id => { if (id === 'board') setTimeout(() => board.drawBig(null), 350); },
-  onAllClosed: id => { if (id !== 'desktop') $('room').style.opacity = '1'; },
 });
 
 // timeline
@@ -61,6 +63,8 @@ document.addEventListener('keydown', e => {
 });
 
 initContact();
+const youtube = initVideos({ videos, channel });
+initTabs($('panel-audit'));
 initBoardPreview();
 startClock('osTime');     // clock on the in-scene monitor
 startClock('desktopClock'); // taskbar clock

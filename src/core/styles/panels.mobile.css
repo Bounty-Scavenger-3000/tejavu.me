@@ -23,7 +23,7 @@
   .panel-ledger::before { display: none; }
   .led-inner { padding-left: 0; }
   .sgrid { grid-template-columns: 1fr; }
-  .sc.dr { border-right: none; border-bottom: 1px solid rgba(43,35,28,.18); }
+  .sc.dr { margin-bottom: 32px; }
 
   /* Audit panel: collapse findings grid */
   .finding { grid-template-columns: 1fr; }

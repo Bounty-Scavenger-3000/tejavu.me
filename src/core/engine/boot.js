@@ -5,8 +5,9 @@
 // Message colour classes (m.c):
 //   ''   green (default)    'd'  dim green    'am'  amber    'er'  red
 //
-// Note: start() has no re-entry guard, so clicking the monitor mid-boot restarts
-// the sequence. This is intended.
+// Note: clicking the monitor mid-boot restarts the sequence. This is intended. Each run
+// carries a number, and skip() or a restart bumps it, so the timers of an older run stop
+// themselves instead of finishing a second time behind the user's back.
 
 export function createBoot({
   messages,            // [{ t: text, c: colour class }]
@@ -20,14 +21,17 @@ export function createBoot({
   },
 }) {
   let booted = false;
+  let run = 0;
   const $ = id => document.getElementById(id);
 
   function finish() {
+    if (booted) return;
     booted = true;
     onFinish();
   }
 
   function skip() {
+    run++;
     const bs = $(ids.screen);
     const bar = $(ids.bar);
     const statusL = $(ids.statusL);
@@ -41,6 +45,7 @@ export function createBoot({
 
   function start() {
     if (booted) { onAlreadyBooted(); return; }
+    const mine = ++run;
     const bs = $(ids.screen);
     const lines = $(ids.lines);
     const bar = $(ids.bar);
@@ -54,10 +59,11 @@ export function createBoot({
 
     let i = 0;
     function next() {
+      if (mine !== run) return;
       if (i >= messages.length) {
         if (statusL) statusL.textContent = text.done;
         if (statusR) statusR.textContent = text.donePct;
-        setTimeout(() => { bs.classList.remove('active'); finish(); }, 700);
+        setTimeout(() => { if (mine !== run) return; bs.classList.remove('active'); finish(); }, 700);
         return;
       }
       const m = messages[i];

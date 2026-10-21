@@ -2,7 +2,7 @@
 // Text lives in src/content/desk.js. Behaviour lives in src/core.
 
 // Panel ids; the elements are #panel-<id> in desk/index.html.
-export const panelIds = ['os', 'ledger', 'audit', 'dossier', 'contact', 'board', 'desktop', 'git', 'gallery'];
+export const panelIds = ['os', 'ledger', 'audit', 'dossier', 'contact', 'board', 'desktop', 'git', 'youtube'];
 
 // Strings between board notes. List each pair once; both directions are deduplicated.
 export const connections = {
@@ -12,13 +12,15 @@ export const connections = {
   prachaara:  ['verdict', 'record'],
   crescere:   ['record'],
   civic:      ['broseph'],
+  potluck:    ['broseph', 'civic'],
   record:     ['humshakals', 'prachaara', 'crescere', 'broseph'],
   broseph:    ['civic', 'record'],
   newsletter: ['broseph'],
 };
 
-// Notes that show an embed in their overlay. Same Beehiiv form as the root site.
+// Notes that show an embed in their overlay. The newsletter uses the same Beehiiv form as the root site.
 export const embeds = {
+  humshakals: { type: 'youtube', id: 'm_hjexjJEwg', title: 'Humshakals, Prachaara 2.0' },
   newsletter: { type: 'beehiiv', formId: '067f8e7e-6d96-43e1-a3df-c6b051fdd734' },
 };
 

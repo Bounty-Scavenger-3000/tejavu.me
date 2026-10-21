@@ -4,12 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tejas — The Desk</title>
-<meta name="description" content="Tejas — Community Impact &amp; Finance Fellow, ACCA part-qualified, occasional standup act.">
+<meta name="description" content="Tejas MP, former Community Impact &amp; Finance Fellow at Broseph Foundation. ACCA part-qualified. Occasional standup act. The desk version of tejavu.me.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>try{if(sessionStorage.getItem('skin-wipe')){sessionStorage.removeItem('skin-wipe');document.documentElement.classList.add('wipe');}}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500&family=Space+Mono:wght@400;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/src/scenes/desk/desk.css">
 </head>
 <body>
+
+<div class="crt-open" aria-hidden="true"><i></i><i></i></div>
 
 <!-- ═══════════ BOOT SCREEN ═══════════ -->
 <div id="boot-screen" data-registry="SEC-00">
@@ -45,6 +49,7 @@
 
   <div class="scene-title">TEJAS . V</div>
   <div class="scene-sub">[ CLICK AN OBJECT TO EXPLORE ]</div>
+  <a class="skin-back" href="/">&larr; plain site</a>
 
   <div class="stage" data-registry="SEC-01">
 
@@ -145,7 +150,7 @@
                 <div class="mon-idle" id="monIdle">
                   &gt; TEJAS-PC v98<br>
                   <span class="d">&gt; mem: 640K ok</span><br>
-                  &gt; projects: 4<br>
+                  &gt; projects: 6<br>
                   <span class="am">&gt; record: 0-for-3</span><br>
                   &gt; click to boot <span class="cur"></span>
                 </div>
@@ -256,7 +261,7 @@
       <div class="mobile-nav-btn" data-open="dossier" tabindex="0" role="button" aria-label="About"><div class="mobile-nav-btn-icon">🗂️</div><div class="mobile-nav-btn-label">ABOUT</div></div>
       <div class="mobile-nav-btn board-btn" data-open="board" tabindex="0" role="button" aria-label="The Board"><div class="mobile-nav-btn-icon">📌</div><div class="mobile-nav-btn-label">THE BOARD</div></div>
       <div class="mobile-nav-btn git-btn" data-open="git" tabindex="0" role="button" aria-label="Timeline"><div class="mobile-nav-btn-icon">🌿</div><div class="mobile-nav-btn-label">TIMELINE</div></div>
-      <div class="mobile-nav-btn gallery-btn" data-open="gallery" tabindex="0" role="button" aria-label="Gallery"><div class="mobile-nav-btn-icon">🖼️</div><div class="mobile-nav-btn-label">GALLERY</div></div>
+      <div class="mobile-nav-btn video-btn" data-open="youtube" tabindex="0" role="button" aria-label="Videos"><div class="mobile-nav-btn-icon">▶️</div><div class="mobile-nav-btn-label">VIDEOS</div></div>
     </div>
   </div>
 </div><!-- /room -->
@@ -283,16 +288,16 @@
           <div class="os-menu-item">Help</div>
         </div>
         <div style="font-family:'Space Mono',monospace;font-size:11px;color:#333;margin-bottom:12px;">
-          C:\TEJAS\PROJECTS&gt; dir /issues<br><span style="color:#555;">4 file(s) found · sorted by status</span>
+          C:\TEJAS\PROJECTS&gt; dir /issues<br><span style="color:#555;">6 file(s) found</span>
         </div>
         <div class="os-issues">
           <div class="os-row">
-            <div style="color:#1a6a2a;font-size:15px;margin-top:2px;flex-shrink:0;">◉</div>
+            <div style="color:#a371f7;font-size:15px;margin-top:2px;flex-shrink:0;">◎</div>
             <div class="oi">
-              <div class="oi-title">[OPEN] RTI Master Tracker</div>
-              <div class="oi-meta">Broseph Foundation · 2025–2026 · still in daily use</div>
+              <div class="oi-title">[CLOSED] RTI Master Tracker</div>
+              <div class="oi-meta">Broseph Foundation · 2025–2026</div>
               <div class="oi-desc">The RTI team ran everything off one spreadsheet, data dumped in as it came. Rebuilt it as a structured Google Sheets database with automated deadline tracking and a live dashboard.</div>
-              <div class="oi-labels"><span class="il fi">finance</span><span class="il op">ops</span><span class="il te">tech</span><span class="il wi">in-progress</span></div>
+              <div class="oi-labels"><span class="il fi">finance</span><span class="il op">ops</span><span class="il te">tech</span><span class="il cl">closed</span></div>
             </div>
           </div>
           <div class="os-row">
@@ -311,6 +316,7 @@
               <div class="oi-meta">Christ University · Feb 2025 · grade: 18/20</div>
               <div class="oi-desc">Brief: build an ad for a product in an assigned genre. Assigned genre: disappearing snacks. Built a full campaign — ad, short film, class presentation — leaning into the idea that the snack was suspiciously moreish. Had teachers act in the ad, printed real packaging, pulled it out of a blazer mid-presentation.</div>
               <div class="oi-labels"><span class="il co">comedy</span><span class="il cl">closed</span></div>
+              <div class="oi-links"><span class="oi-link" data-switch="os:youtube" tabindex="0" role="button" data-key>▶ Watch the short film</span></div>
             </div>
           </div>
           <div class="os-row">
@@ -320,6 +326,24 @@
               <div class="oi-meta">Christ University · Mar 2025 · 240 sales, ₹7,500–8,000 revenue</div>
               <div class="oi-desc">Team sold earrings, bookmarks, and tarot readings. Couldn't make jewellery or read cards, so took the two jobs available: marketing (a Spiderman mask over university formals) and the numbers (a colour-coded tracker for inventory, per-product sales, daily revenue). Two days, almost nothing left unsold.</div>
               <div class="oi-labels"><span class="il fi">finance</span><span class="il op">ops</span><span class="il co">comedy</span><span class="il cl">closed</span></div>
+            </div>
+          </div>
+          <div class="os-row">
+            <div style="color:#a371f7;font-size:15px;margin-top:2px;flex-shrink:0;">◎</div>
+            <div class="oi">
+              <div class="oi-title">[CLOSED] Peenya Manufacturing Unit — Organisational Study</div>
+              <div class="oi-meta">Christ University · 30-hour study</div>
+              <div class="oi-desc">A 30-hour deep-dive into a mattress manufacturing unit in Peenya, mapping how the operation actually ran: departments, supplier and competitor relationships, product lines. Went through their catalogues, MOA, and AOA; interviewed the owner and office staff.</div>
+              <div class="oi-labels"><span class="il re">research</span><span class="il op">ops</span><span class="il cl">closed</span></div>
+            </div>
+          </div>
+          <div class="os-row">
+            <div style="color:#a371f7;font-size:15px;margin-top:2px;flex-shrink:0;">◎</div>
+            <div class="oi">
+              <div class="oi-title">[CLOSED] VV Puram-Style Food Street — Market Analysis</div>
+              <div class="oi-meta">Christ University</div>
+              <div class="oi-desc">Brief: pitch a new business idea. Concept: a VV Puram-style food street near Christ University. Backed by actual market research; survey forms mapped food preferences and tested whether the concept would hold up as a real venture.</div>
+              <div class="oi-labels"><span class="il re">research</span><span class="il cl">closed</span></div>
             </div>
           </div>
         </div>
@@ -353,6 +377,7 @@
         <div class="sr"><span>Google Workspace + Apps Script</span><span class="st">sheets, forms</span></div>
         <div class="sr"><span>Linux Mint (daily driver) + Windows</span><span class="st">dual-boot</span></div>
         <div class="sr"><span>Claude, ChatGPT, Gemini, NotebookLM</span><span class="st">AI-augmented build</span></div>
+        <div class="sr"><span>Data analysis</span><span class="st">working level</span></div>
         <div class="sr"><span>Canva</span><span class="st">design</span></div>
         <div class="sr"><span>Networking fundamentals</span><span class="st">CCNA, Cisco</span></div>
         <div class="sr"><span>Cybersecurity fundamentals</span><span class="st">Cisco + NPTEL</span></div>
@@ -361,9 +386,13 @@
     </div>
     <div class="cert-strip">
       <div class="cert-strip-h">Also certified in</div>
-      <div class="cert-line"><b>ACCA</b> — BT, MA, FA, LW, PM, TX, FR, AA, FM (part-qualified, 9/13 done)</div>
+      <div class="cert-line"><b>ACCA</b> — BT, MA, FA, LW, PM, TX, FR, AA, FM (part-qualified, 9 papers cleared)</div>
       <div class="cert-line"><b>Cisco Networking Academy</b> — Intro to Networks, Networking Essentials, Intro to Packet Tracer, Cybersecurity Essentials, Intro to Cybersecurity</div>
       <div class="cert-line"><b>NPTEL</b> — Psychology of Learning, Introduction to IoT, Cybersecurity &amp; Privacy, Ethical Hacking</div>
+    </div>
+    <div class="cert-strip">
+      <div class="cert-strip-h">Languages</div>
+      <div class="cert-line"><b>Native</b> — Telugu, Kannada · <b>Professional</b> — English · <b>Proficient</b> — Hindi · <b>A2</b> — German</div>
     </div>
   </div>
 </div>
@@ -374,18 +403,34 @@
   <div class="p-inner">
     <div class="audit-top">
       <div class="a-kicker">Entry 04 · Independent Assessment · Confidential</div>
-      <div class="a-h">Independent Assessment of Tejas V.<br><span style="font-size:.7em;font-weight:400;font-style:italic;">Re: Broseph Foundation, Jul 2025 – Jul 2026</span></div>
+      <div class="a-h">Independent Assessment of Tejas V.</div>
+    </div>
+    <div class="a-tabs" role="tablist" aria-label="Assessment sections">
+      <button class="a-tab" role="tab" id="aud-tab-work" aria-controls="aud-work" aria-selected="true" type="button">Work experience</button>
+      <button class="a-tab" role="tab" id="aud-tab-edu" aria-controls="aud-edu" aria-selected="false" tabindex="-1" type="button">Education</button>
+    </div>
+    <section class="a-section" id="aud-work" role="tabpanel" aria-labelledby="aud-tab-work">
+      <div class="a-re">Re: Broseph Foundation, Jul 2025 – Jul 2026</div>
       <div class="a-sub">Community Impact &amp; Finance Fellow. The role didn't exist before it was built.</div>
-      <div class="a-meta"><span>PERIOD: <b>2023 – Present</b></span><span>SCOPE: <b>Work &amp; education</b></span><span>CLASS: <b>Public</b></span></div>
-    </div>
-    <div class="findings" data-registry="SEC-09-E01">
-      <div class="finding str"><div class="f-ref">REF-001<br>2025 –</div><div><div class="f-title">Community &amp; Volunteer Operations</div><div class="f-desc">Runs point on 20,000+ volunteers across 19 chapters in 4 cities, spread over 20+ WhatsApp groups — onboarding, mediation, and the reminder calls that actually get people to show up. Coordinates all 14 Bangalore chapters end to end for field drives and community events, and runs RTI workshops so volunteers can use the tool themselves.</div></div><div class="f-rating">STRENGTH<br>■■■■■</div></div>
-      <div class="finding str"><div class="f-ref">REF-002<br>2025 –</div><div><div class="f-title">Financial Operations</div><div class="f-desc">Manages petty cash against a ₹10,000 monthly budget, verifying every claim against a bill or payment screenshot before it clears. Organises the Foundation's financial records ahead of the CA firm's year-end filings.</div></div><div class="f-rating">STRENGTH<br>■■■■□</div></div>
-      <div class="finding str"><div class="f-ref">REF-003<br>2025 –</div><div><div class="f-title">Legal &amp; Case Support</div><div class="f-desc">Drafts three to four legal complaints a month for FIR filings, and walks victims through the process — including accompanying them to the police station. Runs case onboarding: gathering evidence and writing the brief the Director reviews before a case moves forward, without needing to re-interview anyone.</div></div><div class="f-rating">STRENGTH<br>■■■■□</div></div>
-      <div class="finding str"><div class="f-ref">REF-004<br>2025 –</div><div><div class="f-title">Internal Systems &amp; Automation</div><div class="f-desc">Built the RTI Master Tracker from a blank sheet — filing, deadlines, and a live dashboard the team still runs on. Built the onboarding Google Forms that cut a manual process by more than 90%, and runs bug testing across the Foundation's internal systems.</div></div><div class="f-rating">STRENGTH<br>■■■■■</div></div>
-      <div class="finding str"><div class="f-ref">REF-005<br>2025 –</div><div><div class="f-title">Education Initiative — Broseph Shikshana Vedike</div><div class="f-desc">Leads the Foundation's education initiative across two government schools — teaching 50+ at-risk kids directly and managing a rotating team of 10+ volunteer teachers. Some of these kids reached 8th and 9th grade without knowing vowels and consonants; lessons started there and built up through tech literacy to networking and how a phone talks to a cell tower.</div></div><div class="f-rating">STRENGTH<br>■■■■■</div></div>
-      <div class="finding str"><div class="f-ref">REF-006<br>2023–2026</div><div><div class="f-title">Education — B.Com + ACCA</div><div class="f-desc">B.Com in International Accountancy &amp; Finance, Christ University, graduating 2026. ACCA part-qualified — 9 papers done through degree exemptions (BT, MA, FA, LW, PM, TX, FR, AA, FM), 4 advanced papers in progress (SBL, SBR, APM, AAA) — while holding everything above down full-time.</div></div><div class="f-rating">STRENGTH<br>■■■■□</div></div>
-    </div>
+      <div class="a-meta"><span>PERIOD: <b>Jul 2025 – Jul 2026</b></span><span>SCOPE: <b>Work</b></span><span>CLASS: <b>Public</b></span></div>
+      <div class="findings" data-registry="SEC-09-E01">
+      <div class="finding str"><div class="f-ref">REF-001<br>2025–2026</div><div><div class="f-title">Community &amp; Volunteer Operations</div><div class="f-desc">Ran point on 20,000+ volunteers across 19 chapters in 4 cities, spread over 20+ WhatsApp groups — onboarding, mediation, and the reminder calls that actually got people to show up. Coordinated all 14 Bangalore chapters end to end for field drives and community events, and ran RTI workshops so volunteers could use the tool themselves.</div></div><div class="f-rating">STRENGTH<br>■■■■■</div></div>
+      <div class="finding str"><div class="f-ref">REF-002<br>2025–2026</div><div><div class="f-title">Financial Operations</div><div class="f-desc">Managed petty cash against a ₹10,000 monthly budget, verifying every claim against a bill or payment screenshot before it cleared. Organised the Foundation's financial records ahead of the CA firm's year-end filings.</div></div><div class="f-rating">STRENGTH<br>■■■■□</div></div>
+      <div class="finding str"><div class="f-ref">REF-003<br>2025–2026</div><div><div class="f-title">Legal &amp; Case Support</div><div class="f-desc">Drafted three to four legal complaints a month for FIR filings, and walked victims through the process — including accompanying them to the police station. Ran case onboarding: gathered evidence and wrote the brief the Director reviewed before a case moved forward, without needing to re-interview anyone.</div></div><div class="f-rating">STRENGTH<br>■■■■□</div></div>
+      <div class="finding str"><div class="f-ref">REF-004<br>2025–2026</div><div><div class="f-title">Internal Systems &amp; Automation</div><div class="f-desc">Built the RTI Master Tracker from a blank sheet — filing, deadlines, and a live dashboard. Built the onboarding Google Forms that cut a manual process by more than 90%, and ran bug testing across the Foundation's internal systems.</div></div><div class="f-rating">STRENGTH<br>■■■■■</div></div>
+      <div class="finding str"><div class="f-ref">REF-005<br>2025–2026</div><div><div class="f-title">Content &amp; Communications</div><div class="f-desc">Default writer for internal updates, announcements, and social captions. Daily HQ updates to a ~100-person group pulled 20–30 reactions, with near-full readership.</div></div><div class="f-rating">STRENGTH<br>■■■■□</div></div>
+      <div class="finding str"><div class="f-ref">REF-006<br>2025–2026</div><div><div class="f-title">Education Initiative — Broseph Shikshana Vedike</div><div class="f-desc">Led the Foundation's education initiative across two government schools — taught 50+ at-risk kids directly and managed a rotating team of 10+ volunteer teachers. Some of these kids reached 8th and 9th grade without knowing vowels and consonants; lessons started there and covered English, Maths and Science, then tech literacy from computer basics up to networking and how a phone talks to a cell tower.</div></div><div class="f-rating">STRENGTH<br>■■■■■</div></div>
+      <div class="finding str"><div class="f-ref">REF-007<br>Sep 2025</div><div><div class="f-title">Partnerships</div><div class="f-desc">Co-organised a civic drive with Christ University's SDG club: 20+ participants, two field teams, 10+ bags of garbage, 60+ issues logged on the BBMP Sahaya app.</div></div><div class="f-rating">STRENGTH<br>■■■■□</div></div>
+      </div>
+    </section>
+    <section class="a-section" id="aud-edu" role="tabpanel" aria-labelledby="aud-tab-edu" hidden>
+      <div class="a-re">Re: Christ University and ACCA, 2023 – 2026</div>
+      <div class="a-sub">B.Com in International Accountancy &amp; Finance, with ACCA exemptions.</div>
+      <div class="a-meta"><span>PERIOD: <b>2023 – 2026</b></span><span>SCOPE: <b>Education</b></span><span>CLASS: <b>Public</b></span></div>
+      <div class="findings">
+      <div class="finding str"><div class="f-ref">REF-008<br>2023–2026</div><div><div class="f-title">Education — B.Com + ACCA</div><div class="f-desc">B.Com in International Accountancy &amp; Finance, Christ University, 2023–2026. ACCA part-qualified: 9 papers cleared through degree exemptions at Applied Knowledge and Applied Skills levels (BT, MA, FA, LW, PM, TX, FR, AA, FM). ACCA PER: 5 essential and 2 technical performance objectives fulfilled (Advisory &amp; Consultancy; Data, Digital &amp; Technology). All of it alongside the full-time role at Broseph Foundation.</div></div><div class="f-rating">STRENGTH<br>■■■■□</div></div>
+      </div>
+    </section>
     <div class="a-foot">This assessment was prepared for informational purposes only and does not constitute professional advice. The preparer takes no responsibility for offers of employment, admissions of respect, or spontaneous collaborations that may result.</div>
   </div>
 </div>
@@ -397,34 +442,34 @@
     <div class="d-ey">Entry 01 / CLASSIFIED · REF: TVU-001</div>
     <div class="d-h">Subject File — About</div>
     <div class="d-file">
-      <div class="d-tab"><span class="d-tl">Personal Dossier · Eyes Only</span><span class="d-tr">TVU-001 · ACTIVE</span></div>
+      <div class="d-tab"><span class="d-tl">Personal Dossier · Eyes Only</span><span class="d-tr">TVU-001 · ON FILE</span></div>
       <div class="d-body">
-        <div class="d-stamp"><div class="d-st">ACTIVE</div></div>
+        <div class="d-stamp"><div class="d-st">ON FILE</div></div>
 
-        <p class="d-bio">Most people this age have internships. Subject has a full-time job, 20,000 volunteers, and a degree to finish — all at once. ACCA papers remaining: <span class="d-redact" data-registry="SEC-10-EGG01" data-toggle="rv" role="button" tabindex="0" aria-label="Tap to declassify" data-key><span class="d-redact-bar">████████████████</span><span class="d-redact-text">SBL, SBR, APM, AAA</span></span>, alongside a B.Com in International Accountancy &amp; Finance and a role at Broseph Foundation as Community Impact &amp; Finance Fellow — officially. Unofficially, whatever the day requires.</p>
-        <p class="d-bio" style="margin-top:10px;">The Broseph Foundation role covers more ground than any single job title should: running point on 20,000+ volunteers across 19 chapters, managing petty cash against a ₹10,000 monthly budget, drafting legal complaints for FIR filings, teaching kids who reached 8th grade without knowing vowels, building the RTI Master Tracker from a blank spreadsheet, and doing the reminder calls that actually get people to show up.</p>
-        <p class="d-bio" style="margin-top:10px;">Prefers problems that are analytical and context-heavy — the kind you can't shortcut. Growth over comfort. Autonomy over instructions. Bad management burns subject out faster than the work itself ever could. Fluent in 5 languages, dual-boots 2 operating systems, automates whatever gets repetitive.</p>
+        <p class="d-bio">Most people this age have internships. Subject held a full-time job, 20,000 volunteers, and a degree, all at once. ACCA papers cleared: <span class="d-redact" data-registry="SEC-10-EGG01" data-toggle="rv" role="button" tabindex="0" aria-label="Tap to declassify" data-key><span class="d-redact-bar">████████████████</span><span class="d-redact-text">BT, MA, FA, LW, PM, TX, FR, AA, FM</span></span>, alongside a B.Com in International Accountancy &amp; Finance and a role at Broseph Foundation as Community Impact &amp; Finance Fellow, officially. Unofficially, whatever the day required.</p>
+        <p class="d-bio" style="margin-top:10px;">The Broseph Foundation role covered more ground than any single job title should: running point on 20,000+ volunteers across 19 chapters, managing petty cash against a ₹10,000 monthly budget, drafting legal complaints for FIR filings, teaching kids who reached 8th grade without knowing vowels, building the RTI Master Tracker from a blank spreadsheet, and doing the reminder calls that actually got people to show up.</p>
+        <p class="d-bio" style="margin-top:10px;">Prefers problems that are analytical and context-heavy — the kind you can't shortcut. Growth over comfort. Autonomy over instructions. Bad management burns subject out faster than the work itself ever could. Speaks 5 languages, dual-boots 2 operating systems, automates whatever gets repetitive.</p>
         <p class="d-bio" style="margin-top:10px;">Outside the spreadsheets: has walked off a stage to 300 people who wouldn't stop cheering, for a pitch judges said had zero commercial value. Reading a room is reading a room, whether it's twenty thousand volunteers or three hundred strangers waiting for a punchline. <span class="flag">Full account on the board →</span></p>
 
         <div class="d-quickfacts" data-registry="SEC-10-E02">
           <div class="d-qf-h">Quick Facts</div>
           <ul class="d-qf-list">
             <li>Reached the finals in 3 separate pitch/case competitions. Won 0. Doesn't mind.</li>
-            <li>Fluent in 5 languages, dual-boots 2 operating systems, automates whatever gets repetitive.</li>
-            <li>ACCA target completion: 2028.</li>
-            <li>B.Com graduating 2026, Christ University.</li>
+            <li>Speaks 5 languages, dual-boots 2 operating systems, automates whatever gets repetitive.</li>
+            <li>ACCA: 9 papers cleared through degree exemptions.</li>
+            <li>B.Com, Christ University, 2026.</li>
           </ul>
         </div>
 
         <div class="d-fields">
-          <div class="d-f"><div class="d-fl">Current Role</div><div class="d-fv">Community Impact &amp; Finance Fellow</div></div>
-          <div class="d-f"><div class="d-fl">Organisation</div><div class="d-fv">Broseph Foundation</div></div>
+          <div class="d-f"><div class="d-fl">Role</div><div class="d-fv">Community Impact &amp; Finance Fellow</div></div>
+          <div class="d-f"><div class="d-fl">Organisation</div><div class="d-fv">Broseph Foundation · Jul 2025 – Jul 2026</div></div>
           <div class="d-f"><div class="d-fl">Education</div><div class="d-fv">B.Com (Int'l Acct. &amp; Finance), Christ University · 2026</div></div>
-          <div class="d-f"><div class="d-fl">ACCA</div><div class="d-fv">Part-Qualified — 9/13 papers done</div></div>
+          <div class="d-f"><div class="d-fl">ACCA</div><div class="d-fv">Part-qualified: 9 papers cleared</div></div>
           <div class="d-f"><div class="d-fl">Location</div><div class="d-fv">Bengaluru, India</div></div>
-          <div class="d-f"><div class="d-fl">Languages</div><div class="d-fv">5 — Telugu &amp; Kannada (native), English (professional)</div></div>
+          <div class="d-f"><div class="d-fl">Languages</div><div class="d-fv">5: Telugu &amp; Kannada (native), English (professional), Hindi (proficient), German (A2)</div></div>
           <div class="d-f"><div class="d-fl">Threat Level</div><div class="d-fv">Finance skills + a live mic. Judges have been warned.</div></div>
-          <div class="d-f"><div class="d-fl">Status</div><div class="d-fv">Chasing growth, not comfort.</div></div>
+          <div class="d-f"><div class="d-fl">Status</div><div class="d-fv">Open to work. Growth over comfort.</div></div>
         </div>
 
         <div class="d-jumps" data-registry="SEC-10-E03">
@@ -446,8 +491,7 @@
     <div class="cq-ey">Entry 07</div>
     <div class="cq-h">Contact</div>
     <div class="cq-sub">Pay to the order of Tejas</div>
-    <!-- action: replace YOUR_FORMSPREE_ID with your actual Formspree endpoint ID -->
-    <form class="cheque" id="chequeForm" data-registry="SEC-11-E01" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+    <form class="cheque" id="chequeForm" data-registry="SEC-11-E01" data-to="gheepudimasaladosa@duck.com">
       <div class="cq-top">
         <div class="cq-brand">The Ledger</div>
         <div class="cq-num">NO. 0001<br>DATE: <span id="chequeDate"></span></div>
@@ -460,8 +504,8 @@
         <div><div class="cq-sig-line">Tejas</div><div class="cq-sig-label">AUTHORIZED SIGNATURE</div></div>
       </div>
     </form>
-    <div class="cq-ok" id="chequeOK"><div class="msg">Message deposited ✓</div><div class="sub">Got it — I'll get back to you.</div></div>
-    <div class="socials" data-registry="SEC-11-E03"><a href="mailto:gheepudimasaladosa@duck.com">Email</a><a href="https://www.linkedin.com/in/accatejas" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/Bounty-Scavenger-3000" target="_blank" rel="noopener">GitHub</a><a href="https://instagram.com/tejavu.mp4" target="_blank" rel="noopener">Instagram</a></div>
+    <div class="cq-ok" id="chequeOK"><div class="msg">Cheque written ✓</div><div class="sub">Your mail app should open with the message ready. Send it from there, or write to <a href="mailto:gheepudimasaladosa@duck.com">gheepudimasaladosa@duck.com</a>.</div></div>
+    <div class="socials" data-registry="SEC-11-E03"><a href="mailto:gheepudimasaladosa@duck.com">Email</a><a href="https://www.linkedin.com/in/accatejas" target="_blank" rel="noopener">LinkedIn</a><a href="https://instagram.com/tejavu.mp4" target="_blank" rel="noopener">Instagram</a></div>
   </div>
 </div>
 
@@ -507,6 +551,10 @@
         <div class="pushpin" style="--pin-c:#cc2200;--pin-hi:#ff6666;"></div>
         <div class="nc yellow" style="width:140px;"><div class="nc-title">0-FOR-3</div><div class="nc-sub">Three finals. Zero wins. Genuinely doesn't mind — people remember energy over slides.</div></div>
       </div>
+      <div class="pin-note" style="left:120px;top:380px;" id="bn-potluck" data-note="potluck">
+        <div class="pushpin" style="--pin-c:#1a6a2a;--pin-hi:#3fb950;"></div>
+        <div class="nc green" style="width:170px;"><div class="nc-title">HOMELESS SHELTER POTLUCK</div><div class="nc-sub">The first one almost didn't happen. Form and menu rebuilt at midnight, two nights out.</div></div>
+      </div>
       <div class="pin-note" style="left:380px;top:380px;" id="bn-newsletter" data-note="newsletter">
         <div class="pushpin" style="--pin-c:#6a1a8a;--pin-hi:#c070ff;"></div>
         <div class="nc pink" style="width:150px;"><div class="nc-title">NEWSLETTER</div><div class="nc-sub">The unfiltered version of all of this lives on Beehiiv. Sign up →</div></div>
@@ -523,7 +571,6 @@
       <div class="nd-title" id="ndTitle"></div>
       <div class="nd-body" id="ndBody"></div>
       <div class="nd-embed" id="ndEmbed" data-registry="SEC-12-E03"></div>
-      <div class="nd-media"><div class="nd-media-slot">📎 photos &amp; attachments — coming soon</div></div>
     </div>
   </div>
 
@@ -534,29 +581,29 @@
     <div class="desktop-wallpaper">
       <div class="desktop-icons">
 
-        <div class="desktop-icon" data-switch="desktop:os" tabindex="0" role="button">
+        <div class="desktop-icon" data-open="os" tabindex="0" role="button" data-key>
           <div class="di-img">🗂️</div>
           <div class="di-label">Projects.jira</div>
         </div>
 
-        <div class="desktop-icon" data-switch="desktop:git" tabindex="0" role="button">
+        <div class="desktop-icon" data-open="git" tabindex="0" role="button" data-key>
           <div class="di-img">🌿</div>
           <div class="di-label">Timeline.git</div>
         </div>
 
-        <div class="desktop-icon" data-switch="desktop:gallery" tabindex="0" role="button">
-          <div class="di-img">🖼️</div>
-          <div class="di-label">Gallery.img</div>
+        <div class="desktop-icon" data-open="youtube" tabindex="0" role="button" data-key>
+          <div class="di-img"><svg viewBox="0 0 36 36" width="36" height="36" aria-hidden="true"><rect x="2" y="7" width="32" height="22" rx="6" fill="#f00"/><path d="M15 13l9 5-9 5z" fill="#fff"/></svg></div>
+          <div class="di-label">YouTube.mp4</div>
         </div>
 
-        <div class="desktop-icon" data-switch="desktop:contact" tabindex="0" role="button">
+        <div class="desktop-icon" data-open="contact" tabindex="0" role="button" data-key>
           <div class="di-img">✉️</div>
           <div class="di-label">Contact.mail</div>
         </div>
 
       </div>
       <div class="desktop-taskbar">
-        <div class="dt-start" data-close="desktop">
+        <div class="dt-start" data-close="desktop" tabindex="0" role="button" aria-label="Leave the computer" data-key>
           <span class="dt-start-logo">⊞</span>
           <span class="dt-start-label">TEJAS-OS</span>
         </div>
@@ -591,11 +638,11 @@
           <div class="gt-commits">
             <div class="gt-commit" data-node="node-bcom" tabindex="0" role="button">
               <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--edu"></div>
-              <div class="gt-commit-card"><span class="gt-tag gt-tag--edu">EDU</span><span class="gt-commit-title">B.Com starts — Christ University</span><span class="gt-commit-body">International Accountancy &amp; Finance. ACCA exemptions begin.</span></div>
+              <div class="gt-commit-card"><span class="gt-tag gt-tag--edu">EDU</span><span class="gt-commit-title">Started B.Com — Christ University</span><span class="gt-commit-body">International Accountancy &amp; Finance. ACCA exemptions began.</span></div>
             </div>
             <div class="gt-commit" data-node="node-broseph-start" tabindex="0" role="button">
               <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--work"></div>
-              <div class="gt-commit-card"><span class="gt-tag gt-tag--work">WORK</span><span class="gt-commit-title">Joins Broseph Foundation</span><span class="gt-commit-body">Volunteers first, then coordination across chapters.</span></div>
+              <div class="gt-commit-card"><span class="gt-tag gt-tag--work">WORK</span><span class="gt-commit-title">Joined Broseph Foundation</span><span class="gt-commit-body">Volunteers first, then coordination across chapters.</span></div>
             </div>
           </div>
         </div>
@@ -641,7 +688,7 @@
             </div>
             <div class="gt-commit" data-node="node-rti" tabindex="0" role="button">
               <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--proj"></div>
-              <div class="gt-commit-card"><span class="gt-tag gt-tag--proj">PROJECT</span><span class="gt-commit-title">RTI Master Tracker</span><span class="gt-commit-body">Built from blank sheet. Filing, deadlines, live dashboard. Still in daily use.</span></div>
+              <div class="gt-commit-card"><span class="gt-tag gt-tag--proj">PROJECT</span><span class="gt-commit-title">RTI Master Tracker</span><span class="gt-commit-body">Built from blank sheet. Filing, deadlines, live dashboard.</span></div>
             </div>
           </div>
         </div>
@@ -656,79 +703,31 @@
             </div>
             <div class="gt-commit gt-commit--head" data-node="node-bcom-grad" tabindex="0" role="button">
               <div class="gt-commit-line"></div><div class="gt-commit-dot gt-dot--edu gt-dot--head"></div>
-              <div class="gt-commit-card"><span class="gt-tag gt-tag--edu">EDU</span><span class="gt-commit-title">B.Com graduation · ACCA continues</span><span class="gt-commit-body">Graduating Christ University. SBL, SBR, APM, AAA in progress → 2028.</span></div>
+              <div class="gt-commit-card"><span class="gt-tag gt-tag--edu">EDU</span><span class="gt-commit-title">B.Com graduation</span><span class="gt-commit-body">Christ University, 2026. Nine ACCA papers cleared through degree exemptions.</span></div>
             </div>
           </div>
         </div>
 
         <div class="gt-head-row">
           <div class="gt-trunk-end"></div>
-          <div class="gt-head-label">HEAD · main · ongoing</div>
+          <div class="gt-head-label">HEAD · main</div>
         </div>
 
       </div>
     </div>
   </div>
 
-  <!-- ═══════════ GALLERY PANEL ═══════════
-       Photo gallery — images connected to events/sections.
-       Scaffold: real photos needed before this ships.
-       Each card links to its source event on the board
-       or audit panel, so no content is duplicated.
-  ═══════════════════════════════════════════════════ -->
-  <div class="panel panel-gallery" id="panel-gallery" data-registry="SEC-15">
-    <button class="p-close" data-close="gallery">✕ ESC</button>
+  <!-- ═══════════ YOUTUBE PANEL ═══════════
+       The video list lives in src/content/videos.js and is rendered into #ytGrid. -->
+  <div class="panel panel-youtube" id="panel-youtube">
+    <button class="p-close" data-close="youtube">✕ ESC</button>
     <div class="p-inner">
-      <div class="gallery-header">
-        <div class="gallery-title">Gallery.img</div>
-        <div class="gallery-sub">Digital archive · photos connect to their source events</div>
+      <div class="yt-header">
+        <div class="yt-title">YouTube.mp4</div>
+        <div class="yt-sub">Videos by Tejas</div>
       </div>
-      <div class="gallery-grid">
-
-        <div class="gallery-card gallery-card--placeholder">
-          <div class="gc-img-slot">📷</div>
-          <div class="gc-caption">Humshakals — Prachaara 2.0</div>
-          <div class="gc-meta">Feb 2026</div>
-          <button class="gc-link" data-switch="gallery:board" data-note-after="humshakals">→ Open on board</button>
-        </div>
-
-        <div class="gallery-card gallery-card--placeholder">
-          <div class="gc-img-slot">📷</div>
-          <div class="gc-caption">Prachaara — Finals</div>
-          <div class="gc-meta">Dec 2024</div>
-          <button class="gc-link" data-switch="gallery:board" data-note-after="prachaara">→ Open on board</button>
-        </div>
-
-        <div class="gallery-card gallery-card--placeholder">
-          <div class="gc-img-slot">📷</div>
-          <div class="gc-caption">Civic Drive — BBMP Sahaya</div>
-          <div class="gc-meta">Sep 2025</div>
-          <button class="gc-link" data-switch="gallery:board" data-note-after="civic">→ Open on board</button>
-        </div>
-
-        <div class="gallery-card gallery-card--placeholder">
-          <div class="gc-img-slot">📷</div>
-          <div class="gc-caption">CRESCERE — Squid Game promo</div>
-          <div class="gc-meta">2025</div>
-          <button class="gc-link" data-switch="gallery:board" data-note-after="crescere">→ Open on board</button>
-        </div>
-
-        <div class="gallery-card gallery-card--placeholder">
-          <div class="gc-img-slot">📷</div>
-          <div class="gc-caption">Broseph Foundation — Field drives</div>
-          <div class="gc-meta">2025–2026</div>
-          <button class="gc-link" data-switch="gallery:audit">→ Open audit report</button>
-        </div>
-
-        <div class="gallery-card gallery-card--placeholder">
-          <div class="gc-img-slot">📷</div>
-          <div class="gc-caption">Shikshana Vedike — Teaching</div>
-          <div class="gc-meta">2025–2026</div>
-          <button class="gc-link" data-switch="gallery:audit">→ Open audit report</button>
-        </div>
-
-      </div>
-      <div class="gallery-note">📎 Real photos coming soon — placeholders show structure and connections</div>
+      <div class="yt-grid" id="ytGrid"></div>
+      <a class="yt-channel" id="ytChannel" href="https://www.youtube.com/" target="_blank" rel="noopener">Open the channel →</a>
     </div>
   </div>
 

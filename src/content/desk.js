@@ -1,10 +1,9 @@
 // Desk scene text: boot screen and board notes.
-// The rest of the desk copy still sits in desk/index.html (see Content - Desk).
+// The rest of the desk copy sits in desk/index.html.
 //
-// Boot lines: S00-M01 to S00-M11 (blank entries are spacer lines).
-// Note keys map to board notes: humshakals S12-N1, dean S12-N2, verdict S12-N3,
-// prachaara S12-N4, crescere S12-N5, civic S12-N6, broseph S12-N7,
-// record S12-N8, newsletter S12-N9. Fields: meta = d-meta, title = d-title, body = d-body.
+// Boot lines: blank entries are spacer lines.
+// Each note key matches a #bn-<key> note on the board. Fields: meta (the small line above
+// the title), title, body.
 
 export const boot = {
   // c: '' green, 'd' dim green, 'am' amber, 'er' red
@@ -16,10 +15,10 @@ export const boot = {
   {t:'Memory Test:  655360K OK',c:'d'},
   {t:'',c:''},
   {t:'Detecting Primary Master ... SKILLS.DAT        [LOADED]',c:''},
-  {t:'Detecting Primary Slave  ... PROJECTS.LOG      [4 ENTRIES]',c:''},
+  {t:'Detecting Primary Slave  ... PROJECTS.LOG      [6 ENTRIES]',c:''},
   {t:'Detecting Secondary      ... COMPETITIONS.ISO  [3 FINALS, 0 WINS]',c:'am'},
   {t:'',c:''},
-  {t:'Loading ACCA_PAPERS.EXE ... 9 done, 4 to go (SBL SBR APM AAA).',c:''},
+  {t:'Loading ACCA_PAPERS.EXE ... 9 papers cleared.',c:''},
   {t:'Loading RTI_TRACKER.EXE ... 20,000 volunteers indexed.',c:''},
   {t:'',c:''},
   {t:'ALERT: Subject funnier in meetings than strictly professional.',c:'er'},
@@ -62,6 +61,11 @@ export const noteDetails = {
     meta:  'Christ University \u00d7 Broseph Foundation · Sep 2025',
     title: 'University-NGO Civic Drive',
     body:  "Organised this collaboration from the Foundation's side, with a friend who headed the university's SDG club organising it from theirs. Co-led one of two field teams on the day. Across both teams: 20+ participants, 10+ bags of garbage collected, 60+ civic issues logged on the BBMP Sahaya app.",
+  },
+  potluck: {
+    meta:  'Broseph Foundation',
+    title: 'Homeless Shelter Potluck',
+    body:  "The Foundation\u2019s first potluck at a homeless shelter almost didn\u2019t happen; the initial sign-up form barely got a response. Two nights before, rebuilt the menu and form from scratch at midnight, pushed to all 14 Bangalore groups. Called every sign-up individually to cover details the short form omitted. On the day: coordinated food deliveries to HQ, posted live updates across all 14 groups, managed vendors, kept three teams in sync. Event: introduction, housie (taught residents who\u2019d never played), buffet, music, dancing. Still the most intense single day I\u2019ve run for the Foundation.",
   },
   broseph: {
     meta:  'Throughline',

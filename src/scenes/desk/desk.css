@@ -1,6 +1,7 @@
 /* Desk scene stylesheet entry. Import order IS the cascade order: keep it. */
 @import './scene.css';
 @import '../../core/styles/boot.css';
+@import '../../core/styles/video.css';
 @import '../../core/styles/panels.css';
 @import './scene.mobile.css';
 @import '../../core/styles/panels.mobile.css';
