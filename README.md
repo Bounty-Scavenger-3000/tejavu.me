@@ -6,10 +6,9 @@ Personal portfolio at [tejavu.me](https://tejavu.me). A static multi-page site b
 
 | URL | Source | What it is |
 |---|---|---|
-| `/` | `index.html`, `src/root/` | The plain version: a working resume |
+| `/` | `index.html`, `src/root/` | The resume, with a button that switches the site to the desk scene |
 | `/desk/` | `desk/index.html`, `src/scenes/desk/` | The desk scene: a retro desk where every object opens a panel |
-| `/logo/` | `logo/index.html`, `src/logo/` | Logo export: five variants, PNG download |
-| `/secret/` | `secret/index.html` | Redirect to `/desk/` (the scene's old URL) |
+| `/logo/` | `logo/index.html`, `src/logo/` | Logo export: seven variants, PNG download |
 
 ## Structure
 
@@ -17,13 +16,14 @@ Personal portfolio at [tejavu.me](https://tejavu.me). A static multi-page site b
 src/
   core/        shared by every scene
     engine/      panel system, boot sequence, clock, strings, click actions
-    panels/      board, timeline, contact
-    styles/      panel styles, boot screen, brand tokens, Universa font
+    panels/      board, timeline, contact, videos, tabs
+    styles/      panel styles, boot screen, video facade, brand tokens, Universa font
     fonts/
-  content/     scene text (desk.js)
+    video.js     YouTube thumbnail that loads the player on click
+  content/     scene text (desk.js) and the video list (videos.js)
   scenes/      one folder per scene: its room, styles and wiring (main.js)
   root/ logo/  page-specific styles and scripts
-public/        copied as is into the site root (CNAME, robots.txt)
+public/        copied as is into the site root (CNAME, robots.txt, sitemap.xml, favicon.svg)
 ```
 
 A scene supplies its own environment and imports what it needs from `core`. See `src/scenes/desk/main.js`.

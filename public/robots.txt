@@ -148,3 +148,9 @@ Allow: /
 
 User-agent: LinkedInBot
 Allow: /
+
+
+# ─────────────────────────────────────────────
+# SITEMAP
+# ─────────────────────────────────────────────
+Sitemap: https://tejavu.me/sitemap.xml

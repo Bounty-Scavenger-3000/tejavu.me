@@ -16,7 +16,6 @@ export default defineConfig({
         root: page('index.html'),          // tejavu.me/
         desk: page('desk/index.html'),     // tejavu.me/desk/
         logo: page('logo/index.html'),     // tejavu.me/logo/
-        secret: page('secret/index.html'), // tejavu.me/secret/, redirects to /desk/
       },
     },
   },
