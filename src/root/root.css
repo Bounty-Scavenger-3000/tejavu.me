@@ -1,6 +1,7 @@
 /* Root site styles (tejavu.me/). Fonts and brand tokens come from core. */
 @import '../core/styles/fonts.css';
 @import '../core/styles/brand.css';
+@import '../core/styles/video.css';
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -93,7 +94,7 @@
     font-size: 9px;
     letter-spacing: 0.1em;
     color: var(--text);
-    opacity: 0.35;
+    opacity: 0.6;
     margin-top: 6px;
     display: block;
     text-transform: uppercase;
@@ -141,7 +142,7 @@
     font-size: 0.6875rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--support);
     margin-bottom: 1.75rem;
     display: flex;
     align-items: center;
@@ -273,19 +274,15 @@
 
   .entry-meta .place { color: var(--accent); }
 
+  /* Tags are plain accent text in Moonrock. No chip, no background. */
   .entry-tag {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.6875rem;
-    letter-spacing: 0.08em;
+    font-family: 'Moonrock', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--support);
-    background: rgba(0,245,212,0.12);
-    border-radius: 3px;
-    padding: 0.15rem 0.5rem;
     margin-bottom: 0.5rem;
     display: block;
-    width: fit-content;
-    font-weight: 500;
   }
 
   .entry-list {
@@ -310,9 +307,9 @@
     line-height: 1.7;
   }
 
-  /* colour variety — inline strong labels in lists */
+  /* Lead-in labels classify the bullet, so they take the teal classifier colour */
   .entry-list li strong {
-    color: var(--accent);
+    color: var(--support);
     font-weight: 500;
     opacity: 1;
   }
@@ -407,10 +404,11 @@
   .construction-copy { max-width: 420px; flex: 1 1 360px; }
 
   .construction-tag {
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
+    font-family: 'Moonrock', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--support);
     margin-bottom: 0.85rem;
   }
 
@@ -424,12 +422,7 @@
     color: var(--text);
   }
 
-  .construction-title span {
-    background: linear-gradient(to right, #FF0099, #D9DEE5, #00F5D4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+  .construction-title span { color: var(--accent); }
 
   .construction-sub {
     font-size: 0.9rem;
@@ -439,7 +432,18 @@
   }
 
   .construction-form { flex: 1 1 340px; width: 100%; min-width: 280px; }
-  #beehiiv-form-wrapper { width: 100%; min-height: 1px; }
+  /* The note sits behind the form. It shows only while nothing has loaded in front of it (a blocker
+     stopped the form) and fades in late so it does not flash while the form loads. */
+  .beehiiv-box { position: relative; min-height: 150px; }
+  .beehiiv-note {
+    position: absolute; inset: 0;
+    font-size: 0.8rem; line-height: 1.7;
+    color: var(--text); opacity: 0;
+    animation: beehiiv-note-in .3s 2.5s forwards;
+  }
+  @keyframes beehiiv-note-in { to { opacity: 0.65; } }
+  #beehiiv-form-wrapper { position: relative; z-index: 1; width: 100%; min-height: 150px; }
+  #beehiiv-form-wrapper:has(iframe) { background: var(--surface); }
   #beehiiv-form-wrapper iframe,
   #beehiiv-form-wrapper > div,
   #beehiiv-form-wrapper form {
@@ -497,4 +501,90 @@
     footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 1.5rem var(--gutter); }
     .footer-logo { justify-content: center; }
     .footer-links { justify-content: center; }
+  }
+
+  /* ── VIDEO FACADE ── */
+  .entry-video {
+    margin-top: 1rem;
+    max-width: 420px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--surface);
+    font-size: 0.875rem;
+    --yt-play-hover: var(--accent);
+  }
+
+  .entry-video:has(> a) { border: none; background: none; }
+
+  /* ── SKIN SWITCH ── */
+  .skin {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .skin-pc {
+    flex-shrink: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    transition: transform .15s steps(2, end);
+  }
+
+  .skin-pc svg { display: block; width: 128px; height: auto; image-rendering: pixelated; }
+  .skin-pc:hover, .skin-pc:focus-visible { transform: translateY(-3px); }
+  .skin-pc:focus-visible { outline: 2px solid var(--support); outline-offset: 6px; }
+  .pc-screen { transition: fill .15s steps(2, end); }
+  .skin-pc:hover .pc-screen, .skin-pc:focus-visible .pc-screen { fill: #06332e; }
+  .pc-cursor { animation: pc-blink 1s steps(1, end) infinite; }
+  .skin-pc:hover .pc-led, .skin-pc:focus-visible .pc-led { animation: pc-blink .4s steps(1, end) infinite; }
+  @keyframes pc-blink { 50% { opacity: 0; } }
+
+  .skin-tag {
+    font-family: 'Moonrock', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--support);
+    margin-bottom: 0.6rem;
+  }
+
+  .skin-title {
+    font-family: 'Universa', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: 0.02em;
+    max-width: 26ch;
+    margin-bottom: 0.4rem;
+    color: var(--text);
+  }
+
+  .skin-sub { font-size: 0.875rem; color: var(--text); opacity: 0.65; }
+
+  @media (max-width: 640px) {
+    .skin { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  }
+
+  /* CRT shut-off: two halves close in steps, then a teal line, then the desk page loads
+     (root.js). scenes/desk/scene.css plays the matching open. */
+  .crt-close { position: fixed; inset: 0; z-index: 1000; }
+  .crt-close i { position: absolute; left: 0; right: 0; height: 50%; background: #050408; }
+  .crt-close i:first-child { top: 0; transform: translateY(-100%); animation: crt-close-down .6s steps(8, end) forwards; }
+  .crt-close i:last-child { bottom: 0; transform: translateY(100%); animation: crt-close-up .6s steps(8, end) forwards; }
+  .crt-close::after {
+    content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 2px; margin-top: -1px;
+    background: var(--support); opacity: 0; animation: crt-close-line .9s linear forwards;
+  }
+  @keyframes crt-close-down { to { transform: translateY(0); } }
+  @keyframes crt-close-up { to { transform: translateY(0); } }
+  @keyframes crt-close-line { 0%, 60% { opacity: 0; } 70%, 100% { opacity: 1; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pc-cursor, .skin-pc:hover .pc-led, .skin-pc:focus-visible .pc-led { animation: none; }
+    .skin-pc { transition: none; }
   }
