@@ -1,0 +1,6 @@
+/* YouTube facade (core/video.js): thumbnail with a play button; the player loads on click. */
+.yt-facade{display:block;position:relative;width:100%;aspect-ratio:16/9;padding:0;border:0;cursor:pointer;background:#000 center/cover no-repeat;}
+.yt-play{position:absolute;left:50%;top:50%;width:64px;height:44px;margin:-22px 0 0 -32px;border-radius:10px;background:var(--yt-play,rgba(5,4,8,.8));transition:background .15s;}
+.yt-play::after{content:"";position:absolute;left:26px;top:13px;border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent #fff;}
+.yt-facade:hover .yt-play,.yt-facade:focus-visible .yt-play{background:var(--yt-play-hover,#f00);}
+[data-yt] iframe,.yt-media iframe{display:block;width:100%;aspect-ratio:16/9;border:0;}
