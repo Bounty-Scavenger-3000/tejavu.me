@@ -6,12 +6,18 @@ const modes = { tejavu: '#00F5D4', signal: '#00C244', noise: '#FFB300' };
 let mode = 'tejavu';
 
 // ink colours the crossbar, stem, wordmark and tagline; left is the left leg. The right
-// leg and the last stop of the underline follow the active mode.
+// leg and the last stop of the underline follow the active mode, unless the variant sets
+// its own right leg. The last three sit on a mode colour: the right leg would vanish into
+// it, so it turns white (the same rule the pink background applies to the left leg), and
+// they do not follow the mode switch.
 const variants = [
   { id: 'v1', name: 'dark',    bg: DARK,      ink: LIGHT, left: PINK,      div: 'rgba(217,222,229,0.15)' },
   { id: 'v2', name: 'surface', bg: '#0C0B12', ink: LIGHT, left: PINK,      div: 'rgba(217,222,229,0.15)' },
   { id: 'v3', name: 'light',   bg: '#FFFFFF', ink: DARK,  left: PINK,      div: 'rgba(5,4,8,0.2)' },
   { id: 'v4', name: 'accent',  bg: PINK,      ink: DARK,  left: '#FFFFFF', div: 'rgba(5,4,8,0.2)' },
+  { id: 'v5', name: 'teal',    bg: modes.tejavu, ink: DARK, left: PINK, right: '#FFFFFF', div: 'rgba(5,4,8,0.2)' },
+  { id: 'v6', name: 'green',   bg: modes.signal, ink: DARK, left: PINK, right: '#FFFFFF', div: 'rgba(5,4,8,0.2)' },
+  { id: 'v7', name: 'amber',   bg: modes.noise,  ink: DARK, left: PINK, right: '#FFFFFF', div: 'rgba(5,4,8,0.2)' },
 ];
 
 function makeMark(size, ink, left, right) {
@@ -22,8 +28,7 @@ function makeMark(size, ink, left, right) {
   </svg>`;
 }
 
-function makeLockup({ ink, left, div }) {
-  const right = modes[mode];
+function makeLockup({ ink, left, right = modes[mode], div }) {
   return `
     <div style="display:flex;align-items:center;gap:16px;flex-wrap:nowrap">
       ${makeMark(64, ink, left, right)}
@@ -33,7 +38,7 @@ function makeLockup({ ink, left, div }) {
           <span style="font-family:'Universa',sans-serif;font-size:26px;letter-spacing:.05em;color:${ink};line-height:1">TEJAVU</span>
           <div style="width:100%;height:3px;border-radius:2px;background:linear-gradient(to right,${left},${ink},${right});margin-top:5px"></div>
         </div>
-        <div style="font-family:'Moonrock',sans-serif;font-size:9px;letter-spacing:.1em;color:${ink};opacity:.35;margin-top:6px">THINK LESS. HAPPY MORE.</div>
+        <div style="font-family:'Moonrock',sans-serif;font-size:9px;letter-spacing:.1em;color:${ink};opacity:.6;margin-top:6px">THINK LESS. HAPPY MORE.</div>
       </div>
     </div>`;
 }
@@ -49,7 +54,7 @@ function setMode(m) {
   render();
 }
 
-const fileName = v => `tejavu-logo-${v.name}${mode === 'tejavu' ? '' : '-' + mode}`;
+const fileName = v => `tejavu-logo-${v.name}${v.right || mode === 'tejavu' ? '' : '-' + mode}`;
 
 async function exportOne(id) {
   setStatus('Rendering...');

@@ -8,6 +8,7 @@
 <link rel="preload" href="/src/core/fonts/universa.otf" as="font" type="font/otf" crossorigin>
 <link rel="preload" href="/src/core/fonts/moonrock.otf" as="font" type="font/otf" crossorigin>
 <link rel="preload" href="/src/core/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/src/logo/logo.css">
 </head>
 <body>
@@ -56,7 +57,32 @@
   </div>
 </div>
 
-<button class="export-all" data-export-all>Export all 4 variations</button>
+<!-- Grid: mode-colour backgrounds. The mode switch does not change these. -->
+<div class="grid">
+  <div>
+    <div class="glow"><div class="card" id="v5"></div></div>
+    <div class="card-footer">
+      <div class="card-label">Accent (teal)</div>
+      <button class="export-btn" data-export="v5">Export PNG</button>
+    </div>
+  </div>
+  <div>
+    <div class="glow"><div class="card" id="v6"></div></div>
+    <div class="card-footer">
+      <div class="card-label">Accent (green)</div>
+      <button class="export-btn" data-export="v6">Export PNG</button>
+    </div>
+  </div>
+  <div>
+    <div class="glow"><div class="card" id="v7"></div></div>
+    <div class="card-footer">
+      <div class="card-label">Accent (amber)</div>
+      <button class="export-btn" data-export="v7">Export PNG</button>
+    </div>
+  </div>
+</div>
+
+<button class="export-all" data-export-all>Export all 7 variations</button>
 <div class="status" id="status"></div>
 
 <script type="module" src="/src/logo/logo.js"></script>
