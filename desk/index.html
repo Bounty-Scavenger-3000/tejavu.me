@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<div class="crt-open" aria-hidden="true"><i></i><i></i></div>
+<div class="crt-open" aria-hidden="true" data-registry="SEC-01-E02"><i></i><i></i></div>
 
 <!-- ═══════════ BOOT SCREEN ═══════════ -->
 <div id="boot-screen" data-registry="SEC-00">
@@ -49,7 +49,7 @@
 
   <div class="scene-title">TEJAS . V</div>
   <div class="scene-sub">[ CLICK AN OBJECT TO EXPLORE ]</div>
-  <a class="skin-back" href="/">&larr; plain site</a>
+  <a class="skin-back" href="/" data-registry="SEC-01-E01">&larr; plain site</a>
 
   <div class="stage" data-registry="SEC-01">
 
@@ -405,7 +405,7 @@
       <div class="a-kicker">Entry 04 · Independent Assessment · Confidential</div>
       <div class="a-h">Independent Assessment of Tejas V.</div>
     </div>
-    <div class="a-tabs" role="tablist" aria-label="Assessment sections">
+    <div class="a-tabs" role="tablist" aria-label="Assessment sections" data-registry="SEC-09-E04">
       <button class="a-tab" role="tab" id="aud-tab-work" aria-controls="aud-work" aria-selected="true" type="button">Work experience</button>
       <button class="a-tab" role="tab" id="aud-tab-edu" aria-controls="aud-edu" aria-selected="false" tabindex="-1" type="button">Education</button>
     </div>
@@ -719,14 +719,14 @@
 
   <!-- ═══════════ YOUTUBE PANEL ═══════════
        The video list lives in src/content/videos.js and is rendered into #ytGrid. -->
-  <div class="panel panel-youtube" id="panel-youtube">
+  <div class="panel panel-youtube" id="panel-youtube" data-registry="SEC-16">
     <button class="p-close" data-close="youtube">✕ ESC</button>
     <div class="p-inner">
       <div class="yt-header">
         <div class="yt-title">YouTube.mp4</div>
         <div class="yt-sub">Videos by Tejas</div>
       </div>
-      <div class="yt-grid" id="ytGrid"></div>
+      <div class="yt-grid" id="ytGrid" data-registry="SEC-16-E01"></div>
       <a class="yt-channel" id="ytChannel" href="https://www.youtube.com/" target="_blank" rel="noopener">Open the channel →</a>
     </div>
   </div>
