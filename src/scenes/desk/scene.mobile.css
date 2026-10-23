@@ -106,6 +106,7 @@
   }
   .mobile-nav-btn:active { background: #3d2810; border-color: #9a6a38; }
   .mobile-nav-btn-icon  { font-size: 28px; line-height: 1; }
+  .mobile-nav-btn-icon svg { display: block; margin: 0 auto; }
   .mobile-nav-btn-label {
     font-family: 'Press Start 2P', monospace;
     font-size: 7px;

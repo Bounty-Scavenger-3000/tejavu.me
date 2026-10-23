@@ -13,6 +13,18 @@
 </head>
 <body>
 
+<!-- Icon sprite: git merge badge for the timeline (desktop icon, panel header, mobile nav). -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-git-merge" viewBox="0 0 36 36">
+    <rect x="1.5" y="1.5" width="33" height="33" rx="7" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+    <path d="M12 13v10" stroke="#3fb950" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M12 13c0 3.6 2.4 5 6 5h4" fill="none" stroke="#a371f7" stroke-width="2.4" stroke-linecap="round"/>
+    <circle cx="12" cy="10" r="3" fill="#0d1117" stroke="#3fb950" stroke-width="2.2"/>
+    <circle cx="12" cy="26" r="3" fill="#0d1117" stroke="#3fb950" stroke-width="2.2"/>
+    <circle cx="25" cy="18" r="3" fill="#0d1117" stroke="#a371f7" stroke-width="2.2"/>
+  </symbol>
+</svg>
+
 <div class="crt-open" aria-hidden="true" data-registry="SEC-01-E02"><i></i><i></i></div>
 
 <!-- ═══════════ BOOT SCREEN ═══════════ -->
@@ -260,7 +272,7 @@
       <div class="mobile-nav-btn" data-open="os" tabindex="0" role="button" aria-label="Projects"><div class="mobile-nav-btn-icon">💾</div><div class="mobile-nav-btn-label">PROJECTS</div></div>
       <div class="mobile-nav-btn" data-open="dossier" tabindex="0" role="button" aria-label="About"><div class="mobile-nav-btn-icon">🗂️</div><div class="mobile-nav-btn-label">ABOUT</div></div>
       <div class="mobile-nav-btn board-btn" data-open="board" tabindex="0" role="button" aria-label="The Board"><div class="mobile-nav-btn-icon">📌</div><div class="mobile-nav-btn-label">THE BOARD</div></div>
-      <div class="mobile-nav-btn git-btn" data-open="git" tabindex="0" role="button" aria-label="Timeline"><div class="mobile-nav-btn-icon">🌿</div><div class="mobile-nav-btn-label">TIMELINE</div></div>
+      <div class="mobile-nav-btn git-btn" data-open="git" tabindex="0" role="button" aria-label="Timeline"><div class="mobile-nav-btn-icon"><svg width="28" height="28" aria-hidden="true"><use href="#i-git-merge"/></svg></div><div class="mobile-nav-btn-label">TIMELINE</div></div>
       <div class="mobile-nav-btn video-btn" data-open="youtube" tabindex="0" role="button" aria-label="Videos"><div class="mobile-nav-btn-icon">▶️</div><div class="mobile-nav-btn-label">VIDEOS</div></div>
     </div>
   </div>
@@ -587,7 +599,7 @@
         </div>
 
         <div class="desktop-icon" data-open="git" tabindex="0" role="button" data-key>
-          <div class="di-img">🌿</div>
+          <div class="di-img"><svg width="36" height="36" aria-hidden="true"><use href="#i-git-merge"/></svg></div>
           <div class="di-label">Timeline.git</div>
         </div>
 
@@ -624,7 +636,7 @@
     <button class="p-close" data-close="git">✕ ESC</button>
     <div class="p-inner">
       <div class="git-header">
-        <div class="git-header-icon">🌿</div>
+        <div class="git-header-icon"><svg width="36" height="36" aria-hidden="true"><use href="#i-git-merge"/></svg></div>
         <div>
           <div class="git-title">Timeline.git</div>
           <div class="git-sub">main · chronological · click any commit to open that section</div>
