@@ -507,6 +507,14 @@
 
   .entry-video:has(> a) { border: none; background: none; }
 
+  /* Entry text with its film beside it from 900px; stacked below that. */
+  .entry-media { display: grid; gap: 1rem; margin-top: 0.9rem; }
+  .entry-media .entry-note, .entry-media .entry-video { margin-top: 0; }
+  @media (min-width: 900px) {
+    .entry-media { grid-template-columns: minmax(0, 1fr) 16rem; gap: 1.75rem; align-items: start; }
+    .entry-media .entry-video { max-width: none; }
+  }
+
   /* ── SKIN SWITCH ── */
   .skin {
     display: flex;
