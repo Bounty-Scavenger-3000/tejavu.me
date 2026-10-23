@@ -204,7 +204,8 @@
    Full-screen retro Win98-style desktop.
    Opens after boot; primary navigation hub.
    ══════════════════════════════════════════════ */
-.panel-desktop{background:#008080;padding:0;flex-direction:column;overflow:hidden;animation:none;opacity:1;}
+/* Below the apps (.panel is z-index 800): an app opened from the desktop must paint above it, whatever its order in the page. */
+.panel-desktop{z-index:700;background:#008080;padding:0;flex-direction:column;overflow:hidden;animation:none;opacity:1;}
 /* display:flex is set by JS directly in finishBoot() */
 .desktop-wallpaper{
   width:100%;min-height:100vh;
