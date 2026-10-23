@@ -436,7 +436,9 @@
      stopped the form) and fades in late so it does not flash while the form loads. */
   .beehiiv-box { position: relative; min-height: 150px; }
   .beehiiv-note {
-    position: absolute; inset: 0;
+    position: absolute; inset: 0; margin: 0; padding: 0 1.5rem;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; text-wrap: balance;
     font-size: 0.8rem; line-height: 1.7;
     color: var(--text); opacity: 0;
     animation: beehiiv-note-in .3s 2.5s forwards;
