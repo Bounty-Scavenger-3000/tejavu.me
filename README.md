@@ -9,6 +9,7 @@ Personal portfolio at [tejavu.me](https://tejavu.me). A static multi-page site b
 | `/` | `index.html`, `src/root/` | The resume, with a button that switches the site to the desk scene |
 | `/desk/` | `desk/index.html`, `src/scenes/desk/` | The desk scene: a retro desk where every object opens a panel |
 | `/logo/` | `logo/index.html`, `src/logo/` | Logo export: seven variants, PNG download |
+| `/graph/` | `graph/index.html`, `src/graph/` | The site's own code drawn as an interactive graph |
 
 ## Structure
 
@@ -23,6 +24,7 @@ src/
   content/     scene text (desk.js) and the video list (videos.js)
   scenes/      one folder per scene: its room, styles and wiring (main.js)
   root/ logo/  page-specific styles and scripts
+  graph/       the code-graph page and its data snapshot
 public/        copied as is into the site root (CNAME, robots.txt, sitemap.xml, favicon.svg)
 ```
 
@@ -35,6 +37,15 @@ npm install
 npm run dev       # dev server at http://localhost:5173
 npm run build     # production build into dist/
 npm run preview   # serve dist/ locally
+```
+
+## Refreshing the code graph
+
+`/graph/` draws `src/graph/graph-data.json`, a snapshot of the code mapped with [graphify](https://graphify.com). After changing the code:
+
+```
+graphify extract . --code-only    # writes graphify-out/ (git-ignored)
+npm run graph                     # trims it to src/ and rewrites the snapshot
 ```
 
 ## Branches and deploy

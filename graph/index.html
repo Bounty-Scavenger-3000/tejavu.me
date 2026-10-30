@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How this site is wired · Tejavu</title>
+<meta name="description" content="Every file and function in the tejavu.me code, and what calls what.">
+<link rel="preload" href="/src/core/fonts/universa.otf" as="font" type="font/otf" crossorigin>
+<link rel="preload" href="/src/core/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/src/graph/graph.css">
+</head>
+<body>
+
+<canvas id="graph" role="img" aria-label="Network of the files and functions in this site's code"></canvas>
+
+<header>
+  <a class="back" href="/">TEJAVU</a>
+  <h1>How this site is wired</h1>
+  <p class="sub">Every file and function in the code, and what calls what. Drag a node, or tap one to light up its neighbours.</p>
+  <p class="stats" id="stats"></p>
+  <div class="legend" id="legend" role="group" aria-label="Filter by area"></div>
+</header>
+
+<aside id="info" aria-live="polite"></aside>
+
+<script type="module" src="/src/graph/graph.js"></script>
+</body>
+</html>

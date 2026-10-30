@@ -1,0 +1,84 @@
+/* The code graph page (tejavu.me/graph). */
+@import '../core/styles/brand.css';
+@import '../core/styles/fonts.css';
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; overflow: hidden; }
+
+body {
+  background: var(--base);
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+#graph {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  padding: 1.25rem var(--gutter) 0;
+  pointer-events: none;
+}
+header a, header button { pointer-events: auto; }
+
+.back {
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-decoration: none;
+}
+
+h1 {
+  font-family: 'Universa', 'Space Grotesk', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 400;
+  letter-spacing: .02em;
+  margin: .6rem 0 .35rem;
+}
+
+.sub { max-width: 46ch; font-size: .9rem; line-height: 1.5; color: var(--muted); }
+.stats { margin-top: .35rem; font-size: .75rem; letter-spacing: .06em; color: var(--support); }
+
+.legend { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .9rem; }
+
+.chip {
+  padding: .3rem .8rem;
+  border-radius: 100px;
+  border: 1.5px solid color-mix(in srgb, var(--c) 40%, transparent);
+  background: transparent;
+  color: var(--c);
+  font: 600 .7rem 'Space Grotesk', sans-serif;
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+}
+.chip:hover { border-color: var(--c); }
+.chip[aria-pressed="true"] {
+  border-color: var(--c);
+  background: color-mix(in srgb, var(--c) 14%, transparent);
+}
+.chip:focus-visible { outline: 2px solid var(--support); outline-offset: 2px; }
+
+#info {
+  position: fixed;
+  left: var(--gutter);
+  bottom: 1.25rem;
+  width: min(340px, calc(100% - 2 * var(--gutter)));
+  padding: .8rem 1rem;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  font-size: .8rem;
+  line-height: 1.5;
+  pointer-events: none;
+}
+#info b { display: block; margin-bottom: .1rem; font-size: .95rem; color: var(--c, var(--text)); }
+#info span { display: block; color: var(--muted); }
+#info em { display: block; margin-top: .4rem; font-style: normal; color: var(--text); opacity: .75; }
