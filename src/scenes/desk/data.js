@@ -1,21 +1,20 @@
-// Desk scene configuration: which panels exist and how the board and timeline connect.
+// Desk scene configuration: which panels exist, what the terminal opens, and where timeline nodes lead.
 // Text lives in src/content/desk.js. Behaviour lives in src/core.
 
 // Panel ids; the elements are #panel-<id> in desk/index.html.
-export const panelIds = ['os', 'ledger', 'audit', 'dossier', 'contact', 'board', 'desktop', 'git', 'youtube'];
+export const panelIds = ['os', 'ledger', 'audit', 'dossier', 'contact', 'board', 'desktop', 'git', 'youtube', 'terminal', 'graph'];
 
-// Strings between board notes. List each pair once; both directions are deduplicated.
-export const connections = {
-  humshakals: ['dean', 'verdict', 'record'],
-  dean:       ['humshakals'],
-  verdict:    ['humshakals', 'prachaara'],
-  prachaara:  ['verdict', 'record'],
-  crescere:   ['record'],
-  civic:      ['broseph'],
-  potluck:    ['broseph', 'civic'],
-  record:     ['humshakals', 'prachaara', 'crescere', 'broseph'],
-  broseph:    ['civic', 'record'],
-  newsletter: ['broseph'],
+// Panels that stay under every app (see core/engine/panel-system.js).
+export const basePanels = ['desktop'];
+
+// What the terminal can open: command word -> panel id, and the files `ls` lists.
+// The hidden wiring graph is not listed here; see terminal.js.
+export const terminalApps = {
+  projects: 'os', skills: 'ledger', history: 'audit', about: 'dossier',
+  contact: 'contact', timeline: 'git', videos: 'youtube', board: 'board',
+};
+export const terminalFiles = {
+  'contact.mail': 'contact', 'projects.jira': 'os', 'timeline.git': 'git', 'youtube.mp4': 'youtube',
 };
 
 // Notes that show an embed in their overlay. The newsletter uses the same Beehiiv form as the root site.

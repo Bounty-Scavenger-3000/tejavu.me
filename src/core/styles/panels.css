@@ -1,4 +1,4 @@
-/* Panels: base, close button, projects, skills, history, about, contact, board, tablet tweaks, OS desktop, git timeline, youtube. */
+/* Panels: base, close button, projects, skills, history, about, contact, board, tablet tweaks, OS desktop, git timeline, youtube, terminal, graph. */
 /* ══ PANELS ══ */
 .panel{position:fixed;inset:0;z-index:800;display:none;overflow-y:auto;animation:pIn .3s cubic-bezier(.22,1,.36,1) both;}
 .panel.active{display:block;}
@@ -163,6 +163,31 @@
 .be-sub{font-family:'Space Mono',monospace;font-size:11px;color:rgba(255,200,0,.4);margin-bottom:32px;letter-spacing:.08em;}
 .big-board{position:relative;width:100%;min-height:520px;background:linear-gradient(135deg,#8B6340 0%,#7a5530 30%,#8B6340 60%,#7a5530 100%);border:8px solid #3a2208;border-radius:4px;box-shadow:inset 0 0 40px rgba(0,0,0,.3),0 8px 32px rgba(0,0,0,.6);overflow:hidden;}
 .big-strings-svg{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:visible;}
+/* Board notes: a top level of big notes; one opens into a root note with string branching to its sub-notes. */
+.bb-stage{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;padding:54px 24px 48px;}
+.bb-top{flex-direction:row;flex-wrap:wrap;justify-content:center;align-content:center;gap:56px 44px;min-height:504px;}
+.bb-note{position:relative;display:block;width:230px;max-width:100%;padding:0;border:0;background:none;font:inherit;text-align:left;cursor:pointer;transform:rotate(var(--rot,0deg));transition:transform .15s ease,filter .15s ease;}
+.bb-note:hover,.bb-note:focus-visible{transform:scale(1.04) rotate(var(--rot,0deg));filter:brightness(1.08);}
+.bb-note:focus-visible{outline:2px dashed #ffcc00;outline-offset:8px;}
+.bb-note .nc{padding:14px 16px;}
+.bb-note .nc-title{font-size:20px;}
+.bb-note .nc-sub{font-size:11px;line-height:1.55;margin-top:6px;padding-top:6px;}
+.nc-count{margin-top:8px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.08em;opacity:.65;color:#1a1a1a;}
+.bb-root{width:min(290px,100%);--rot:0deg;}
+.bb-root .nc-title{font-size:24px;}
+.bb-kids{display:flex;flex-wrap:wrap;justify-content:center;gap:56px 30px;margin-top:84px;}
+.bb-kid{width:210px;}
+.bb-back{position:absolute;top:12px;left:12px;z-index:5;font-family:'Press Start 2P',monospace;font-size:8px;letter-spacing:.06em;color:#ffcc00;background:rgba(10,10,10,.82);border:1px solid #ffcc00;padding:9px 11px;cursor:pointer;animation:bb-fade .3s backwards;}
+.bb-back:hover{background:#1a1a00;}
+.bb-branch{fill:none;stroke:#d94141;stroke-width:2.5;stroke-linecap:round;stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:bb-draw .5s calc(var(--i) * 90ms) cubic-bezier(.4,0,.2,1) forwards;}
+.bb-kid{animation:bb-pop .45s calc(var(--i) * 90ms + .4s) cubic-bezier(.34,1.56,.64,1) backwards;}
+.bb-cat{animation:bb-pop .4s calc(var(--i) * 70ms) cubic-bezier(.34,1.56,.64,1) backwards;}
+.bb-leaving .bb-note:not(.bb-chosen){opacity:0;transform:scale(.8);transition:opacity .2s,transform .2s;pointer-events:none;}
+.bb-instant .bb-note,.bb-instant .bb-back{animation:none;}
+@keyframes bb-pop{from{opacity:0;transform:scale(.3) rotate(-10deg);}}
+@keyframes bb-draw{to{stroke-dashoffset:0;}}
+@keyframes bb-fade{from{opacity:0;}}
+@media(prefers-reduced-motion:reduce){.bb-note,.bb-back{animation:none;transition:none;}.bb-branch{animation:none;stroke-dashoffset:0;}}
 
 /* NOTE DETAIL OVERLAY */
 .note-detail{position:fixed;inset:0;z-index:950;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.72);padding:24px;}
@@ -205,8 +230,8 @@
    Full-screen retro Win98-style desktop.
    Opens after boot; primary navigation hub.
    ══════════════════════════════════════════════ */
-/* Below the apps (.panel is z-index 800): an app opened from the desktop must paint above it, whatever its order in the page. */
-.panel-desktop{z-index:700;background:#008080;padding:0;flex-direction:column;overflow:hidden;animation:none;opacity:1;}
+/* Stacking is set by the panel system (core/engine/panel-system.js): the desktop is a base panel under every app. */
+.panel-desktop{background:#008080;padding:0;flex-direction:column;overflow:hidden;animation:none;opacity:1;}
 /* display:flex is set by JS directly in finishBoot() */
 .desktop-wallpaper{
   width:100%;min-height:100vh;
@@ -456,3 +481,20 @@
 .yt-body{font-family:'IBM Plex Sans',sans-serif;font-size:12.5px;color:#aaa;line-height:1.6;padding:0 14px 14px;}
 .yt-channel{display:inline-block;font-family:'Space Mono',monospace;font-size:11px;color:#ff3b3b;letter-spacing:.05em;text-decoration:none;border-bottom:1px solid transparent;}
 .yt-channel:hover,.yt-channel:focus-visible{border-color:#ff3b3b;}
+
+/* TERMINAL PANEL (opened from the desktop; commands in scenes/desk/terminal.js) */
+.panel-terminal{background:#0a0a0a;color:#33ff66;font-family:'Space Mono',monospace;font-size:14px;line-height:1.7;text-shadow:0 0 6px rgba(51,255,102,.35);}
+.term{max-width:860px;margin:0 auto;padding:56px 28px 60px;}
+.term-line{white-space:pre-wrap;overflow-wrap:anywhere;}
+.term-cmd{color:#d9ffe3;}
+.term-dim{color:rgba(51,255,102,.55);}
+.term-err{color:#ff6b6b;text-shadow:none;}
+.term-row{display:flex;gap:10px;align-items:baseline;}
+.term-prompt{white-space:nowrap;color:#d9ffe3;}
+#termIn{flex:1;min-width:0;background:none;border:0;outline:0;color:#33ff66;font:inherit;text-shadow:inherit;caret-color:#33ff66;padding:0;}
+@media(max-width:480px){.term{padding:60px 16px 40px;}#termIn{font-size:16px;}.panel-terminal{font-size:13px;}}
+
+/* GRAPH PANEL (the /graph/ page in a frame; opened from the terminal) */
+.panel-graph{background:#050408;overflow:hidden;}
+.panel-graph iframe{display:block;width:100%;height:100%;border:0;}
+

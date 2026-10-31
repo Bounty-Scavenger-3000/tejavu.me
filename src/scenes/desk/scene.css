@@ -25,16 +25,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0812;}
   pointer-events:none;z-index:2;animation:flicker 7s ease-in-out infinite;}
 @keyframes flicker{0%,100%{opacity:1;}42%{opacity:.8;}44%{opacity:.96;}46%{opacity:.75;}48%{opacity:1;}}
 
-.scene-title{
-  position:absolute;top:3.5%;left:50%;transform:translateX(-50%);
-  font-family:'Press Start 2P',monospace;font-size:clamp(10px,1.6vw,16px);
-  color:#ffcc00;letter-spacing:.16em;white-space:nowrap;z-index:50;
-  text-shadow:2px 2px 0 #aa8800,0 0 28px rgba(255,200,0,.7);
-  animation:glow 4s ease-in-out infinite;
-}
-@keyframes glow{0%,100%{text-shadow:2px 2px 0 #aa8800,0 0 20px rgba(255,200,0,.4);}50%{text-shadow:2px 2px 0 #aa8800,0 0 40px rgba(255,200,0,1);}}
 .scene-sub{
-  position:absolute;top:calc(3.5% + 28px);left:50%;transform:translateX(-50%);
+  position:absolute;top:3.5%;left:50%;transform:translateX(-50%);
   font-family:'Press Start 2P',monospace;font-size:clamp(5px,.9vw,7px);
   color:rgba(255,200,0,.4);letter-spacing:.14em;white-space:nowrap;z-index:50;
 }

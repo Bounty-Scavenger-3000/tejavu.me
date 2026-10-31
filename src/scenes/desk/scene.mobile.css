@@ -12,7 +12,6 @@
   .star { display: none; }
 
   /* Scene title smaller */
-  .scene-title { font-size: 10px; letter-spacing: .1em; }
   .scene-sub   { display: none; }
 
   /* Stage: allow horizontal scroll rather than squashing everything */
@@ -68,7 +67,6 @@
   }
 
   /* Title */
-  .scene-title { font-size: 9px; position: relative; top: auto; left: auto; transform: none; margin-bottom: 6px; }
   .scene-sub   { display: none; }
 
   /* Hide the full 3D scene — replaced by the mobile nav grid below */

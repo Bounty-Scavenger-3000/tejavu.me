@@ -16,12 +16,12 @@ Personal portfolio at [tejavu.me](https://tejavu.me). A static multi-page site b
 ```
 src/
   core/        shared by every scene
-    engine/      panel system, boot sequence, clock, strings, click actions
-    panels/      board, timeline, contact, videos, tabs
+    engine/      panel system (stacking, ESC), boot sequence, clock, strings, click actions
+    panels/      board, terminal, timeline, contact, videos, tabs
     styles/      panel styles, boot screen, video facade, brand tokens, Universa font
     fonts/
     video.js     YouTube thumbnail that loads the player on click
-  content/     scene text (desk.js) and the video list (videos.js)
+  content/     scene text (desk.js), the board's notes (board.js) and the video list (videos.js)
   scenes/      one folder per scene: its room, styles and wiring (main.js)
   root/ logo/  page-specific styles and scripts
   graph/       the code-graph page and its data snapshot
@@ -29,6 +29,8 @@ public/        copied as is into the site root (CNAME, robots.txt, sitemap.xml, 
 ```
 
 A scene supplies its own environment and imports what it needs from `core`. See `src/scenes/desk/main.js`.
+
+The desk's terminal commands are in `src/scenes/desk/terminal.js`; the board's notes are a tree in `src/content/board.js` (add a note or a category there and it appears).
 
 ## Develop
 

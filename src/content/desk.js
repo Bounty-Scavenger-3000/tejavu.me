@@ -83,3 +83,29 @@ export const noteDetails = {
     body:  "The unfiltered version of all of this \u2014 the stuff that doesn't fit neatly into a portfolio panel \u2014 lives on the newsletter. Sign up on Beehiiv.",
   },
 }
+
+// Terminal text. Commands are defined in src/scenes/desk/terminal.js.
+export const terminal = {
+  prompt: 'guest@tejas-os:~$',
+  banner: ['TEJAS-OS terminal', 'Type help to see what works.', ''],
+  help: [
+    'projects    open the projects',
+    'skills      open the skills ledger',
+    'history     open the work and education file',
+    'about       open the dossier',
+    'contact     open the contact cheque',
+    'timeline    open the git timeline',
+    'videos      open the YouTube panel',
+    'board       open the board',
+    'ls          list the files here',
+    'open NAME   open a file from ls',
+    'clear       wipe the screen',
+    'exit        close the terminal',
+    '',
+    'Some files are hidden. ls -a shows them.',
+  ],
+  whoami: 'guest',
+  sudo: 'guest has no sudo here. Nice try.',
+  rm: 'permission denied. The desk would like to stay.',
+  wiring: 'tracing the code...',
+};

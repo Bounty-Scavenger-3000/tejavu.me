@@ -65,6 +65,11 @@ h1 {
   background: color-mix(in srgb, var(--c) 14%, transparent);
 }
 .chip:focus-visible { outline: 2px solid var(--support); outline-offset: 2px; }
+.chip.reset { --c: var(--muted); }
+
+/* Inside the desk's frame the desk supplies the way out. */
+.embed .back { display: none; }
+.embed h1 { margin-top: 0; }
 
 #info {
   position: fixed;
