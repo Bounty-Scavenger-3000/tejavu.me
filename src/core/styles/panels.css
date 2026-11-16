@@ -107,7 +107,6 @@
 .d-redact-text{display:none;background:#2b231c;color:#ffe066;padding:1px 6px;border-radius:2px;font-weight:600;}
 .d-redact.rv .d-redact-bar{display:none;}
 .d-redact.rv .d-redact-text{display:inline;}
-.d-redact-hint{font-family:'Space Mono',monospace;font-size:10px;color:#8a7a5a;font-style:italic;}
 /* Quick facts */
 .d-quickfacts{margin-top:20px;padding:16px 18px;background:rgba(0,0,0,.04);border-left:3px solid #cc2200;}
 .d-qf-h{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#cc2200;margin-bottom:8px;}
@@ -307,7 +306,6 @@
   border:2px inset #fff;
   padding:2px 8px;height:26px;
 }
-.dt-tray-item{font-size:13px;}
 .dt-clock{
   font-family:'Space Mono',monospace;
   font-size:10px;color:#000;

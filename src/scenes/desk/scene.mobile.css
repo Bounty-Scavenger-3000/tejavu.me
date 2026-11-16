@@ -11,7 +11,7 @@
   /* Hide decorative stars — visual noise on small screens */
   .star { display: none; }
 
-  /* Scene title smaller */
+  /* Scene subtitle hidden */
   .scene-sub   { display: none; }
 
   /* Stage: allow horizontal scroll rather than squashing everything */
@@ -65,9 +65,6 @@
     padding: 20px 0 40px;
     overflow: visible;
   }
-
-  /* Title */
-  .scene-sub   { display: none; }
 
   /* Hide the full 3D scene — replaced by the mobile nav grid below */
   .stage { display: none; }
