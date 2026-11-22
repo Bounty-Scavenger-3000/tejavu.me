@@ -56,6 +56,10 @@ function setMode(m) {
 
 const fileName = v => `tejavu-logo-${v.name}${v.right || mode === 'tejavu' ? '' : '-' + mode}`;
 
+// Every export is 442 x 180 px at 4x, which is 1768 x 720, whatever the page width or the grid cell
+// the card sits in.
+const W = 442, H = 180;
+
 async function exportOne(id) {
   setStatus('Rendering...');
   const canvas = await html2canvas(document.getElementById(id), {
@@ -63,6 +67,7 @@ async function exportOne(id) {
     backgroundColor: null,
     useCORS: true,
     logging: false,
+    onclone: doc => Object.assign(doc.getElementById(id).style, { width: W + 'px', height: H + 'px', minHeight: '0' }),
   });
   const link = document.createElement('a');
   link.download = fileName(variants.find(v => v.id === id)) + '.png';
