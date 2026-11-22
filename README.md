@@ -41,9 +41,9 @@ npm run build     # production build into dist/
 npm run preview   # serve dist/ locally
 ```
 
-## Refreshing the code graph
+## The code graph
 
-`/graph/` draws `src/graph/graph-data.json`, a snapshot of the code mapped with [graphify](https://graphify.com). After changing the code:
+`/graph/` draws `src/graph/graph-data.json`, a snapshot of the code mapped with [graphify](https://graphify.com). Every build refreshes it: a push to `dev` or `main` installs a pinned graphify and rebuilds the snapshot before `vite build`, so a deploy shows the code as it is. If that step fails the build warns and uses the committed snapshot, which is also what local runs use. To refresh the committed one by hand after changing the code:
 
 ```
 graphify extract . --code-only    # writes graphify-out/ (git-ignored)

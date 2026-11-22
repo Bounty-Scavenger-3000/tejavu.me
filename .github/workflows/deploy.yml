@@ -25,6 +25,22 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # Redraw the code graph from the current source, so every deploy shows the code as it is.
+      # If graphify or the snapshot fails, the committed snapshot stays and the build goes on.
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Refresh the code graph
+        run: |
+          if pip install --quiet graphifyy==0.9.97 \
+             && graphify extract . --code-only \
+             && npm run graph \
+             && node -e "const d=require('./src/graph/graph-data.json'); const f=d.nodes.filter(n=>n.k==='file').length; console.log('graph:', f, 'files,', d.nodes.length - f, 'symbols,', d.links.length, 'links'); process.exit(f < 15 ? 1 : 0)"; then
+            echo "Code graph refreshed."
+          else
+            echo "::warning::Code graph refresh failed, so the build uses the committed snapshot."
+            git checkout -- src/graph/graph-data.json
+          fi
       - run: npm run build
       # Only main publishes. A push to dev runs the build as a check and stops here.
       - if: github.ref == 'refs/heads/main'
