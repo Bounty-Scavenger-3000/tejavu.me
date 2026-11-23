@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Tejavu — Demo</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<link rel="preload" href="/src/core/fonts/universa.otf" as="font" type="font/otf" crossorigin>
+<link rel="preload" href="/src/core/fonts/moonrock.otf" as="font" type="font/otf" crossorigin>
+<link rel="preload" href="/src/core/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/src/demo/demo.css">
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <p class="eyebrow">Demo</p>
+    <h1>Features go up here first.</h1>
+    <p class="lede">Test them, add and remove things, and the ones that stay merge into the real pages.</p>
+  </header>
+
+  <section class="feature" aria-labelledby="card-h">
+    <div class="head"><h2 id="card-h">Profile card</h2><span class="tag">Draft</span></div>
+    <p class="sub">A card to hand over. Show, hide, edit or add rows, then download it.</p>
+    <div class="work">
+      <div class="pv"><div class="glow"><div id="card" class="pcard"></div></div></div>
+      <div class="ctl">
+        <div id="card-form"></div>
+        <div class="btns"><button id="card-export" class="btn pri">Download PNG</button><button id="card-reset" class="btn">Reset</button></div>
+        <p id="card-status" class="status" role="status"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature" aria-labelledby="studio-h">
+    <div class="head"><h2 id="studio-h">Logo studio</h2><span class="tag">Draft</span></div>
+    <p class="sub">Pick the parts, background, mode and shape, check the preview, then export.</p>
+    <div class="work">
+      <div class="pv" id="st-pv"><div class="glow"><div id="st-stage" class="stage"></div></div></div>
+      <div class="ctl" id="st-ctl">
+        <div class="grp"><h3>Parts</h3><div class="chips" id="st-parts"></div></div>
+        <div class="grp"><h3>Background</h3><div class="chips" id="st-bg"></div></div>
+        <div class="grp"><h3>Mode</h3><div class="chips" id="st-mode"></div><p class="hint" id="st-hint" hidden>Teal, green and amber keep their own right leg, so the mode does not change them.</p></div>
+        <div class="grp"><h3>Shape</h3><div class="chips" id="st-shape"></div></div>
+        <div class="btns"><button id="st-export" class="btn pri">Export PNG</button><button id="st-reset" class="btn">Reset</button></div>
+        <p id="st-file" class="file"></p>
+        <p id="st-status" class="status" role="status"></p>
+      </div>
+    </div>
+  </section>
+</main>
+<script type="module" src="/src/demo/demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+/* Demo page styles (tejavu.me/demo): new features go up here first, then merge into the real pages. */
+@import '../core/styles/brand.css';
+@import '../core/styles/fonts.css';
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body { background: var(--base); color: var(--text); font-family: 'Space Grotesk', sans-serif; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 56px var(--gutter) 96px; }
+
+.eyebrow { font: 10px 'Moonrock', sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--support); margin-bottom: 14px; }
+h1 { font: 400 clamp(1.8rem, 4vw, 2.6rem)/1.1 'Universa', sans-serif; letter-spacing: .02em; }
+.lede { margin-top: 14px; max-width: 46ch; opacity: .7; line-height: 1.6; }
+
+.feature { margin-top: 64px; padding-top: 28px; border-top: 1px solid var(--rule); }
+.head { display: flex; align-items: center; gap: 12px; }
+h2 { font: 400 1.4rem 'Universa', sans-serif; letter-spacing: .03em; }
+.tag { font: 9px 'Moonrock', sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--support); border: 1px solid rgba(0, 245, 212, .4); border-radius: 100px; padding: 3px 9px; }
+.sub { margin: 10px 0 26px; opacity: .6; font-size: 14px; }
+
+.work { display: grid; gap: 32px; align-items: start; }
+@media (min-width: 900px) { .work { grid-template-columns: auto minmax(0, 1fr); gap: 64px; } }
+
+/* Preview: the glow is a wrapper, so it never lands in the exported image. */
+.pv { overflow-x: auto; padding: 14px; max-width: 100%; border-radius: 12px; background: #15131d; }
+.pv.chk { background: conic-gradient(#171520 25%, #0f0e16 0 50%, #171520 0 75%, #0f0e16 0) 0 0 / 20px 20px; }
+.glow { display: inline-block; line-height: 0; filter: drop-shadow(0 12px 28px rgba(0, 0, 0, .55)); }
+
+/* Controls */
+.ctl { display: flex; flex-direction: column; gap: 20px; max-width: 520px; }
+.grp h3 { font: 600 10px 'Space Grotesk', sans-serif; letter-spacing: .1em; text-transform: uppercase; opacity: .45; margin-bottom: 8px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: center; gap: 7px; padding: 6px 14px; border-radius: 100px; border: 1.5px solid color-mix(in srgb, var(--c, var(--support)) 40%, transparent); background: transparent; color: var(--c, var(--support)); font: 600 11px 'Space Grotesk', sans-serif; cursor: pointer; transition: all .15s; }
+.chip[aria-pressed="true"] { border-color: var(--c, var(--support)); background: color-mix(in srgb, var(--c, var(--support)) 14%, transparent); }
+.chip:disabled { opacity: .3; cursor: not-allowed; }
+.dot { width: 10px; height: 10px; border-radius: 50%; border: 1px solid rgba(217, 222, 229, .35); }
+.dot.clear { background: conic-gradient(#555 25%, #999 0 50%, #555 0 75%, #999 0) 0 0 / 6px 6px; }
+.hint { margin-top: 8px; font-size: 12px; opacity: .5; }
+
+.fld { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; font: 600 10px 'Space Grotesk', sans-serif; letter-spacing: .1em; text-transform: uppercase; color: rgba(217, 222, 229, .45); }
+input:not([type=checkbox]) { width: 100%; padding: 9px 12px; border-radius: 8px; border: 1px solid rgba(217, 222, 229, .14); background: var(--surface); color: var(--text); font: 14px 'Space Grotesk', sans-serif; letter-spacing: 0; text-transform: none; }
+input[type=checkbox] { width: 16px; height: 16px; accent-color: var(--support); }
+.chk { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; font-size: 13px; }
+.rows { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+.row { display: grid; grid-template-columns: 18px minmax(70px, 110px) 1fr 36px; gap: 8px; align-items: center; }
+.x { height: 36px; border-radius: 8px; border: 1px solid rgba(217, 222, 229, .14); background: none; color: var(--text); font-size: 16px; cursor: pointer; }
+.x:hover { border-color: var(--accent); color: var(--accent); }
+
+.btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { padding: 10px 18px; border-radius: 100px; border: 1.5px solid rgba(217, 222, 229, .25); background: transparent; color: var(--text); font: 600 12px 'Space Grotesk', sans-serif; cursor: pointer; transition: all .15s; }
+.btn:hover { border-color: var(--text); }
+.btn.pri { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.pri:hover { filter: brightness(1.12); }
+.chip:focus-visible, .btn:focus-visible, .x:focus-visible, input:focus-visible { outline: 2px solid var(--support); outline-offset: 3px; }
+.file { font-size: 12px; opacity: .5; }
+.status { min-height: 1.2em; font-size: 12px; color: var(--support); }
+
+/* Profile card. No color-mix here: html2canvas cannot read it. */
+.pcard { width: 320px; height: 448px; padding: 18px; display: flex; flex-direction: column; gap: 12px; background: var(--surface); border: 2px solid var(--accent); border-radius: 18px; color: var(--text); overflow: hidden; }
+.pc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.pc-id { min-width: 0; }
+.pc-name { font: 400 22px/1 'Universa', sans-serif; letter-spacing: .05em; overflow-wrap: anywhere; }
+.pc-ul { display: block; height: 3px; margin-top: 7px; border-radius: 2px; background: linear-gradient(to right, var(--accent), var(--text), var(--support)); }
+.pc-role { margin-top: -4px; font-size: 12px; line-height: 1.3; opacity: .7; }
+.pc-art { flex: 1; min-height: 70px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 10px; border: 1.5px solid rgba(0, 245, 212, .4); background: radial-gradient(circle at 25% 25%, rgba(255, 0, 153, .3), transparent 55%), radial-gradient(circle at 80% 85%, rgba(0, 245, 212, .24), transparent 55%), var(--base); }
+.pc-art svg { height: 76%; width: auto; }
+.pc-rows { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.pc-rows li { display: flex; align-items: baseline; gap: 10px; padding-bottom: 7px; border-bottom: 1px solid var(--rule); }
+.pc-rows b { flex: none; width: 76px; font: 400 9px 'Moonrock', sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--support); }
+.pc-rows span { min-width: 0; font-size: 13px; overflow-wrap: anywhere; }
+.pc-tag { font: 8px 'Moonrock', sans-serif; letter-spacing: .12em; text-align: center; opacity: .6; }
+
+/* Logo studio stage. Everything inside is sized in em, and the script sets the font size so
+   the lockup fits the chosen shape. */
+.stage { display: flex; align-items: center; justify-content: center; overflow: hidden; color: var(--ink); }
+.lk { display: inline-flex; align-items: center; gap: 1em; font-size: 16px; }
+.lk.stack { flex-direction: column; }
+.lk-mark svg { display: block; width: 4em; height: 4.8em; }
+.lk-dv { flex: none; width: 1.5px; height: 2.75em; background: var(--dv); }
+.lk-tx { display: flex; flex-direction: column; align-items: flex-start; }
+.lk.stack .lk-tx { align-items: center; }
+.lk-nm { display: flex; flex-direction: column; }
+.lk-nm.solo { width: 9em; }
+.lk-name { font: 1.625em/1 'Universa', sans-serif; letter-spacing: .05em; color: var(--ink); }
+.lk-ul { display: block; height: .1875em; margin-top: .3125em; border-radius: .125em; background: linear-gradient(to right, var(--left), var(--ink), var(--right)); }
+.lk-nm.solo .lk-ul { margin-top: 0; }
+.lk-tg { margin-top: .667em; font: .5625em 'Moonrock', sans-serif; letter-spacing: .1em; color: var(--ink); opacity: .6; white-space: nowrap; }
+.lk-tx > .lk-tg:first-child { margin-top: 0; }
+
+@media (prefers-reduced-motion: reduce) { .chip, .btn { transition: none; } }

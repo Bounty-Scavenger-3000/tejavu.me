@@ -23,6 +23,7 @@ export default defineConfig({
         desk: page('desk/index.html'),     // tejavu.me/desk/
         logo: page('logo/index.html'),     // tejavu.me/logo/
         graph: page('graph/index.html'),   // tejavu.me/graph/
+        demo: page('demo/index.html'),     // tejavu.me/demo/
       },
     },
   },
